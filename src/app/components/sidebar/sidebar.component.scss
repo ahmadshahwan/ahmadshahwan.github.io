@@ -1,0 +1,39 @@
+#sidebar {
+  float: right;
+  width: 180px;
+  padding: 50px 10px 0 0;
+}
+
+#sidebar img {
+  width: 16px;
+  height: 16px;
+}
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#sidebar li {
+}
+
+#sidebar li ul {
+  margin: 15px 15px 25px 15px;
+}
+
+#sidebar li li {
+  font-size: 11px;
+}
+
+#sidebar h2 {
+  height: 27px;
+  margin: 0;
+  padding: 3px 0 0 15px;
+  font-size: 24px;
+  color: #FFFFFF;
+}
+
+#sidebar a {
+  color: #BCE8EC;
+}

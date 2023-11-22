@@ -1,0 +1,38 @@
+.degree {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: .75em;
+
+  .icon {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+    .thumbnail {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  .details {
+    flex-direction: column;
+    width: 100%;
+
+
+    div.line {
+      display: flex;
+      flex-direction: row;
+
+      > div:first-child {
+        width: 15em;
+      }
+
+      .academic-title {
+        font-weight: bold;
+
+      }
+    }
+  }
+}
