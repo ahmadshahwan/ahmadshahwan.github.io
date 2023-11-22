@@ -1,0 +1,18 @@
+import {Component, Input} from '@angular/core';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+
+@Component({
+  selector: 'app-degree',
+  standalone: true,
+  imports: [CommonModule, NgOptimizedImage],
+  templateUrl: './degree.component.html',
+  styleUrl: './degree.component.scss',
+})
+export class DegreeComponent {
+
+  @Input({required: true})
+  alt: string = '';
+
+  @Input({required: true})
+  image: string = '';
+}

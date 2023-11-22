@@ -1,1 +1,200 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #797979;
+  background: #FFFFFF url(/assets/images/bg01.jpg) repeat left top;
+}
+
+h1, h2 {
+  margin-top: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 0 0 10px;
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+  padding: 5px 0 5px;
+}
+
+p, ul, ol {
+  margin-top: 0;
+  line-height: 160%;
+}
+
+ul, ol {
+}
+
+a {
+  color: #0098A4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.alignleft {
+  float: left;
+}
+
+.alignright {
+  float: right;
+}
+
+.aligncenter {
+  margin: 0 auto;
+}
+
+img.alignleft {
+  margin-right: 20px;
+}
+
+img.alignright {
+  margin-left: 20px;
+}
+
+a img {
+  border: none;
+}
+
+/* Page */
+
+#page {
+  width: 920px;
+  margin: 0 auto;
+  background: url(/assets/images/bg04.jpg) repeat-y left top;
+}
+
+.post {
+}
+
+.post .title {
+  padding: 0 0 0 15px;
+  background: url(/assets/images/img03.gif) no-repeat left top;
+}
+
+.post .title h2, .post .title h3 {
+  margin: 0;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.post .title h2 a, .post .title h3 a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.post .title h2 a:hover, .post .title h3 a:hover {
+  text-decoration: underline;
+}
+
+.post .title p {
+  margin: 0;
+  text-transform: lowercase;
+  font-size: 16px;
+  color: #8D8D8D;
+}
+
+.post .title p a {
+  text-decoration: none;
+  color: #8D8D8D;
+}
+
+.post .entry {
+  padding: 15px 15px 25px 15px;
+}
+
+#bib .title {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #797979;
+  font-weight: bold;
+}
+
+#bib .in {
+  font-style: italic;
+}
+
+#bib .authors {
+  font-variant: small-caps;
+}
+
+#bib a {
+  color: #797979;
+}
+
+#bib h2 {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.sc {
+  font-variant: small-caps;
+}
+
+a.external {
+  target-new: tab;
+}
+
+.timestamp {
+  float: right;
+  text-decoration: underline;
+}
+
+li .timestamp {
+  text-decoration: none;
+}
+
+#bib .title {
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #797979;
+  font-weight: bold;
+}
+
+#bib .in {
+  font-style: italic;
+}
+
+#bib .authors {
+  font-variant: small-caps;
+}
+
+#bib a {
+  color: #797979;
+}
+
+#bib h2 {
+  font-size: 28px;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+

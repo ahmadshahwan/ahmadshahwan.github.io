@@ -1,0 +1,27 @@
+<div class="experience">
+  <div class="icon">
+    <img class="thumbnail" [ngSrc]="image" height="32" width="32" [alt]="name"/>
+  </div>
+  <div class="details">
+    <div class="header">
+        <span class="[period]">
+          <ng-content select="[period]"></ng-content>
+        </span>
+      <span class="job-title">
+          <ng-content select="[job-title]"></ng-content>
+        </span>
+      <span class="client">
+        <ng-content select="[partner]"></ng-content>
+      </span>
+    </div>
+    <div class="description">
+      <ng-content select="[summary]"></ng-content>
+      <div [hidden]="moreHidden">
+        <ng-content select="[more]"></ng-content>
+      </div>
+      <div class="more-less">
+        <a (click)="toggleMore()" (keyup)="toggleMore()" tabindex="0">{{ moreHidden ? "more" : "less"}}</a>
+      </div>
+    </div>
+  </div>
+</div>

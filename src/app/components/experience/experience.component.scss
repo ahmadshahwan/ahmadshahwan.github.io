@@ -1,0 +1,51 @@
+.experience {
+  display: flex;
+  flex-direction: row;
+
+  .icon {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+    .thumbnail {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  .details {
+    width: 100%;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+
+      .period {
+        order: 3;
+        margin-left: auto;
+        font-weight: bold;
+      }
+
+      .job-title {
+        order: 1;
+        width: 20em;
+        font-weight: bold;
+        padding-bottom: 2px;
+      }
+
+      .client {
+        order: 2;
+      }
+    }
+  }
+
+  .description {
+    padding-bottom: .75em;
+
+    .more-less {
+      text-align: right;
+    }
+  }
+}
