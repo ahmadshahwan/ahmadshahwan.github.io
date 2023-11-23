@@ -1,0 +1,7 @@
+<div class="head">
+  <h3>{{ title }}</h3>
+  @if (image) {
+    <img [src]="image" [alt]="alt ?? title" />
+  }
+</div>
+<ng-content></ng-content>
