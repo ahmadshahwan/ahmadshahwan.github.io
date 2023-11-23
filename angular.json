@@ -53,8 +53,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all",
-              "baseHref": "/ng-website/"
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
