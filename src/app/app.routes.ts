@@ -5,6 +5,8 @@ import {TeachingComponent} from "./pages/teaching/teaching.component";
 import {ResearchComponent} from './pages/research/research.component';
 import {EventsComponent} from "./pages/events/events.component";
 import {ContactsComponent} from "./pages/contacts/contacts.component";
+import {PhdDefenseComponent} from "./pages/phd-defense/phd-defense.component";
+import {PhdPresentationComponent} from "./pages/phd-presentation/phd-presentation.component";
 
 export const routes: Routes = [
   {title: 'Homepage', path: '', component: HomeComponent},
@@ -13,4 +15,6 @@ export const routes: Routes = [
   {title: 'Research', path: 'research', component: ResearchComponent},
   {title: 'Events', path: 'events', component: EventsComponent},
   {title: 'Contacts', path: 'contacts', component: ContactsComponent},
+  {title: 'PHD defense', path: 'phd-defense', component: PhdDefenseComponent},
+  {title: 'PHD defense', path: 'phd-presentation', component: PhdPresentationComponent},
 ];
