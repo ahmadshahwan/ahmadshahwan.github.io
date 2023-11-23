@@ -8,7 +8,7 @@ body {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   font-size: 13px;
   color: #797979;
-  background: #FFFFFF url(/assets/images/bg01.jpg) repeat left top;
+  background: #FFFFFF url(./assets/images/bg01.jpg) repeat left top;
 }
 
 h1, h2 {
@@ -83,7 +83,7 @@ a img {
 #page {
   width: 920px;
   margin: 0 auto;
-  background: url(/assets/images/bg04.jpg) repeat-y left top;
+  background: url(./assets/images/bg04.jpg) repeat-y left top;
 }
 
 .post {
@@ -91,7 +91,7 @@ a img {
 
 .post .title {
   padding: 0 0 0 15px;
-  background: url(/assets/images/img03.gif) no-repeat left top;
+  background: url(./assets/images/img03.gif) no-repeat left top;
 }
 
 .post .title h2, .post .title h3 {
