@@ -1,0 +1,12 @@
+<ng-template #templateOutlet>
+  <ng-content></ng-content>
+</ng-template>
+@if (isEnabled) {
+  <a [routerLink]="link">
+    <ng-container *ngTemplateOutlet="templateOutlet"></ng-container>
+  </a>
+} @else {
+  <span class="current">
+    <ng-container *ngTemplateOutlet="templateOutlet"></ng-container>
+  </span>
+}
