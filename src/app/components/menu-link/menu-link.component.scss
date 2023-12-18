@@ -1,0 +1,25 @@
+* {
+  text-transform: lowercase;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
+}
+
+a {
+  padding: 0 12px 0 12px;
+  background: url(../../../assets/images/img02.gif) no-repeat left center;
+  text-decoration: none;
+  color: #7B7B7B;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0098A4;
+}
+
+
+.current {
+  padding: 0 12px 0 12px;
+  background: url(../../../assets/images/img02.gif) no-repeat left center;
+  text-decoration: none;
+  color: #0098A4;
+}

@@ -49,32 +49,3 @@
 #menu li {
   float: left;
 }
-
-#menu a {
-  padding: 0 12px 0 12px;
-  background: url(../../../assets/images/img02.gif) no-repeat left center;
-  text-decoration: none;
-  text-transform: lowercase;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 14px;
-  color: #7B7B7B;
-}
-
-#menu a:hover {
-  text-decoration: underline;
-  color: #0098A4;
-}
-
-#menu .first a {
-  background: none;
-}
-
-#menu .current {
-  padding: 0 12px 0 12px;
-  background: url(../../../assets/images/img02.gif) no-repeat left center;
-  text-decoration: none;
-  text-transform: lowercase;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 14px;
-  color: #0098A4;
-}
