@@ -7,6 +7,7 @@ import {EventsComponent} from './pages/events/events.component';
 import {PhdDefenseComponent} from './pages/phd-defense/phd-defense.component';
 import {PhdPresentationComponent} from './pages/phd-presentation/phd-presentation.component';
 import {EducationComponent} from './pages/education/education.component';
+import {MaterialsComponent} from './pages/materials/materials.component';
 
 export const routes: Routes = [
   {title: 'Homepage', path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
   {title: 'Teaching', path: 'teaching', component: TeachingComponent},
   {title: 'Research', path: 'research', component: ResearchComponent},
   {title: 'Events', path: 'events', component: EventsComponent},
+  {title: 'Teaching Materials', path: 'materials', component: MaterialsComponent},
   {title: 'PHD defense', path: 'phd-defense', component: PhdDefenseComponent},
   {title: 'PHD defense', path: 'phd-presentation', component: PhdPresentationComponent},
 ];
