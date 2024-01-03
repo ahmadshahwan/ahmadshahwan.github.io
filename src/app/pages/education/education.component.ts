@@ -25,7 +25,6 @@ export class EducationComponent implements OnInit {
   ngOnInit() {
     this.repository.fetchAll()
         .subscribe(degrees => {
-          console.log(degrees);
           this.degrees = degrees;
         });
   }

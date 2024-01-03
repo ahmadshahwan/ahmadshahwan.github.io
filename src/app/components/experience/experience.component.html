@@ -1,24 +1,24 @@
 <div class="experience">
   <div class="icon">
-    <img class="thumbnail" [ngSrc]="image" height="32" width="32" [alt]="name"/>
+    <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.partner"/>
   </div>
   <div class="details">
     <div class="header">
         <span class="period">
-          <ng-content select="[period]"></ng-content>
+          {{ model.period }}
         </span>
       <span class="job-title">
-          <ng-content select="[job-title]"></ng-content>
+          {{ model.title }}
         </span>
       <span class="client">
-        <ng-content select="[partner]"></ng-content>
+        {{ model.partner }}
       </span>
     </div>
     <div class="description">
-      <ng-content select="[summary]"></ng-content>
-      <div [hidden]="moreHidden">
-        <ng-content select="[more]"></ng-content>
+      <div>
+        {{ model.summary.text }}
       </div>
+      <div class="details" [hidden]="moreHidden" [innerHTML]="model.details.html"></div>
       <div class="more-less">
         <a (click)="toggleMore()" (keyup)="toggleMore()" tabindex="0">{{ moreHidden ? "more" : "less"}}</a>
       </div>
