@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {Experience} from '../../model/experience';
 
 @Component({
   selector: 'app-experience',
@@ -11,10 +12,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 export class ExperienceComponent {
 
   @Input({required: true})
-  name: string = '';
-
-  @Input()
-  image = '/assets/images/career/digamma.png';
+  model!: Experience;
 
   moreHidden = true;
 
