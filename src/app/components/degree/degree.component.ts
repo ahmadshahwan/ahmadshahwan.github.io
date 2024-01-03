@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {Degree} from '../../model/degree';
 
 @Component({
   selector: 'app-degree',
@@ -11,8 +12,5 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 export class DegreeComponent {
 
   @Input({required: true})
-  alt: string = '';
-
-  @Input({required: true})
-  image: string = '';
+  model!: Degree;
 }

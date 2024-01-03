@@ -1,20 +1,20 @@
 <div class="degree">
   <div class="icon">
-    <img class="thumbnail" [ngSrc]="image" height="32" width="32" [alt]="alt">
+    <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.institution">
   </div>
   <div class="details">
     <div class="line">
       <div class="year">
-        <ng-content select="[year]"></ng-content>
+        {{ model.year }}
       </div>
       <div class="academic-title">
-        <ng-content select="[academic-title]"></ng-content>
+        {{ model.title }}
       </div>
     </div>
     <div class="line">
       <div>&nbsp;</div>
       <div class="institution">
-        <ng-content select="[institution]"></ng-content>
+        {{ model.institution }}
       </div>
     </div>
   </div>
