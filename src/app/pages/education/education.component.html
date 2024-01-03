@@ -5,11 +5,7 @@
   <div class="entry">
     <app-scrollable>
       @for (degree of degrees; track degree.id) {
-        <app-degree image="{{ degree.icon.url }}" alt="{{ degree.institution }}">
-          <div academic-title>{{ degree.title }}</div>
-          <div institution>{{ degree.institution }}</div>
-          <div year>{{ degree.year }}</div>
-        </app-degree>
+        <app-degree [model]="degree" />
       }
     </app-scrollable>
   </div>
