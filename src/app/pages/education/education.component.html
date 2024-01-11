@@ -4,7 +4,7 @@
   </div>
   <div class="entry">
     <app-scrollable>
-      @for (degree of degrees; track degree.id) {
+      @for (degree of degrees | async; track degree.id) {
         <app-degree [model]="degree" />
       }
     </app-scrollable>
