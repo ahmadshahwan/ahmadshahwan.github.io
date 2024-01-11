@@ -5,6 +5,7 @@ import {ExperienceComponent} from '../../components/experience/experience.compon
 import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
 import {DegreeRepositoryService} from '../../services/eductation/degree-repository.service';
 import {Degree} from '../../model/degree';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-education',
@@ -15,7 +16,7 @@ import {Degree} from '../../model/degree';
 })
 export class EducationComponent implements OnInit {
 
-  degrees: Degree[] = [];
+  degrees: Observable<Degree[]> = of([]);
 
   constructor(
       private repository: DegreeRepositoryService,
@@ -23,9 +24,6 @@ export class EducationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.repository.fetchAll()
-        .subscribe(degrees => {
-          this.degrees = degrees;
-        });
+    this.degrees = this.repository.fetchAll();
   }
 }
