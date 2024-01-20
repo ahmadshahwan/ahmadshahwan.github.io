@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {Degree} from '../../model/degree';
+import Degree from '../../model/degree';
 
 @Component({
   selector: 'app-degree',

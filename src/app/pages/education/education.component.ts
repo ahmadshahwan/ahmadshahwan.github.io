@@ -4,7 +4,7 @@ import {DegreeComponent} from '../../components/degree/degree.component';
 import {ExperienceComponent} from '../../components/experience/experience.component';
 import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
 import {DegreeRepositoryService} from '../../services/eductation/degree-repository.service';
-import {Degree} from '../../model/degree';
+import Degree from '../../model/degree';
 import {Observable, of} from 'rxjs';
 
 @Component({

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {ApiClientService} from '../api-client.service';
 import {map, Observable} from 'rxjs';
-import {Experience} from '../../model/experience';
+import Experience from '../../model/experience';
 
 const QUERY = `
 query ExperienceQuery {

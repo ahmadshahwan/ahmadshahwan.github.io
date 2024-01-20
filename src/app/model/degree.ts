@@ -1,6 +1,6 @@
 import {Image} from './common';
 
-export interface Degree {
+export default interface Degree {
   id: string;
   title: string;
   year: number;
