@@ -1,6 +1,6 @@
 import {Image, RichText} from './common';
 
-export interface Experience {
+export default interface Experience {
   id: string;
   title: string;
   partner: string;
