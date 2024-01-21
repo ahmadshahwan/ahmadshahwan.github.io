@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
+import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 
 @Component({
   selector: 'app-research',

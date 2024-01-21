@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import Event from '../../model/event';
+import Event from '../../../model/event';
 
 @Component({
   selector: 'app-event',

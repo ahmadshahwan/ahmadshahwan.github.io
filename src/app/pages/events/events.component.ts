@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
+import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {EventRepositoryService} from '../../services/events/event-repository.service';
 import {Observable, of} from 'rxjs';
-import {EventComponent} from '../../components/event/event.component';
+import {EventComponent} from './event/event.component';
 import Event from '../../model/event';
 
 @Component({
