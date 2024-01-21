@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
-import {TopicComponent} from '../../components/topic/topic.component';
-import {InstitutionComponent} from '../../components/institution/institution.component';
+import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
+import {TopicComponent} from './topic/topic.component';
+import {InstitutionComponent} from './institution/institution.component';
 
 @Component({
   selector: 'app-teaching',

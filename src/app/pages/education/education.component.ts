@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DegreeComponent} from '../../components/degree/degree.component';
-import {ExperienceComponent} from '../../components/experience/experience.component';
-import {ScrollableComponent} from '../../components/scrollable/scrollable.component';
+import {DegreeComponent} from './degree/degree.component';
+import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {DegreeRepositoryService} from '../../services/eductation/degree-repository.service';
 import Degree from '../../model/degree';
 import {Observable, of} from 'rxjs';
@@ -10,7 +9,7 @@ import {Observable, of} from 'rxjs';
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [CommonModule, DegreeComponent, ExperienceComponent, ScrollableComponent],
+  imports: [CommonModule, DegreeComponent, ScrollableComponent],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss'
 })
