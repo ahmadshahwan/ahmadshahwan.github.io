@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import Event from '../../../model/event';
+import {RouterLinkAdapterDirective} from '../../../shared/router-link-adapter/router-link-adapter.directive';
 
 @Component({
   selector: 'app-event',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLinkAdapterDirective],
   templateUrl: './event.component.html',
   styleUrl: './event.component.scss'
 })
