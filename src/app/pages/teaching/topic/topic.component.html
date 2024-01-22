@@ -1,2 +1,2 @@
-<h4>{{ title }}</h4>
-<ng-content></ng-content>
+<h4>{{ model.title }}</h4>
+<div [innerHTML]="model.description.html" appRouterLinkAdapter></div>
