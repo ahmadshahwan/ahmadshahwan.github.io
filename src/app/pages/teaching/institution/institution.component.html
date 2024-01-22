@@ -1,7 +1,7 @@
 <div class="head">
-  <h3>{{ title }}</h3>
-  @if (image) {
-    <img [src]="image" [alt]="alt ?? title" />
-  }
+  <h3>{{ model.name }}</h3>
+  <img [src]="model.icon.url" [alt]="model.name" />
 </div>
-<ng-content></ng-content>
+@for (topic of model.classes; track topic.id) {
+  <app-topic [model]="topic"></app-topic>
+}

@@ -4,66 +4,9 @@
   </div>
   <div class="entry">
     <app-scrollable maxHeight="380px">
-      <app-institution title="Polytech Lyon" image="./assets/images/teaching/polytech.png" alt="Polytech Lyon">
-        <app-topic title="Object Oriented Modelling and Programming">
-          Fundamentals of Object Oriented modelling and programming are taught to first year engineering students.
-          This includes UML and Java programming language and.
-        </app-topic>
-        <app-topic title="Software Engineering and Information Systems II">
-          Advanced conceptional and practical aspects of software engineering are taught to second year engineering
-          students.
-        </app-topic>
-      </app-institution>
-      <app-institution title="Université Sorbonne Paris Nord" image="./assets/images/teaching/uspn.png" alt="USPN">
-        <app-topic title="Algorithms and Data Structures">
-          Freshmen were taught Algorithms and Data Structures basics with C programming language.
-        </app-topic>
-        <app-topic title="HTML and the Web">
-          Essential concepts of Web development. HTML 5 basics taught to freshmen.
-        </app-topic>
-      </app-institution>
-      <app-institution title="ENSIMAG - Grenoble INP" image="./assets/images/teaching/ensimag.png" alt="ENSIMAG">
-        <app-topic title="Algorithms and Data Structures II">
-          An overview of necessary algorithms that accompany computer scientists/engineers all along their career.
-          First
-          year engineering school students used Ada programming language to conduct lab work.
-        </app-topic>
-        <app-topic title="C Programming Language Project">
-          A small project, presented with different themes, to establish engineering students knowledge about C
-          programming
-          language, the one common language between all developers.
-        </app-topic>
-      </app-institution>
-      <app-institution title="Génie Industriel - Grenoble INP" image="./assets/images/teaching/gi.png" alt="GI">
-        <app-topic title="Product Representation for Design">
-          This courses are meant to second year engineering students with different techniques of Computer Aided
-          Design
-          such
-          as CATIA V5 (tutorials are available <a href="/materials#rppc">here</a>), PTC Creo Parametric and
-          Product Lifecycle Management such as PTC Windchill.
-        </app-topic>
-        <app-topic title="Project Management">
-          A tool-kit of necessary techniques and knowledge to handle short- and long-term project that the students
-          acquire
-          since their first year in their engineering endeavour.
-        </app-topic>
-        <app-topic title="Modelling and Optimisation in Product Development">
-          An initiation in modeling using UML and database management.
-        </app-topic>
-        <app-topic title="Java Programming Project">
-          An application of acquired expertise in the domain of information technology in a project reflecting real
-          industrial concerns.
-        </app-topic>
-        <app-topic title="Advance Object Oriented Modeling and Design">
-          An optional module to discuss advanced topics about the object oriented paradigm, and reinforce software
-          engineering best practices. An example course syllabus is available <a href="/materials#mcoa">here</a>.
-        </app-topic>
-      </app-institution>
-      <app-institution title="Université Grenoble Alpes - Grenoble II" image="./assets/images/teaching/uga.png" alt="UGA">
-        <app-topic title="Computer Aided Design">
-          A presentation of mainstream CAD systems such as CATIA V5 to professional master's students.
-        </app-topic>
-      </app-institution>
+      @for (institute of institutes | async; track institute.id) {
+        <app-institution [model]="institute"></app-institution>
+      }
     </app-scrollable>
   </div>
 </div>
