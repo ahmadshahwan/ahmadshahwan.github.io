@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CommonModule, ViewportScroller} from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-materials',
@@ -8,6 +10,24 @@ import {CommonModule} from '@angular/common';
   templateUrl: './materials.component.html',
   styleUrl: './materials.component.scss'
 })
-export class MaterialsComponent {
+export class MaterialsComponent implements OnInit, OnDestroy {
 
+  private subscriptions: Subscription[] = [];
+
+  constructor(
+    private viewportScroller: ViewportScroller,
+    private activatedRoute: ActivatedRoute,
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.subscriptions.push(
+      this.activatedRoute.fragment
+        .subscribe(fragment => fragment && this.viewportScroller.scrollToAnchor(fragment))
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
 }
