@@ -18,7 +18,8 @@ export class RouterLinkAdapterDirective {
       const href = element.getAttribute('href');
       if (href && element.target != '_blank') {
         event.preventDefault();
-        this.router.navigateByUrl(href).then();
+        const [command, fragment] = href.split('#');
+        this.router.navigate([command], {fragment}).then();
       }
     }
   }
