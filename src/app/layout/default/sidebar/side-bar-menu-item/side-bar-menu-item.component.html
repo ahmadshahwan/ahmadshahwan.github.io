@@ -1,0 +1,10 @@
+<li (click)="toggleActive(list)" (keydown)="toggleActive(list)" tabindex="0" #list>
+  <app-menu-link [link]="link.url">{{ link.name }}</app-menu-link>
+  @if (list) {
+    @for (item of linksList; track item.url) {
+      <ul>
+        <li><app-menu-link [link]="item.url">{{ item.name }}</app-menu-link></li>
+      </ul>
+    }
+  }
+</li>

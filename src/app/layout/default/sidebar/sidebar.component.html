@@ -1,6 +1,20 @@
 <div id="sidebar">
   <ul>
     <li>
+      <ul class="menu" #menu>
+        <app-side-bar-menu-item [link]="{name: 'Home', url: '/'}" [parent]="menu" />
+        <app-side-bar-menu-item [link]="{name: 'Career', url: '/career'}" [parent]="menu" />
+        <app-side-bar-menu-item [link]="{name: 'Education', url: '/education'}" [parent]="menu" />
+        <app-side-bar-menu-item
+          [parent]="menu"
+          [link]="{name: 'Teaching', url: '/teaching'}"
+          [linksList]="[{name: 'Materials', url: '/materials'}]" />
+        <app-side-bar-menu-item [link]="{name: 'Research', url: '/research'}" [parent]="menu" />
+        <app-side-bar-menu-item
+          [parent]="menu"
+          [link]="{name: 'Events', url: '/events'}"
+          [linksList]="[{name: 'PhD Defense', url: '/phd-defense'}]" />
+      </ul>
       <h2>Links</h2>
       <ul>
         <li>
