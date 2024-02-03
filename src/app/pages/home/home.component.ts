@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {PageStateService} from '../../services/content/page-state.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,14 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
+  constructor(
+    private readonly pageStateService: PageStateService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.pageStateService.updatePage('home');
+  }
 }

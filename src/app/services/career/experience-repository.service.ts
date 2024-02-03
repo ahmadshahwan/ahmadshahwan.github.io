@@ -43,7 +43,7 @@ query ExperienceQuery {
 export class ExperienceRepositoryService {
 
   constructor(
-    private apiClient: ApiClientService,
+    private readonly apiClient: ApiClientService,
   ) { }
 
   fetchAll(): Observable<Experience[]> {

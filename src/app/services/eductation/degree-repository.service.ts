@@ -35,7 +35,7 @@ query DegreesQuery {
 export class DegreeRepositoryService {
 
   constructor(
-      private apiClient: ApiClientService,
+      private readonly apiClient: ApiClientService,
   ) {
   }
 

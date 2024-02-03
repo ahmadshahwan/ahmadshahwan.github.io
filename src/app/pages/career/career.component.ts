@@ -5,6 +5,7 @@ import {ScrollableComponent} from '../../shared/scrollable/scrollable.component'
 import {ExperienceRepositoryService} from '../../services/career/experience-repository.service';
 import Experience from '../../model/experience';
 import {Observable, of} from 'rxjs';
+import {PageStateService} from '../../services/content/page-state.service';
 
 @Component({
   selector: 'app-career',
@@ -18,10 +19,13 @@ export class CareerComponent implements OnInit {
   experiences: Observable<Experience[]> = of([]);
 
   constructor(
-    private repository: ExperienceRepositoryService,
-  ) { }
+    private readonly repository: ExperienceRepositoryService,
+    private readonly pageStateService: PageStateService,
+  ) {
+  }
 
   ngOnInit(): void {
+    this.pageStateService.updatePage('career');
     this.experiences = this.repository.fetchAll();
   }
 }
