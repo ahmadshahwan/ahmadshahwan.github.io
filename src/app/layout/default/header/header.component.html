@@ -5,24 +5,11 @@
   </div>
   <div id="menu">
     <ul>
-      <li>
-        <app-menu-link link="/">Home</app-menu-link>
-      </li>
-      <li>
-        <app-menu-link link="/career">Career</app-menu-link>
-      </li>
-      <li>
-        <app-menu-link link="/education">Education</app-menu-link>
-      </li>
-      <li>
-        <app-menu-link link="/teaching">Teaching</app-menu-link>
-      </li>
-      <li>
-        <app-menu-link link="/research">Research</app-menu-link>
-      </li>
-      <li>
-        <app-menu-link link="/events">Events</app-menu-link>
-      </li>
+      @for (link of links | async; track link.id) {
+        <li>
+          <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
+        </li>
+      }
     </ul>
   </div>
 

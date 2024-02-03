@@ -23,7 +23,7 @@ query EventQuery {
 export class EventRepositoryService {
 
   constructor(
-    private apiClient: ApiClientService,
+    private readonly apiClient: ApiClientService,
   ) {
   }
 

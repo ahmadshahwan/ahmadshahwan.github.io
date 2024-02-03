@@ -9,12 +9,15 @@ import {map, Observable} from 'rxjs';
 export class ApiClientService {
 
   constructor(
-      private http: HttpClient,
+      private readonly http: HttpClient,
   ) { }
 
-  post<T>(query: string): Observable<T> {
+  post<T>(
+    query: string,
+    variables?: Record<string, unknown>,
+  ): Observable<T> {
     return this.http
-        .post<{data: T}>(environment.apiUrl, {query})
+        .post<{data: T}>(environment.apiUrl, {query, variables: variables})
         .pipe(map(r => r.data));
   }
 }

@@ -2,6 +2,9 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
+import {LinkRepositoryService} from '../../../services/content/link-repository.service';
+import {Observable} from 'rxjs';
+import Link from '../../../model/link';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +15,10 @@ import {MenuLinkComponent} from '../menu-link/menu-link.component';
 })
 export class HeaderComponent {
 
+  readonly links: Observable<Link[]>;
+  constructor(
+    repository: LinkRepositoryService,
+  ) {
+    this.links = repository.fetchByLabel(['main']);
+  }
 }

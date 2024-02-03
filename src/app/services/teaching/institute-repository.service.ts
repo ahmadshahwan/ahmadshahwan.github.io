@@ -42,7 +42,7 @@ query InstituteQuery {
 export class InstituteRepositoryService {
 
   constructor(
-    private apiClient: ApiClientService,
+    private readonly apiClient: ApiClientService,
   ) {
   }
 

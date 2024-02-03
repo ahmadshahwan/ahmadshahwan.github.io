@@ -1,6 +1,14 @@
 <div id="sidebar">
   <ul>
     <li>
+      @if (links().length) {
+        <h2>Go to</h2>
+        <ul class="menu">
+        @for (link of links(); track link.id) {
+          <app-side-bar-menu-item [link]="link" />
+        }
+        </ul>
+      }
       <h2>Links</h2>
       <ul>
         <li>
