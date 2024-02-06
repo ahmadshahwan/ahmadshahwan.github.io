@@ -29,6 +29,10 @@ query Page($slug: String) {
       title
       route
     }
+    group {
+      id
+      title
+    }
   }
 }
 `;

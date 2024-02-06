@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
-import {LinkRepositoryService} from '../../../services/content/link-repository.service';
-import {Observable} from 'rxjs';
-import Link from '../../../model/link';
+import {Observable, of} from 'rxjs';
+import {LayoutService} from '../../../services/content/layout.service';
+import Header from '../../../model/header';
 
 @Component({
   selector: 'app-header',
@@ -13,12 +13,15 @@ import Link from '../../../model/link';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  readonly links: Observable<Link[]>;
+  header: Observable<Header | undefined> = of(undefined);
   constructor(
-    repository: LinkRepositoryService,
+    private readonly layoutService: LayoutService,
   ) {
-    this.links = repository.fetchByLabel(['main']);
+  }
+
+  ngOnInit(): void {
+    this.header = this.layoutService.fetchHeader();
   }
 }

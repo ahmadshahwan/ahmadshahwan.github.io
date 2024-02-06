@@ -17,9 +17,11 @@ import {PageStateService} from '../../../services/content/page-state.service';
 export class SidebarComponent {
 
   readonly links: Signal<Link[]>;
+  readonly group: Signal<string>;
   constructor(
     linkStateService: PageStateService,
   ) {
     this.links = linkStateService.links;
+    this.group = linkStateService.pageGroup;
   }
 }

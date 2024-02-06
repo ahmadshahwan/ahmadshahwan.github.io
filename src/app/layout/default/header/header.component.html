@@ -1,11 +1,11 @@
 <div id="header">
   <div id="logo">
     <h1>Ahmad <span class="sc">Shahwan</span></h1>
-    <h2>Research and Development Engineer</h2>
+    <h2>{{ (header | async)?.subtitle }}</h2>
   </div>
   <div id="menu">
     <ul>
-      @for (link of links | async; track link.id) {
+      @for (link of (header | async)?.links; track link.id) {
         <li>
           <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
         </li>
