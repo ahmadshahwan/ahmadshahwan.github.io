@@ -9,24 +9,14 @@
         }
         </ul>
       }
-      <h2>Links</h2>
+      <h2>{{ (sidebar | async)?.externalLinksMenuTitle }}</h2>
       <ul>
-        <li>
-          <img class="alignleft" ngSrc="./assets/images/digamma.png" height="16" width="16" alt="Digamma Solutions"/>
-          <a target="_blank" href="https://digamma.solutions/">Digamma Solutions</a>
-        </li>
-        <li>
-          <img class="alignleft" ngSrc="./assets/images/inp.png" height="16" width="16" alt="INP Grenoble"/>
-          <a target="_blank" href="https://www.grenoble-inp.fr/">Grenoble INP</a>
-        </li>
-        <li>
-          <img class="alignleft" ngSrc="./assets/images/inria.png" height="16" width="16" alt="INRIA"/>
-          <a target="_blank" href="https://www.inria.fr/en/inria-centre-university-grenoble-alpes">INRIA Rhone-Alpes</a>
-        </li>
-        <li>
-          <img class="alignleft" ngSrc="./assets/images/mosig.png" height="16" width="16" alt="MoSIG"/>
-          <a target="_blank" href="https://mosig.imag.fr/">MoSIG Program</a>
-        </li>
+        @for (link of (sidebar | async)?.externalLinks; track link.id) {
+          <li>
+            <img class="alignleft" [ngSrc]="link.icon.url" height="16" width="16" [alt]="link.title"/>
+            <a target="_blank" [href]="link.url">{{ link.title }}</a>
+          </li>
+        }
       </ul>
     </li>
   </ul>

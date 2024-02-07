@@ -1,10 +1,13 @@
-import {Component, Signal} from '@angular/core';
+import {Component, OnInit, Signal} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {SideBarMenuItemComponent} from './side-bar-menu-item/side-bar-menu-item.component';
 import Link from '../../../model/link';
 import {PageStateService} from '../../../services/content/page-state.service';
+import {LayoutService} from '../../../services/content/layout.service';
+import {Observable, of} from 'rxjs';
+import {Sidebar} from '../../../model/Sidebar';
 
 
 @Component({
@@ -14,14 +17,20 @@ import {PageStateService} from '../../../services/content/page-state.service';
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
 
   readonly links: Signal<Link[]>;
   readonly group: Signal<string>;
+  sidebar: Observable<Sidebar | undefined> = of(undefined);
   constructor(
-    linkStateService: PageStateService,
+    private readonly layoutService: LayoutService,
+    pageStateService: PageStateService,
   ) {
-    this.links = linkStateService.links;
-    this.group = linkStateService.pageGroup;
+    this.links = pageStateService.links;
+    this.group = pageStateService.pageGroup;
+  }
+
+  ngOnInit(): void {
+    this.sidebar = this.layoutService.fetchSidebar();
   }
 }
