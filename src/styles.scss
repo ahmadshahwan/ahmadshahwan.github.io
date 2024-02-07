@@ -46,9 +46,6 @@ p, ul, ol {
   line-height: 160%;
 }
 
-ul, ol {
-}
-
 a {
   color: #0098A4;
   text-decoration: none;
@@ -58,24 +55,12 @@ a:hover {
   text-decoration: underline;
 }
 
-.alignleft {
+.align-left {
   float: left;
 }
 
-.alignright {
-  float: right;
-}
-
-.aligncenter {
-  margin: 0 auto;
-}
-
-img.alignleft {
+img.align-left {
   margin-right: 20px;
-}
-
-img.alignright {
-  margin-left: 20px;
 }
 
 a img {
@@ -88,9 +73,6 @@ a img {
   width: 920px;
   margin: 0 auto;
   background: url(./assets/images/bg04.jpg) repeat-y left top;
-}
-
-.post {
 }
 
 .post .title {
@@ -131,8 +113,4 @@ a img {
 
 .sc {
   font-variant: small-caps;
-}
-
-a.external {
-  target-new: tab;
 }

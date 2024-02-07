@@ -13,7 +13,7 @@
       <ul>
         @for (link of (sidebar | async)?.externalLinks; track link.id) {
           <li>
-            <img class="alignleft" [ngSrc]="link.icon.url" height="16" width="16" [alt]="link.title"/>
+            <img class="align-left" [ngSrc]="link.icon.url" height="16" width="16" [alt]="link.title"/>
             <a target="_blank" [href]="link.url">{{ link.title }}</a>
           </li>
         }
