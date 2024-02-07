@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ContentRepositoryService } from './content-repository.service';
+import {ContentRepositoryService} from './content-repository.service';
 
 describe('ContentRepositoryService', () => {
   let service: ContentRepositoryService;
