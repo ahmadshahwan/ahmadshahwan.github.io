@@ -4,6 +4,10 @@ import {ScrollableComponent} from '../../shared/scrollable/scrollable.component'
 import {PageStateService} from '../../services/content/page-state.service';
 import {Observable, of} from 'rxjs';
 import Page from '../../model/page';
+import {PublicationRepositoryService} from '../../services/research/publication-repository.service';
+import Publication from '../../model/publication';
+
+type Category = Publication['category'];
 
 @Component({
   selector: 'app-research',
@@ -15,13 +19,42 @@ import Page from '../../model/page';
 export class ResearchComponent implements OnInit {
 
   page: Observable<Page | undefined> = of(undefined);
+  publications: Publication[] = [];
+  counter = 0;
 
   constructor(
     private readonly pageStateService: PageStateService,
+    private readonly publicationRepositoryService: PublicationRepositoryService,
   ) {
   }
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('research');
+    this.publicationRepositoryService
+      .fetchAll()
+      .subscribe(publications => this.publications = publications);
+  }
+
+  get categories(): Category[] {
+    return this.publications
+      .map(p => p.category)
+      .reduce((acc: Category[], category) => acc.some(c => c.id === category.id) ? acc : [...acc, category], [])
+      .sort((a, b) => a.rank - b.rank);
+  }
+
+  publicationsByCategory(category: Publication['category']): Publication[] {
+    return this.publications.filter(p => p.category.id === category.id)
+      .sort((a, b) => b.year - a.year);
+  }
+  yearsByCategory(category: Publication['category']): number[] {
+    return this.publicationsByCategory(category)
+      .map(p => p.year)
+      .reduce((acc: number[], val) => acc.includes(val) ? acc : [...acc, val], [])
+      .sort((a, b) => b - a);
+  }
+
+  publicationsByCategoryAndYear(category: Publication['category'], year: number): Publication[] {
+    return this.publicationsByCategory(category)
+      .filter(p => p.year === year);
   }
 }
