@@ -6,6 +6,7 @@ import {ExperienceRepositoryService} from '../../services/career/experience-repo
 import Experience from '../../model/experience';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/content/page-state.service';
+import Page from '../../model/page';
 
 @Component({
   selector: 'app-career',
@@ -17,6 +18,7 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class CareerComponent implements OnInit {
 
   experiences: Observable<Experience[]> = of([]);
+  page: Observable<Page | undefined> = of(undefined);
 
   constructor(
     private readonly repository: ExperienceRepositoryService,
@@ -25,7 +27,7 @@ export class CareerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('career');
+    this.page = this.pageStateService.updatePage('career');
     this.experiences = this.repository.fetchAll();
   }
 }

@@ -7,6 +7,7 @@ import {InstituteRepositoryService} from '../../services/teaching/institute-repo
 import {Observable, of} from 'rxjs';
 import Institute from '../../model/institute';
 import {PageStateService} from '../../services/content/page-state.service';
+import Page from '../../model/page';
 
 @Component({
   selector: 'app-teaching',
@@ -17,6 +18,7 @@ import {PageStateService} from '../../services/content/page-state.service';
 })
 export class TeachingComponent implements OnInit {
 
+  page: Observable<Page | undefined> = of(undefined);
   institutes: Observable<Institute[]> = of([]);
 
   constructor(
@@ -26,7 +28,7 @@ export class TeachingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('classes');
+    this.page = this.pageStateService.updatePage('classes');
     this.institutes = this.repository.fetchAll();
   }
 }

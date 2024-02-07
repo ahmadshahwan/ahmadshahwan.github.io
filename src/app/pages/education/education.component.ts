@@ -6,6 +6,7 @@ import {DegreeRepositoryService} from '../../services/eductation/degree-reposito
 import Degree from '../../model/degree';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/content/page-state.service';
+import Page from '../../model/page';
 
 @Component({
   selector: 'app-education',
@@ -17,6 +18,7 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class EducationComponent implements OnInit {
 
   degrees: Observable<Degree[]> = of([]);
+  page: Observable<Page | undefined> = of(undefined);
 
   constructor(
       private readonly pageStateService: PageStateService,
@@ -26,7 +28,7 @@ export class EducationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pageStateService.updatePage('education');
+    this.page = this.pageStateService.updatePage('education');
     this.degrees = this.repository.fetchAll();
   }
 }

@@ -3,6 +3,8 @@ import {CommonModule, ViewportScroller} from '@angular/common';
 import {ActivatedRoute} from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {PageStateService} from '../../services/content/page-state.service';
+import {Observable, of} from 'rxjs';
+import Page from '../../model/page';
 
 @Component({
   selector: 'app-materials',
@@ -12,6 +14,8 @@ import {PageStateService} from '../../services/content/page-state.service';
   styleUrl: './materials.component.scss'
 })
 export class MaterialsComponent implements OnInit {
+
+  page: Observable<Page | undefined> = of(undefined);
 
   constructor(
     private readonly pageStateService: PageStateService,
@@ -24,6 +28,6 @@ export class MaterialsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('materials');
+    this.page = this.pageStateService.updatePage('materials');
   }
 }

@@ -6,6 +6,7 @@ import {Observable, of} from 'rxjs';
 import {EventComponent} from './event/event.component';
 import Event from '../../model/event';
 import {PageStateService} from '../../services/content/page-state.service';
+import Page from '../../model/page';
 
 @Component({
   selector: 'app-events',
@@ -17,6 +18,7 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class EventsComponent implements OnInit {
 
   events: Observable<Event[]> = of([]);
+  page: Observable<Page | undefined> = of(undefined);
 
   constructor(
     private readonly pageStateService: PageStateService,
@@ -25,7 +27,7 @@ export class EventsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('events');
+    this.page = this.pageStateService.updatePage('events');
     this.events = this.repository.fetchAll();
   }
 }
