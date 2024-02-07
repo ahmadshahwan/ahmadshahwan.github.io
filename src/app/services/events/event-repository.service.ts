@@ -1,21 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import Event from '../../model/event';
-
-const QUERY = `
-query EventQuery {
-  events {
-    id
-    title
-    date
-    description {
-      html
-      text
-    }
-  }
-}
-`;
+import {EVENTS_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +15,6 @@ export class EventRepositoryService {
   }
 
   fetchAll(): Observable<Event[]> {
-    return this.apiClient
-      .post<{events: Event[]}>(QUERY)
-      .pipe(map(r => r.events));
+    return this.apiClient.fetchAll(EVENTS_QUERY);
   }
 }
