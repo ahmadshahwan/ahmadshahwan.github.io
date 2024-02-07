@@ -3,6 +3,7 @@ import {ApiClientService} from '../api-client.service';
 import Header from '../../model/header';
 import {map, Observable} from 'rxjs';
 import {Sidebar} from '../../model/Sidebar';
+import Footer from '../../model/footer';
 
 const QUERY_HEADERS = `
 {
@@ -46,6 +47,35 @@ const QUERY_SIDEBARS = `
   }
 }`;
 
+const QUERY_FOOTERS = `
+{
+  footers {
+    id
+    address
+    links {
+      id
+      title
+      url
+      icon {
+        url(
+        transformation: {
+          image: {
+            resize: {
+              width: 16, height: 16,
+            }
+          }
+          document: {
+            output: {
+              format: png
+            }
+          }
+        })
+      }
+    }
+  }
+}
+`;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -63,5 +93,10 @@ export class LayoutService {
   fetchSidebar(): Observable<Sidebar> {
     return this.apiClient.post<{sidebars: Sidebar[]}>(QUERY_SIDEBARS)
       .pipe(map(r => r.sidebars[0]));
+  }
+
+  fetchFooter(): Observable<Footer> {
+    return this.apiClient.post<{footers: Footer[]}>(QUERY_FOOTERS)
+      .pipe(map(r => r.footers[0]));
   }
 }
