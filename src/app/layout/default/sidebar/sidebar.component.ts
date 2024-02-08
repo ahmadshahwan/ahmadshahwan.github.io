@@ -7,6 +7,7 @@ import {PageStateService} from '../../../services/content/page-state.service';
 import {LayoutService} from '../../../services/content/layout.service';
 import {Observable, of} from 'rxjs';
 import {Sidebar, Link} from '../../../model';
+import {LocaleService} from '../../../services/locale.service';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class SidebarComponent implements OnInit {
   sidebar: Observable<Sidebar | undefined> = of(undefined);
   constructor(
     private readonly layoutService: LayoutService,
+    private readonly localeService: LocaleService,
     pageStateService: PageStateService,
   ) {
     this.links = pageStateService.links;
@@ -30,6 +32,8 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sidebar = this.layoutService.fetchSidebar();
+    this.localeService.changes.subscribe(() =>
+      this.sidebar = this.layoutService.fetchSidebar()
+    );
   }
 }

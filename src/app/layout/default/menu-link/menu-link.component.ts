@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
+import {LocaleService} from '../../../services/locale.service';
 
 @Component({
   selector: 'app-menu-link',
@@ -11,8 +12,12 @@ import {Router, RouterLink} from '@angular/router';
 })
 export class MenuLinkComponent {
 
+  @Input()
+  doNotLocalize: boolean = false;
+
   constructor(
-    private router: Router
+    private readonly router: Router,
+    private readonly localeService: LocaleService,
   ) {
   }
 
@@ -20,6 +25,13 @@ export class MenuLinkComponent {
   link: string = '';
 
   get isEnabled(): boolean {
-    return this.router.url !== this.link;
+    return this.router.url !== this.route;
+  }
+
+  get route(): string {
+    if (this.doNotLocalize) {
+      return this.link;
+    }
+    return this.localeService.localizedLink(this.link);
   }
 }

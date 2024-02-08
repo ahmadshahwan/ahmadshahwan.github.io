@@ -1,5 +1,6 @@
 import {Directive, HostListener} from '@angular/core';
 import {Router} from '@angular/router';
+import {LocaleService} from '../../services/locale.service';
 
 @Directive({
   selector: '[appRouterLinkAdapter]',
@@ -8,7 +9,8 @@ import {Router} from '@angular/router';
 export class RouterLinkAdapterDirective {
 
   constructor(
-    private router: Router,
+    private readonly router: Router,
+    private readonly localeService: LocaleService,
   ) { }
 
   @HostListener('click', ['$event'])
@@ -19,7 +21,8 @@ export class RouterLinkAdapterDirective {
       if (href && element.target != '_blank') {
         event.preventDefault();
         const [command, fragment] = href.split('#');
-        this.router.navigate([command], {fragment}).then();
+        const localizedCommand = this.localeService.localizedLink(command);
+        this.router.navigate([localizedCommand], {fragment}).then();
       }
     }
   }

@@ -8,15 +8,34 @@ import {PhdDefenseComponent} from './pages/phd-defense/phd-defense.component';
 import {PhdPresentationComponent} from './pages/phd-presentation/phd-presentation.component';
 import {EducationComponent} from './pages/education/education.component';
 import {MaterialsComponent} from './pages/materials/materials.component';
+import {EnglishComponent} from './i18n/english/english.component';
+import {FrenchComponent} from './i18n/french/french.component';
+
+const DEFAULT_LOCALE = 'en';
+
+const baseRoutes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'career', component: CareerComponent},
+  {path: 'education', component: EducationComponent},
+  {path: 'teaching', component: TeachingComponent},
+  {path: 'research', component: ResearchComponent},
+  {path: 'events', component: EventsComponent},
+  {path: 'materials', component: MaterialsComponent},
+  {path: 'phd-defense', component: PhdDefenseComponent},
+  {path: 'phd-presentation', component: PhdPresentationComponent},
+];
+
+const redirectRoutes: Routes = [
+  ...baseRoutes
+    .map(route => ({
+      path: route.path,
+      redirectTo: `${DEFAULT_LOCALE}/${route.path}`,
+      pathMatch: 'full' as const,
+    })),
+];
 
 export const routes: Routes = [
-  {title: 'Homepage', path: '', component: HomeComponent},
-  {title: 'Career', path: 'career', component: CareerComponent},
-  {title: 'Education', path: 'education', component: EducationComponent},
-  {title: 'Teaching', path: 'teaching', component: TeachingComponent},
-  {title: 'Research', path: 'research', component: ResearchComponent},
-  {title: 'Events', path: 'events', component: EventsComponent},
-  {title: 'Teaching Materials', path: 'materials', component: MaterialsComponent},
-  {title: 'PHD defense', path: 'phd-defense', component: PhdDefenseComponent},
-  {title: 'PHD defense', path: 'phd-presentation', component: PhdPresentationComponent},
+  {path: 'en', component: EnglishComponent, children: baseRoutes},
+  {path: 'fr', component: FrenchComponent, children: baseRoutes},
+  ...redirectRoutes,
 ];

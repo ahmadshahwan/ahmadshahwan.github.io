@@ -2,7 +2,7 @@
   <ng-content></ng-content>
 </ng-template>
 @if (isEnabled) {
-  <a [routerLink]="link">
+  <a [routerLink]="route">
     <ng-container *ngTemplateOutlet="templateOutlet"></ng-container>
   </a>
 } @else {

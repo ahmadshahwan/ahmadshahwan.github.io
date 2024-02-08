@@ -10,7 +10,12 @@
           <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
         </li>
       }
+      <li>
+        <app-menu-link
+          [link]="switchLocaleLink"
+          [doNotLocalize]="true"
+        >{{ locale === 'en' ? 'français' : 'english' }}</app-menu-link>
+      </li>
     </ul>
   </div>
-
 </div>
