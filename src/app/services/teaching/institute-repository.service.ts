@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
-import Institute from '../../model/institute';
+import {Institute} from '../../model';
 import {INSTITUTES_QUERY} from '../queries';
 
 @Injectable({

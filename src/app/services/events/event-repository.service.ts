@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
-import Event from '../../model/event';
+import {Event} from '../../model';
 import {EVENTS_QUERY} from '../queries';
 
 @Injectable({

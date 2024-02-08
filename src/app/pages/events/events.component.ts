@@ -4,9 +4,8 @@ import {ScrollableComponent} from '../../shared/scrollable/scrollable.component'
 import {EventRepositoryService} from '../../services/events/event-repository.service';
 import {Observable, of} from 'rxjs';
 import {EventComponent} from './event/event.component';
-import Event from '../../model/event';
+import {Event, Page} from '../../model';
 import {PageStateService} from '../../services/content/page-state.service';
-import Page from '../../model/page';
 
 @Component({
   selector: 'app-events',

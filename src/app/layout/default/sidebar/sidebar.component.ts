@@ -3,11 +3,10 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {SideBarMenuItemComponent} from './side-bar-menu-item/side-bar-menu-item.component';
-import Link from '../../../model/link';
 import {PageStateService} from '../../../services/content/page-state.service';
 import {LayoutService} from '../../../services/content/layout.service';
 import {Observable, of} from 'rxjs';
-import {Sidebar} from '../../../model/Sidebar';
+import {Sidebar, Link} from '../../../model';
 
 
 @Component({

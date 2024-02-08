@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
-import Homepage from '../../model/homepage';
+import {Homepage} from '../../model';
 import {HOMEPAGES_QUERY} from '../queries';
 
 @Injectable({

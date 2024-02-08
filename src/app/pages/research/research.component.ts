@@ -3,9 +3,8 @@ import {CommonModule} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {PageStateService} from '../../services/content/page-state.service';
 import {Observable, of} from 'rxjs';
-import Page from '../../model/page';
+import {Page, Publication} from '../../model';
 import {PublicationRepositoryService} from '../../services/research/publication-repository.service';
-import Publication from '../../model/publication';
 
 type Category = Publication['category'];
 

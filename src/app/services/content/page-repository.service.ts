@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
-import Page from '../../model/page';
+import {Page} from '../../model';
 import {PAGE_BY_SLUG_QUERY, PAGES_QUERY} from '../queries';
 
 @Injectable({

@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {PageStateService} from '../../services/content/page-state.service';
 import {Observable, of} from 'rxjs';
-import Page from '../../model/page';
+import {Page} from '../../model';
 
 @Component({
   selector: 'app-materials',

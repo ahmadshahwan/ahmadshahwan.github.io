@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import Class from '../../../model/class';
+import {Class} from '../../../model';
 import {RouterLinkAdapterDirective} from '../../../shared/router-link-adapter/router-link-adapter.directive';
 
 @Component({

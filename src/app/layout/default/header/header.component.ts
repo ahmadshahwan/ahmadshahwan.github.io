@@ -4,7 +4,7 @@ import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
 import {LayoutService} from '../../../services/content/layout.service';
-import Header from '../../../model/header';
+import {Header} from '../../../model';
 
 @Component({
   selector: 'app-header',

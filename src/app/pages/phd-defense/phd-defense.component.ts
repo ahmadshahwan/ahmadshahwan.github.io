@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PageStateService} from '../../services/content/page-state.service';
 import {Observable, of} from 'rxjs';
-import Page from '../../model/page';
+import {Content, Page} from '../../model';
 import {ContentRepositoryService} from '../../services/content/content-repository.service';
-import Content from '../../model/content';
 
 @Component({
   selector: 'app-phd-defense',

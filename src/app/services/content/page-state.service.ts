@@ -1,8 +1,7 @@
 import {Injectable, signal} from '@angular/core';
-import Link from '../../model/link';
+import {Link, Page} from '../../model';
 import {PageRepositoryService} from './page-repository.service';
 import {Title} from '@angular/platform-browser';
-import Page from '../../model/page';
 import {Observable} from 'rxjs';
 
 const TITLE_SUFFIX = 'Ahmad SHAHWAN';

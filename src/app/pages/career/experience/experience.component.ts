@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import Experience from '../../../model/experience';
+import {Experience} from '../../../model';
 
 @Component({
   selector: 'app-experience',

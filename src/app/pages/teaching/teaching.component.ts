@@ -5,9 +5,8 @@ import {TopicComponent} from './topic/topic.component';
 import {InstitutionComponent} from './institution/institution.component';
 import {InstituteRepositoryService} from '../../services/teaching/institute-repository.service';
 import {Observable, of} from 'rxjs';
-import Institute from '../../model/institute';
+import {Institute, Page} from '../../model';
 import {PageStateService} from '../../services/content/page-state.service';
-import Page from '../../model/page';
 
 @Component({
   selector: 'app-teaching',

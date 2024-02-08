@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import Degree from '../../model/degree';
+import {Degree} from '../../model';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
 import {DEGREES_QUERY} from '../queries';

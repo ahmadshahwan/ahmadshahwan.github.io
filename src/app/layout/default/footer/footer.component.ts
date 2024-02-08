@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Observable, of} from 'rxjs';
 import {LayoutService} from '../../../services/content/layout.service';
-import Footer from '../../../model/footer';
+import {Footer} from '../../../model';
 
 @Component({
   selector: 'app-footer',

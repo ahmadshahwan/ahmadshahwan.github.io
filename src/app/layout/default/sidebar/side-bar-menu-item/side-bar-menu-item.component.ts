@@ -1,7 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuLinkComponent} from '../../menu-link/menu-link.component';
-import Link from '../../../../model/link';
+import {Link} from '../../../../model';
+
 
 @Component({
   selector: 'app-side-bar-menu-item',

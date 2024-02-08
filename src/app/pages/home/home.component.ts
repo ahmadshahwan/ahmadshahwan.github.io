@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {PageStateService} from '../../services/content/page-state.service';
 import {HomepageRepositoryService} from '../../services/content/homepage-repository.service';
-import Homepage from '../../model/homepage';
+import {Homepage} from '../../model';
 
 @Component({
   selector: 'app-home',

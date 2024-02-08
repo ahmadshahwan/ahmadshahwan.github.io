@@ -3,10 +3,9 @@ import {CommonModule} from '@angular/common';
 import {ExperienceComponent} from './experience/experience.component';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {ExperienceRepositoryService} from '../../services/career/experience-repository.service';
-import Experience from '../../model/experience';
+import {Experience, Page} from '../../model';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/content/page-state.service';
-import Page from '../../model/page';
 
 @Component({
   selector: 'app-career',

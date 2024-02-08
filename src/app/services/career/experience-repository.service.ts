@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
-import Experience from '../../model/experience';
+import {Experience} from '../../model';
 import {EXPERIENCES_QUERY} from '../queries';
 
 @Injectable({

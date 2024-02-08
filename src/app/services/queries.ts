@@ -1,14 +1,16 @@
-import Institute from '../model/institute';
-import Publication from '../model/publication';
-import Event from '../model/event';
-import Degree from '../model/degree';
-import Page from '../model/page';
-import Content from '../model/content';
-import Experience from '../model/experience';
-import Header from '../model/header';
-import {Sidebar} from '../model/Sidebar';
-import Footer from '../model/footer';
-import Homepage from '../model/homepage';
+import {
+  Institute,
+  Publication,
+  Event,
+  Degree,
+  Page,
+  Content,
+  Experience,
+  Header,
+  Sidebar,
+  Footer,
+  Homepage,
+} from '../model';
 
 export type QueryParams = Record<string, unknown> | undefined;
 
