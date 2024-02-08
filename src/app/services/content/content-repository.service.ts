@@ -1,22 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import Content from '../../model/content';
-
-const QUERY_BY_SLUG = `
-  query ContentBySlug($slug: String) {
-    content(where: {slug: $slug}) {
-      id
-      title
-      text {
-        html
-      }
-      image {
-        url
-      }
-    }
-  }
-`;
+import {CONTENT_BY_SLUG_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +15,6 @@ export class ContentRepositoryService {
   }
 
   fetchBySlug(slug: string): Observable<Content> {
-    return this.apiClient
-      .post<{content: Content}>(QUERY_BY_SLUG, {slug})
-      .pipe(map(r => r.content));
+    return this.apiClient.fetch(CONTENT_BY_SLUG_QUERY, {slug});
   }
 }

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map, Observable} from 'rxjs';
+import {Query, QueryParams} from './queries';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,21 @@ export class ApiClientService {
       private readonly http: HttpClient,
   ) { }
 
-  post<T>(
-    query: string,
-    variables?: Record<string, unknown>,
-  ): Observable<T> {
+  fetchSingle<T, P extends QueryParams>(query: Query<T[], P>, variables?: P): Observable<T> {
     return this.http
-        .post<{data: T}>(environment.apiUrl, {query, variables: variables})
-        .pipe(map(r => r.data));
+      .post<{data: {data: T[]}}>(environment.apiUrl, {query, variables: variables})
+      .pipe(map(r => r.data.data[0]));
+  }
+
+  fetchAll<T extends unknown[], P extends QueryParams>(query: Query<T, P>, variables?: P): Observable<T> {
+    return this.http
+      .post<{data: {data: T}}>(environment.apiUrl, {query, variables: variables})
+      .pipe(map(r => r.data.data));
+  }
+
+  fetch<T, P extends QueryParams>(query: Query<T, P>, variables?: P): Observable<T> {
+    return this.http
+        .post<{data: {data: T}}>(environment.apiUrl, {query, variables: variables})
+        .pipe(map(r => r.data.data));
   }
 }

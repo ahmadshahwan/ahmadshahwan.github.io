@@ -1,41 +1,9 @@
 import {Injectable} from '@angular/core';
 
 import {ApiClientService} from '../api-client.service';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import Experience from '../../model/experience';
-
-const QUERY = `
-query ExperienceQuery {
-  experiences {
-    id
-    title
-    period
-    summary {
-      html
-      text
-    }
-    details {
-      html
-    }
-    icon {
-      url(
-        transformation: {
-          image: {
-            resize: {
-              width: 32, height: 32,
-            }
-          }
-          document: {
-            output: {
-              format: png
-            }
-          }
-        }
-      )
-    }
-  }
-}
-`;
+import {EXPERIENCES_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -47,8 +15,6 @@ export class ExperienceRepositoryService {
   ) { }
 
   fetchAll(): Observable<Experience[]> {
-    return this.apiClient
-      .post<{experiences: Experience[]}>(QUERY)
-      .pipe(map(r => r.experiences));
+    return this.apiClient.fetchAll(EXPERIENCES_QUERY);
   }
 }

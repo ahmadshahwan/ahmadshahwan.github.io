@@ -1,26 +1,8 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import Publication from '../../model/publication';
-
-const QUERY = `
-{
-  publications {
-    id
-    description {
-      text
-      html
-    }
-    year
-    category {
-      id
-      name
-      rank
-      title
-    }
-  }
-}
-`;
+import {PUBLICATIONS_QUERY} from '../queries';
 
 
 @Injectable({
@@ -34,8 +16,6 @@ export class PublicationRepositoryService {
   }
 
   fetchAll(): Observable<Publication[]> {
-    return this.apiClient
-      .post<{publications: Publication[]}>(QUERY)
-      .pipe(map(r => r.publications));
+    return this.apiClient.fetchAll(PUBLICATIONS_QUERY);
   }
 }

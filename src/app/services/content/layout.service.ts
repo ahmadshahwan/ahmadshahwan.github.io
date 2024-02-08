@@ -1,80 +1,10 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import Header from '../../model/header';
-import {map, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Sidebar} from '../../model/Sidebar';
 import Footer from '../../model/footer';
-
-const QUERY_HEADERS = `
-{
-  headers {
-    id
-    subtitle
-    links {
-      id
-      title
-      route
-    }
-  }
-}
-`;
-
-const QUERY_SIDEBARS = `
-{
-  sidebars {
-    id
-    externalLinksMenuTitle
-    externalLinks {
-      id
-      title
-      url
-      icon {
-        url(
-        transformation: {
-          image: {
-            resize: {
-              width: 16, height: 16,
-            }
-          }
-          document: {
-            output: {
-              format: png
-            }
-          }
-        })
-      }
-    }
-  }
-}`;
-
-const QUERY_FOOTERS = `
-{
-  footers {
-    id
-    address
-    links {
-      id
-      title
-      url
-      icon {
-        url(
-        transformation: {
-          image: {
-            resize: {
-              width: 16, height: 16,
-            }
-          }
-          document: {
-            output: {
-              format: png
-            }
-          }
-        })
-      }
-    }
-  }
-}
-`;
+import {FOOTERS_QUERY, HEADERS_QUERY, SIDEBARS_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -86,17 +16,14 @@ export class LayoutService {
   ) { }
 
   fetchHeader(): Observable<Header> {
-    return this.apiClient.post<{headers: Header[]}>(QUERY_HEADERS)
-      .pipe(map(r => r.headers[0]));
+    return this.apiClient.fetchSingle(HEADERS_QUERY);
   }
 
   fetchSidebar(): Observable<Sidebar> {
-    return this.apiClient.post<{sidebars: Sidebar[]}>(QUERY_SIDEBARS)
-      .pipe(map(r => r.sidebars[0]));
+    return this.apiClient.fetchSingle(SIDEBARS_QUERY);
   }
 
   fetchFooter(): Observable<Footer> {
-    return this.apiClient.post<{footers: Footer[]}>(QUERY_FOOTERS)
-      .pipe(map(r => r.footers[0]));
+    return this.apiClient.fetchSingle(FOOTERS_QUERY);
   }
 }
