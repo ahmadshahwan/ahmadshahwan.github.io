@@ -14,20 +14,17 @@ export class ApiClientService {
   ) { }
 
   fetchSingle<T, P extends QueryParams>(query: Query<T[], P>, variables?: P): Observable<T> {
-    return this.http
-      .post<{data: {data: T[]}}>(environment.apiUrl, {query, variables: variables})
-      .pipe(map(r => r.data.data[0]));
+    return this.fetchAll(query, variables)
+      .pipe(map(r => r[0]));
   }
 
   fetchAll<T extends unknown[], P extends QueryParams>(query: Query<T, P>, variables?: P): Observable<T> {
-    return this.http
-      .post<{data: {data: T}}>(environment.apiUrl, {query, variables: variables})
-      .pipe(map(r => r.data.data));
+    return this.fetch(query, variables);
   }
 
   fetch<T, P extends QueryParams>(query: Query<T, P>, variables?: P): Observable<T> {
     return this.http
-        .post<{data: {data: T}}>(environment.apiUrl, {query, variables: variables})
-        .pipe(map(r => r.data.data));
+      .post<{data: {data: T}}>(environment.apiUrl, {query, variables: variables})
+      .pipe(map(r => r.data.data));
   }
 }
