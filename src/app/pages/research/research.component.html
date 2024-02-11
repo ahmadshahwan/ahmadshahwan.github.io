@@ -3,7 +3,7 @@
     <h2>{{ (page | async)?.title }}</h2>
   </div>
   <div class="entry">
-    <app-scrollable>
+    <app-scrollable maxHeight="300px">
       <div id="bib">
         @for (category of categories; track category.id) {
           <h2>{{ category.title }}</h2>
