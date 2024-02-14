@@ -29,7 +29,7 @@ const redirectRoutes: Routes = [
   ...baseRoutes
     .map(route => ({
       path: route.path,
-      redirectTo: `${DEFAULT_LOCALE}/${route.path}`,
+      redirectTo: route.path ? `${DEFAULT_LOCALE}/${route.path}` : DEFAULT_LOCALE,
       pathMatch: 'full' as const,
     })),
 ];
