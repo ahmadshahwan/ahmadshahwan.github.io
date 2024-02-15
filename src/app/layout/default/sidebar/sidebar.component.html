@@ -9,6 +9,8 @@
         }
         </ul>
       }
+    </li>
+    <li>
       <h2>{{ (sidebar | async)?.externalLinksMenuTitle }}</h2>
       <ul>
         @for (link of (sidebar | async)?.externalLinks; track link.id) {
