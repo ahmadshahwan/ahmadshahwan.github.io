@@ -10,6 +10,7 @@ import {
   Sidebar,
   Footer,
   Homepage,
+  Class,
 } from '../model';
 
 export type QueryParams = Record<string, unknown> | undefined;
@@ -82,6 +83,19 @@ export const INSTITUTES_QUERY: Query<Institute[]> = `
       id
       title
       description ${richText}
+    }
+  }
+}
+`;
+
+export const CLASSES_QUERY: Query<Class[]> = `
+{
+  data: classes {
+    id
+    title
+    syllabi {
+      title
+      url
     }
   }
 }

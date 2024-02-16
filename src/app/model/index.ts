@@ -9,10 +9,17 @@ export interface RichText {
   text: string;
 }
 
+export interface Syllabus {
+  id: string;
+  title: string;
+  url: string;
+}
+
 export interface Class {
   id: string;
   title: string;
-  description: RichText;
+  description?: RichText;
+  syllabi?: Syllabus[];
 }
 
 export interface Content {

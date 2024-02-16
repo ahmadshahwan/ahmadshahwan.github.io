@@ -3,24 +3,13 @@
     <h2>{{ (page | async)?.title }}</h2>
   </div>
   <div class="entry">
-    <h3>Authored</h3>
-    <h4 id="rppc">Product Representation for Design</h4>
-    <ul>
-      <li><a target="_blank" href="assets/pdf/materials/CATIA_fonction_de_base.pdf">CATIA V5 Tutorial: Fonction de base (french)</a>.</li>
-      <li><a target="_blank" href="assets/pdf/materials/CATIA_modelisation_csg.pdf">CATIA V5 Tutorial: Modélisation CSG (french)</a>.</li>
-      <li><a target="_blank" href="assets/pdf/materials/CATIA_modelisation_par_feature.pdf">CATIA V5 Tutorial: Modélisation par feature (french)</a>.</li>
-      <li><a target="_blank" href="assets/pdf/materials/CATIA_modelisation_surfacique.pdf">CATIA V5 Tutorial: Modélisation surfacique (french)</a>.</li>
-      <li><a target="_blank" href="assets/pdf/materials/CATIA_analyse_surfacique.pdf">CATIA V5 Tutorial: Analyse surfacique (french)</a>.</li>
-    </ul>
-    <h4>Modeling and Optimization in Product Development</h4>
-    <ul>
-      <li><a target="_blank" href="assets/pdf/materials/Modelling_using_UML.pdf">Course Syllabus: Modeling Relational Databases</a>
-
-    </ul>
-    <h3>Co-authored</h3>
-    <h4 id="mcoa">Advance Object Oriented Modeling and Design</h4>
-    <ul>
-      <li><a target="_blank" href="assets/pdf/materials/cours1_intro_oo.pdf">Course Syllabus: Introduction au Concept d'Orienté Objet (french)</a>.</li>
-    </ul>
+    @for (klass of (classes | async); track klass.id) {
+      <h3 [id]="klass.id">{{ klass.title }}</h3>
+      <ul>
+        @for (syllabus of klass.syllabi; track syllabus.id) {
+          <li><a target="_blank" [href]="syllabus.url">{{ syllabus.title }}</a>.</li>
+        }
+      </ul>
+    }
   </div>
 </div>
