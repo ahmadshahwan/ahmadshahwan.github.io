@@ -27,7 +27,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "{robots.txt,sitemap.xml}",
+                "input": "src/app/sitemap/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.scss"

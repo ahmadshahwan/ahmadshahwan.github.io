@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "sitemap": "npx tsx src/app/sitemap/generate-sitemap.ts",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run sitemap && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:ng-website": "node dist/ng-website/server/server.mjs",
@@ -49,6 +50,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.2.2"
+    "typescript": "~5.2.2",
+    "xml-js": "^1.6.11"
   }
 }
