@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /assets/pdf/
 
-Sitemap: https://www.example.com/sitemap.xml
+Sitemap: https://ahmad.shahwan.pw/sitemap.xml
