@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { ClassRepositoryService } from './class-repository.service';
+import {ClassRepositoryService} from './class-repository.service';
 
 describe('ClassRepositoryService', () => {
   let service: ClassRepositoryService;
