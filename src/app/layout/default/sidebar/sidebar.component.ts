@@ -5,7 +5,7 @@ import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {PageStateService} from '../../../services/content/page-state.service';
 import {LayoutService} from '../../../services/content/layout.service';
 import {Observable, of} from 'rxjs';
-import {Sidebar, Link} from '../../../model';
+import {Sidebar, Link, ExternalLink} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
 
 
@@ -34,5 +34,9 @@ export class SidebarComponent implements OnInit {
     this.localeService.changes.subscribe(() =>
       this.sidebar = this.layoutService.fetchSidebar()
     );
+  }
+
+  logoTitle(link: ExternalLink): string {
+    return `Logo ${link.title}`;
   }
 }
