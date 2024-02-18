@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {Observable} from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {Content} from '../../model';
-import {CONTENT_BY_SLUG_QUERY} from '../queries';
+
+function contentNotFound(slug: string): never {
+  throw new Error(`Content with slug ${slug} not found`);
+}
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,8 @@ export class ContentRepositoryService {
   }
 
   fetchBySlug(slug: string): Observable<Content> {
-    return this.apiClient.fetch(CONTENT_BY_SLUG_QUERY, {slug});
+    return this.apiClient.fetch('contents', slug).pipe(
+      map((page) => page ?? contentNotFound(slug)),
+    );
   }
 }

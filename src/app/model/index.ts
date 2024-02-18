@@ -24,6 +24,7 @@ export interface Class {
 
 export interface Content {
   id: string;
+  slug: string;
   title?: string;
   text: RichText;
   image?: Image;
@@ -130,4 +131,23 @@ export interface Sidebar {
   id: string;
   externalLinksMenuTitle: string;
   externalLinks: ExternalLink[];
+}
+
+export interface Website {
+  homepage: Homepage;
+  header: Header;
+  footer: Footer;
+  sidebar: Sidebar;
+  experiences: Experience[];
+  degrees: Degree[];
+  events: Event[];
+  institutes: Institute[];
+  pages: Page[];
+  publications: Publication[];
+  contents: Content[];
+}
+
+export interface LocalizedWebsite {
+  en: Website;
+  fr: Website;
 }

@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Footer, Header, Sidebar} from '../../model';
 import {Observable} from 'rxjs';
-import {FOOTERS_QUERY, HEADERS_QUERY, SIDEBARS_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +13,14 @@ export class LayoutService {
   ) { }
 
   fetchHeader(): Observable<Header> {
-
-    return this.apiClient.fetchSingle(HEADERS_QUERY);
+    return this.apiClient.fetch('header');
   }
 
   fetchSidebar(): Observable<Sidebar> {
-    return this.apiClient.fetchSingle(SIDEBARS_QUERY);
+    return this.apiClient.fetch('sidebar');
   }
 
   fetchFooter(): Observable<Footer> {
-    return this.apiClient.fetchSingle(FOOTERS_QUERY);
+    return this.apiClient.fetch('footer');
   }
 }

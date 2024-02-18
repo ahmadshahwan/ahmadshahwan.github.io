@@ -1,24 +1,9 @@
-import {
-  Institute,
-  Publication,
-  Event,
-  Degree,
-  Page,
-  Content,
-  Experience,
-  Header,
-  Sidebar,
-  Footer,
-  Homepage,
-  Class,
-} from '../model';
-
-export type QueryParams = Record<string, unknown> | undefined;
+import {LocalizedWebsite} from '../model';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface Typed<T, P extends QueryParams> {}
+interface Typed<T> {}
 
-export type Query<T, P extends QueryParams = undefined> = string & Typed<T, P>;
+export type Query<T> = string & Typed<T>;
 
 function imageWithSize(size: number): string {
   return `{
@@ -41,198 +26,152 @@ function imageWithSize(size: number): string {
   }`;
 }
 
-const image32 = imageWithSize(32);
-const image16 = imageWithSize(16);
-const image = `{
-    height
-    width
-    url(
-      transformation: {
-        document: {
-          output: {
-            format: png
-          }
+const IMAGE_32 = imageWithSize(32);
+const IMAGE_16 = imageWithSize(16);
+const IMAGE = `{
+  height
+  width
+  url(
+    transformation: {
+      document: {
+        output: {
+          format: png
         }
       }
-    )
-  }`;
+    }
+  )
+}`;
 
-const richText = `{
+const RICH_TEXT = `{
   text
   html
 }`;
 
-const link = `{
+const LINK = `{
   id
   title
   route
 }`;
 
-const pageGroup = `{
+const PAGE_GROUP = `{
   id
   title
 }`;
 
-export const INSTITUTES_QUERY: Query<Institute[]> = `
-{
-  data: institutes {
-    id
-    name
-    icon ${image32}
-    classes {
-      id
-      title
-      description ${richText}
-    }
-  }
-}
-`;
-
-export const CLASSES_QUERY: Query<Class[]> = `
-{
-  data: classes {
+const INSTITUTE = `{
+  id
+  name
+  icon ${IMAGE_32}
+  classes {
     id
     title
-    syllabi {
-      title
-      url
-    }
-  }
-}
-`;
-
-export const PUBLICATIONS_QUERY: Query<Publication[]> = `
-{
-  data: publications {
-    id
-    description ${richText}
-    year
-    category {
-      id
-      name
-      rank
-      title
-    }
-  }
-}
-`;
-
-export const EVENTS_QUERY: Query<Event[]> = `
- {
-  data: events {
-    id
-    title
-    date
-    description ${richText}
-  }
-}
-`;
-
-export const DEGREES_QUERY: Query<Degree[]> = `
-{
-  data: degrees {
-    id
-    title
-    year
-    institution
-    icon ${image32}
+    description ${RICH_TEXT}
   }
 }`;
 
-const page = `{
+const PUBLICATION = `{
+  id
+  description ${RICH_TEXT}
+  year
+  category {
+    id
+    name
+    rank
+    title
+  }
+}`;
+
+const EVENT = `{
+  id
+  title
+  date
+  description ${RICH_TEXT}
+}`;
+
+const DEGREE = `{
+  id
+  title
+  year
+  institution
+  icon ${IMAGE_32}
+}`;
+
+const PAGE = `{
     id
     slug
     title
     description
-    links ${link}
-    group ${pageGroup}
+    links ${LINK}
+    group ${PAGE_GROUP}
 }`;
 
-export const PAGES_QUERY: Query<Page[]> = `
-{
-  data: pages ${page}
-}
-`;
-
-export const PAGE_BY_SLUG_QUERY: Query<Page, {slug: string}> = `
-query Page($slug: String) {
-  data: page(where: {slug: $slug}) ${page}
-}
-`;
-
-const content = `{
+const CONTENT = `{
   id
   title
-  text ${richText}
-  image ${image}
+  text ${RICH_TEXT}
+  image ${IMAGE}
 }`;
 
-export const CONTENT_BY_SLUG_QUERY: Query<Content, {slug: string}> = `
-query ContentBySlug($slug: String) {
-  data: content(where: {slug: $slug}) ${content}
-}
-`;
+const EXPERIENCE = `{
+  id
+  title
+  period
+  summary ${RICH_TEXT}
+  details ${RICH_TEXT}
+  icon ${IMAGE_32}
+}`;
 
-export const EXPERIENCES_QUERY: Query<Experience[]> = `
-{
-  data: experiences {
-    id
-    title
-    period
-    summary ${richText}
-    details ${richText}
-    icon ${image32}
-  }
-}
-`;
+const HEADER = `{
+  id
+  subtitle
+  links ${LINK}
+}`;
 
-export const HEADERS_QUERY: Query<Header[]> = `
-{
-  data: headers {
-    id
-    subtitle
-    links ${link}
-  }
-}
-`;
-
-const externalLinks = `{
+const EXTERNAL_LINK = `{
   id
   title
   url
-  icon ${image16}
+  icon ${IMAGE_16}
 }`;
 
-export const SIDEBARS_QUERY: Query<Sidebar[]> = `
-{
-  data: sidebars {
+const SIDEBAR = `{
+  id
+  externalLinksMenuTitle
+  externalLinks ${EXTERNAL_LINK}
+}`;
+
+const FOOTER = `{
+  id
+  address
+  links ${EXTERNAL_LINK}
+}`;
+
+const HOMEPAGE = `{
+  id
+  bio ${CONTENT}
+  interestsTitle
+  interests {
     id
-    externalLinksMenuTitle
-    externalLinks ${externalLinks}
+    title
+    description
   }
 }`;
 
-export const FOOTERS_QUERY: Query<Footer> = `
-{
-  data: footers {
-    id
-    address
-    links ${externalLinks}
-  }
-}
-`;
+const WEBSITE = `{
+  homepage ${HOMEPAGE}
+  header ${HEADER}
+  footer ${FOOTER}
+  sidebar ${SIDEBAR}
+  pages ${PAGE}
+  experiences ${EXPERIENCE}
+  degrees ${DEGREE}
+  institutes ${INSTITUTE}
+  publications ${PUBLICATION}
+  events ${EVENT}
+  contents ${CONTENT}
+}`;
 
-export const HOMEPAGES_QUERY: Query<Homepage[]> = `
-{
-  data: homepages {
-    id
-    bio ${content}
-    interestsTitle
-    interests {
-      id
-      title
-      description
-    }
-  }
-}
-`;
+export const WEBSITE_QUERY: Query<LocalizedWebsite> = `{
+  en: website(locales: en, where: {singleton: true}) ${WEBSITE}
+  fr: website(locales: [fr, en], where: {singleton: true}) ${WEBSITE}
+}`;

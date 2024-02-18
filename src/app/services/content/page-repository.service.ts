@@ -1,8 +1,11 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {Observable} from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {Page} from '../../model';
-import {PAGE_BY_SLUG_QUERY, PAGES_QUERY} from '../queries';
+
+function pageNotFound(slug: string): never {
+  throw new Error(`Page with slug ${slug} not found`);
+}
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +17,12 @@ export class PageRepositoryService {
   ) { }
 
   fetchBySlug(slug: string): Observable<Page> {
-    return this.apiClient.fetch(PAGE_BY_SLUG_QUERY, {slug});
+    return this.apiClient.fetch('pages', slug).pipe(
+      map((page) => page ?? pageNotFound(slug)),
+    );
   }
 
   fetchAll(): Observable<Page[]> {
-    return this.apiClient.fetchAll(PAGES_QUERY);
+    return this.apiClient.fetch('pages');
   }
 }

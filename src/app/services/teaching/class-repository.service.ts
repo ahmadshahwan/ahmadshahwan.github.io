@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
-import {Observable} from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {Class} from '../../model';
-import {CLASSES_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,8 @@ export class ClassRepositoryService {
   }
 
   fetchAll(): Observable<Class[]> {
-    return this.apiClient.fetchAll(CLASSES_QUERY);
+    return this.apiClient.fetch('institutes').pipe(
+      map(({flatMap}) => flatMap(({classes}) => classes)),
+    );
   }
 }

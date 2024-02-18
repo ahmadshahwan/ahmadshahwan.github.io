@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {ApiClientService} from '../api-client.service';
 import {Observable} from 'rxjs';
 import {Homepage} from '../../model';
-import {HOMEPAGES_QUERY} from '../queries';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,6 @@ export class HomepageRepositoryService {
   }
 
   fetch(): Observable<Homepage> {
-    return this.apiClient.fetchSingle(HOMEPAGES_QUERY);
+    return this.apiClient.fetch('homepage');
   }
 }
