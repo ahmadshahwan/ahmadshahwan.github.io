@@ -5,7 +5,9 @@
         <h2>{{ group() }}</h2>
         <ul class="menu">
         @for (link of links(); track link.id) {
-          <app-side-bar-menu-item [link]="link" />
+          <li>
+            <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
+          </li>
         }
         </ul>
       }
