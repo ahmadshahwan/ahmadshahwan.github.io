@@ -103,6 +103,7 @@ export interface Page {
   id: string;
   slug: string;
   title: string;
+  description: string;
   links: Link[];
   group: PageGroup;
 }

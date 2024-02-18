@@ -143,6 +143,7 @@ const page = `{
     id
     slug
     title
+    description
     links ${link}
     group ${pageGroup}
 }`;

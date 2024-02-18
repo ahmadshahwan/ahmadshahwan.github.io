@@ -1,7 +1,7 @@
 import {Injectable, signal} from '@angular/core';
 import {Link, Page} from '../../model';
 import {PageRepositoryService} from './page-repository.service';
-import {Title} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {Observable} from 'rxjs';
 
 const TITLE_SUFFIX = 'Ahmad SHAHWAN';
@@ -20,6 +20,7 @@ export class PageStateService {
   constructor(
     private readonly pageRepository: PageRepositoryService,
     private readonly title: Title,
+    private readonly meta: Meta,
   ) {
   }
 
@@ -28,6 +29,8 @@ export class PageStateService {
     pageObservable
       .subscribe(page => {
         this.title.setTitle(`${TITLE_SUFFIX} | ${page.title}`);
+        console.log('Adding meta tags for page: ', page.description);
+        this.meta.updateTag({name: 'description', content: page.description});
         this.currentPageGroup.set(page.group.title);
         this.currentLinks.set(page.links);
       });
