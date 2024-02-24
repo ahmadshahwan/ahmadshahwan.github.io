@@ -113,6 +113,7 @@ const PAGE = `{
 const CONTENT = `{
   id
   title
+  slug
   text ${RICH_TEXT}
   image ${IMAGE}
 }`;
