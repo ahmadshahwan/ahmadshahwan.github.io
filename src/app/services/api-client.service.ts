@@ -26,7 +26,6 @@ export class ApiClientService {
       private readonly http: HttpClient,
       private readonly localeService: LocaleService,
   ) {
-    console.log('ApiClientService.<new>');
     this.fetchInternal(WEBSITE_QUERY).subscribe(website => this.awaitingLocalizedWebsite.next(website));
   }
 

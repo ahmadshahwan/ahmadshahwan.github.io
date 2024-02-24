@@ -29,7 +29,6 @@ export class PageStateService {
     pageObservable
       .subscribe(page => {
         this.title.setTitle(`${TITLE_SUFFIX} | ${page.title}`);
-        console.log('Adding meta tags for page: ', page.description);
         this.meta.updateTag({name: 'description', content: page.description});
         this.currentPageGroup.set(page.group.title);
         this.currentLinks.set(page.links);

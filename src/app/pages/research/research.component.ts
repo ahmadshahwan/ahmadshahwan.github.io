@@ -19,7 +19,6 @@ export class ResearchComponent implements OnInit {
 
   page: Observable<Page | undefined> = of(undefined);
   publications: Publication[] = [];
-  counter = 0;
 
   constructor(
     private readonly pageStateService: PageStateService,
