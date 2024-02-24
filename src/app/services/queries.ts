@@ -66,6 +66,11 @@ const INSTITUTE = `{
     id
     title
     description ${RICH_TEXT}
+    syllabi {
+      id
+      title
+      url
+    }
   }
 }`;
 

@@ -15,7 +15,7 @@ export class ClassRepositoryService {
 
   fetchAll(): Observable<Class[]> {
     return this.apiClient.fetch('institutes').pipe(
-      map(({flatMap}) => flatMap(({classes}) => classes)),
+      map(institutes => institutes.flatMap(({classes}) => classes)),
     );
   }
 }
