@@ -1,5 +1,6 @@
 import {Injectable, signal} from '@angular/core';
 import {ReplaySubject} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ export class LocaleService {
   public readonly current = this.currentLocale.asReadonly();
   public readonly changes = this.subject.asObservable();
 
-  constructor() { }
+  constructor(
+    private readonly router: Router,
+  ) { }
 
   setCurrent(locale: 'en' | 'fr') {
     this.currentLocale.set(locale);
@@ -25,5 +28,22 @@ export class LocaleService {
       .replace(/^\.\//, '')
       .replace(/^\//, '');
     return segment ? `/${locale}/${segment}` : `/${locale}`;
+  }
+
+  getSwitchLocaleLink(): string {
+    const targetLocal = this.current() === 'en' ? 'fr' : 'en';
+    return this.getLocaleLink(targetLocal);
+  }
+
+  getLocaleLink(targetLocal: 'en' | 'fr'): string {
+    const [currentUrl] = this.router.url.split('#');
+    if (currentUrl === `/${this.current()}`) {
+      return `/${targetLocal}`;
+    }
+    if (currentUrl.startsWith(`/${this.current()}/`)) {
+      return currentUrl.replace(`/${this.current()}/`, `/${targetLocal}/`);
+    }
+    //const fragmentPart = fragment ? `#${fragment}` : '';
+    return `/${targetLocal}/${currentUrl}`;
   }
 }

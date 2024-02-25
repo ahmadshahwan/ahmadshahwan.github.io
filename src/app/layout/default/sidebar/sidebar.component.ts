@@ -36,6 +36,14 @@ export class SidebarComponent implements OnInit {
     );
   }
 
+  get frLanguageLink() {
+    return this.localeService.getLocaleLink('fr');
+  }
+
+  get enLanguageLink() {
+    return this.localeService.getLocaleLink('en');
+  }
+
   logoTitle(link: ExternalLink): string {
     return `Logo ${link.title}`;
   }

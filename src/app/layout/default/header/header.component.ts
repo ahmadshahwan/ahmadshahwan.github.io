@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Router, RouterLink} from '@angular/router';
+import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
 import {LayoutService} from '../../../services/content/layout.service';
@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   constructor(
     private readonly layoutService: LayoutService,
     private readonly localeService: LocaleService,
-    private readonly router: Router,
   ) {
   }
 
@@ -35,15 +34,6 @@ export class HeaderComponent implements OnInit {
   }
 
   get switchLocaleLink(): string {
-    const [currentUrl] = this.router.url.split('#');
-    const targetLocal = this.locale === 'en' ? 'fr' : 'en';
-    if (currentUrl === `/${this.locale}`) {
-      return `/${targetLocal}`;
-    }
-    if (currentUrl.startsWith(`/${this.locale}/`)) {
-      return currentUrl.replace(`/${this.locale}/`, `/${targetLocal}/`);
-    }
-    //const fragmentPart = fragment ? `#${fragment}` : '';
-    return `/${targetLocal}/${currentUrl}`;
+    return this.localeService.getSwitchLocaleLink();
   }
 }

@@ -143,6 +143,7 @@ const EXTERNAL_LINK = `{
 const SIDEBAR = `{
   id
   externalLinksMenuTitle
+  languageMenuTitle
   externalLinks ${EXTERNAL_LINK}
 }`;
 

@@ -130,6 +130,7 @@ export interface Publication {
 export interface Sidebar {
   id: string;
   externalLinksMenuTitle: string;
+  languageMenuTitle: string;
   externalLinks: ExternalLink[];
 }
 
