@@ -7,11 +7,12 @@ const DEFAULT_LOCALE = 'en';
 
 const redirectRoutes: Routes = [
   ...baseRoutes
+    .filter(route => route.path)
     .map(route => ({
       path: route.path,
-      redirectTo: route.path ? `${DEFAULT_LOCALE}/${route.path}` : DEFAULT_LOCALE,
-      pathMatch: 'full' as const,
+      redirectTo: `${DEFAULT_LOCALE}/${route.path}`,
     })),
+  {path: '', redirectTo: DEFAULT_LOCALE, pathMatch: 'full'},
 ];
 
 export const routes: Routes = [
