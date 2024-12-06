@@ -1,21 +1,19 @@
-/**
- * Components should be loaded lazily to avoid referencing Angular internals in sitemap generation script.
- */
+import {HomeComponent} from '../pages/home/home.component';
+import {CareerComponent} from '../pages/career/career.component';
+import {EducationComponent} from '../pages/education/education.component';
+import {TeachingComponent} from '../pages/teaching/teaching.component';
+import {ResearchComponent} from '../pages/research/research.component';
+import {EventsComponent} from '../pages/events/events.component';
+import {MaterialsComponent} from '../pages/materials/materials.component';
+import {PhdDefenseComponent} from '../pages/phd-defense/phd-defense.component';
+
 export const baseRoutes = [
-  {path: '', loadComponent: () => import('../pages/home/home.component')
-      .then(m => m.HomeComponent)},
-  {path: 'career', loadComponent: () => import('../pages/career/career.component')
-      .then(m => m.CareerComponent)},
-  {path: 'education', loadComponent: () => import('../pages/education/education.component')
-      .then(m => m.EducationComponent)},
-  {path: 'teaching', loadComponent: () => import('../pages/teaching/teaching.component')
-      .then(m => m.TeachingComponent)},
-  {path: 'research', loadComponent: () => import('../pages/research/research.component')
-      .then(m => m.ResearchComponent)},
-  {path: 'events', loadComponent: () => import('../pages/events/events.component')
-      .then(m => m.EventsComponent)},
-  {path: 'materials', loadComponent: () => import('../pages/materials/materials.component')
-      .then(m => m.MaterialsComponent)},
-  {path: 'phd-defense', loadComponent: () => import('../pages/phd-defense/phd-defense.component')
-      .then(m => m.PhdDefenseComponent)},
+  {path: '', component: HomeComponent},
+  {path: 'career', component: CareerComponent},
+  {path: 'education', component: EducationComponent},
+  {path: 'teaching', component: TeachingComponent},
+  {path: 'research', component: ResearchComponent},
+  {path: 'events', component: EventsComponent},
+  {path: 'materials', component: MaterialsComponent},
+  {path: 'phd-defense', component: PhdDefenseComponent},
 ];
