@@ -38,9 +38,6 @@ type Canonical = {
 
 const BASE_URL = 'https://ahmad.shahwan.pw';
 
-// Change to true when #1 is solved
-const INCLUDE_REDIRECTS = false;
-
 function urlFromPath(path: string, prefix: string = '') {
   const thePrefix = prefix ? `${BASE_URL}/${prefix}` : BASE_URL;
   return path ? `${thePrefix}/${path}` : `${thePrefix}`;
@@ -58,7 +55,7 @@ const canonicals: Canonical[] = baseRoutes
   .map(route => en(route.path))
   .map(url => ({url, alternates: []}));
 
-INCLUDE_REDIRECTS && baseRoutes
+baseRoutes
   .map(route => route.path)
   .forEach(path => {
     const canonical = canonicals.find(c => c.url === en(path));
