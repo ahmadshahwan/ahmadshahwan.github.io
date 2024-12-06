@@ -3,6 +3,10 @@ import {js2xml} from 'xml-js';
 import {baseRoutes} from './route-map';
 import {ElementCompact} from 'xml-js';
 
+type Route = {
+  path: string,
+};
+
 type TextNode = {
   _text: string,
 };
@@ -38,50 +42,34 @@ type Canonical = {
 
 const BASE_URL = 'https://ahmad.shahwan.pw';
 
-function urlFromPath(path: string, prefix: string = '') {
-  const thePrefix = prefix ? `${BASE_URL}/${prefix}` : BASE_URL;
-  return path ? `${thePrefix}/${path}` : `${thePrefix}`;
+function urlFromPath(path: string, prefix: string) {
+  const fullPrefix = prefix ? `${BASE_URL}/${prefix}` : BASE_URL;
+  return path ? `${fullPrefix}/${path}` : `${fullPrefix}`;
 }
 
-function en(path: string) {
+function rootUrl(path: string) {
+  return urlFromPath(path, '');
+}
+
+function enUrl(path: string) {
   return urlFromPath(path, 'en');
 }
 
-function fr(path: string) {
+function frUrl(path: string) {
   return urlFromPath(path, 'fr');
 }
 
-const canonicals: Canonical[] = baseRoutes
-  .map(route => en(route.path))
-  .map(url => ({url, alternates: []}));
+function canonicalForRoute({path}: Route) {
+  return {
+    url: enUrl(path),
+    alternates: [
+      {url: rootUrl(path), locale: 'en'},
+      {url: frUrl(path), locale: 'fr'},
+    ],
+  };
+}
 
-baseRoutes
-  .map(route => route.path)
-  .forEach(path => {
-    const canonical = canonicals.find(c => c.url === en(path));
-    if (canonical) {
-      canonical.alternates.push({
-        url: urlFromPath(path),
-        locale: 'en',
-      });
-    } else {
-      console.error(`Coud not find canonical for redirect link ${path}`);
-    }
-  });
-
-baseRoutes
-  .map(route => route.path)
-  .forEach(path => {
-    const canonical = canonicals.find(c => c.url === en(path));
-    if (canonical) {
-      canonical.alternates.push({
-        url: fr(path),
-        locale: 'fr',
-      });
-    } else {
-      console.error(`Coud not find canonical for fr link ${path}`);
-    }
-  });
+const canonicals: Canonical[] = baseRoutes.map(canonicalForRoute);
 
 const now = new Date().toISOString().substring(0, 10);
 const lastmod = {_text: now};
