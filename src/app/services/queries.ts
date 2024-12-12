@@ -26,6 +26,8 @@ function imageWithSize(size: number): string {
   }`;
 }
 
+const ORDER_BY_PRIORITY_DESC = `orderBy: priority_DESC`;
+
 const IMAGE_32 = imageWithSize(32);
 const IMAGE_16 = imageWithSize(16);
 const IMAGE = `{
@@ -62,7 +64,7 @@ const INSTITUTE = `{
   id
   name
   icon ${IMAGE_32}
-  classes {
+  classes(${ORDER_BY_PRIORITY_DESC}) {
     id
     title
     description ${RICH_TEXT}
@@ -93,7 +95,7 @@ const EVENT = `{
   description ${RICH_TEXT}
 }`;
 
-const DEGREE = `{
+const DEGREE = `(${ORDER_BY_PRIORITY_DESC}) {
   id
   title
   year
