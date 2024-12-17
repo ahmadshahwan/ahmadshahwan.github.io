@@ -122,6 +122,7 @@ const EXPERIENCE = `{
   id
   title
   period
+  partner
   summary ${RICH_TEXT}
   details ${RICH_TEXT}
   icon ${IMAGE_32}
