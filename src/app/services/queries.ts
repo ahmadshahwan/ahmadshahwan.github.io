@@ -5,6 +5,12 @@ interface Typed<T> {}
 
 export type Query<T> = string & Typed<T>;
 
+const PAGE_SIZE = 50;
+
+const FIRST_PAGE_SIZE = `first: ${PAGE_SIZE}, `;
+
+const LIST_PARAMS = `(${FIRST_PAGE_SIZE})`;
+
 function imageWithSize(size: number): string {
   return `{
     height
@@ -58,15 +64,15 @@ const PAGE_GROUP = `{
   title
 }`;
 
-const INSTITUTE = `{
+const INSTITUTE = ` {
   id
   name
   icon ${IMAGE_32}
-  classes {
+  classes ${LIST_PARAMS} {
     id
     title
     description ${RICH_TEXT}
-    syllabi {
+    syllabi ${LIST_PARAMS} {
       id
       title
       url
@@ -131,7 +137,7 @@ const EXPERIENCE = `{
 const HEADER = `{
   id
   subtitle
-  links ${LINK}
+  links ${LIST_PARAMS} ${LINK}
 }`;
 
 const EXTERNAL_LINK = `{
@@ -145,20 +151,20 @@ const SIDEBAR = `{
   id
   externalLinksMenuTitle
   languageMenuTitle
-  externalLinks ${EXTERNAL_LINK}
+  externalLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
 }`;
 
 const FOOTER = `{
   id
   address
-  links ${EXTERNAL_LINK}
+  links ${LIST_PARAMS} ${EXTERNAL_LINK}
 }`;
 
 const HOMEPAGE = `{
   id
   bio ${CONTENT}
   interestsTitle
-  interests {
+  interests ${LIST_PARAMS} {
     id
     title
     description
@@ -170,13 +176,13 @@ const WEBSITE = `{
   header ${HEADER}
   footer ${FOOTER}
   sidebar ${SIDEBAR}
-  pages ${PAGE}
-  experiences ${EXPERIENCE}
-  degrees ${DEGREE}
-  institutes ${INSTITUTE}
-  publications ${PUBLICATION}
-  events ${EVENT}
-  contents ${CONTENT}
+  pages ${LIST_PARAMS} ${PAGE}
+  experiences ${LIST_PARAMS} ${EXPERIENCE}
+  degrees ${LIST_PARAMS} ${DEGREE}
+  institutes ${LIST_PARAMS} ${INSTITUTE}
+  publications ${LIST_PARAMS} ${PUBLICATION}
+  events ${LIST_PARAMS} ${EVENT}
+  contents ${LIST_PARAMS} ${CONTENT}
 }`;
 
 export const WEBSITE_QUERY: Query<LocalizedWebsite> = `{
