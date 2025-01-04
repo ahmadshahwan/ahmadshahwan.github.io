@@ -1,7 +1,7 @@
 import {writeFile} from 'fs';
 import {js2xml, ElementCompact} from 'xml-js';
 import '@angular/compiler';
-import {baseRoutes} from './route-map';
+import {baseRoutes} from '../app.routes';
 
 
 type Route = {
