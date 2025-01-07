@@ -55,6 +55,14 @@ export interface Experience {
   icon: Image;
 }
 
+export interface Skill {
+  id: string;
+  title: string;
+  details: string;
+  proficiency: number;
+  icon: Image;
+}
+
 export interface ExternalLink {
   id: string;
   title: string;
@@ -140,6 +148,7 @@ export interface Website {
   footer: Footer;
   sidebar: Sidebar;
   experiences: Experience[];
+  skills: Skill[];
   degrees: Degree[];
   events: Event[];
   institutes: Institute[];

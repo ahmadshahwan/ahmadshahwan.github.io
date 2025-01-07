@@ -134,6 +134,14 @@ const EXPERIENCE = `{
   icon ${IMAGE_32}
 }`;
 
+const SKILL = `{
+  id,
+  title,
+  details,
+  proficiency,
+  icon ${IMAGE_32}
+}`;
+
 const HEADER = `{
   id
   subtitle
@@ -178,6 +186,7 @@ const WEBSITE = `{
   sidebar ${SIDEBAR}
   pages ${LIST_PARAMS} ${PAGE}
   experiences ${LIST_PARAMS} ${EXPERIENCE}
+  skills ${LIST_PARAMS} ${SKILL}
   degrees ${LIST_PARAMS} ${DEGREE}
   institutes ${LIST_PARAMS} ${INSTITUTE}
   publications ${LIST_PARAMS} ${PUBLICATION}
