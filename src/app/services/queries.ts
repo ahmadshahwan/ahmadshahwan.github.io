@@ -48,6 +48,12 @@ const IMAGE = `{
   )
 }`;
 
+const RAW_IMAGE = `{
+  height
+  width
+  url
+}`;
+
 const RICH_TEXT = `{
   text
   html
@@ -139,7 +145,7 @@ const SKILL = `{
   title,
   details,
   proficiency,
-  icon ${IMAGE_32}
+  icon ${RAW_IMAGE}
 }`;
 
 const HEADER = `{
