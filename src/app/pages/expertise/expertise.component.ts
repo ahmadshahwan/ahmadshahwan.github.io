@@ -21,6 +21,7 @@ import {SkillRepositoryService} from '../../services/expertise/skill-repository.
 export class ExpertiseComponent implements OnInit {
   skills: Observable<Skill[]> = of([]);
   page: Observable<Page | undefined> = of(undefined);
+  details: string = '';
 
   constructor(
     private readonly repository: SkillRepositoryService,
@@ -31,5 +32,13 @@ export class ExpertiseComponent implements OnInit {
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('expertise');
     this.skills = this.repository.fetchAll();
+  }
+
+  show(skill: Skill) {
+    this.details = skill.details;
+  }
+
+  hide() {
+    this.details = '';
   }
 }

@@ -1,13 +1,16 @@
-import {Component, Input} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {Skill} from '../../../model';
+import {NgClass} from '@angular/common';
+
+const MAX_WIDTH = 100;
+const MAX_FONT_SIZE = 32;
 
 @Component({
   selector: 'app-skill',
   standalone: true,
-    imports: [
-        NgOptimizedImage
-    ],
+  imports: [
+    NgClass
+  ],
   templateUrl: './skill.component.html',
   styleUrl: './skill.component.scss'
 })
@@ -16,8 +19,17 @@ export class SkillComponent {
   @Input({required: true})
   model!: Skill;
 
-  get proficiencyAsPercentage() {
-    return `${20 + this.model.proficiency * 75}%`;
+  @ViewChild('title')
+  title!: ElementRef<HTMLElement>;
+
+  inFocus = false;
+
+  get width() {
+    return `${this.model.proficiency * MAX_WIDTH}px`;
+  }
+
+  get fontSize() {
+    return `${this.model.proficiency * MAX_FONT_SIZE}px`;
   }
 
 }

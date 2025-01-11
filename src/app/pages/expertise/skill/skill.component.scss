@@ -1,31 +1,17 @@
 .skill {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin: 5px;
 
-  .icon {
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-
-    .thumbnail {
-      height: 32px;
-      width: 32px;
-    }
+  .thumbnail {
+    height: 100%;
+    width: 100%;
   }
 
-  .details {
+  .header {
     width: 100%;
-
-    .description {
-      padding-bottom: .75em;
-    }
-
-    .header {
-      height: 1.5em;
-
-      font-size: 16px;
-    }
+    height: 1.5em;
+    font-size: 16px;
+    text-align: center;
   }
 }
