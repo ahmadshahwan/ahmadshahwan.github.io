@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
 import {LayoutService} from '../../../services/content/layout.service';
@@ -10,7 +9,7 @@ import {LocaleService} from '../../../services/locale.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, MenuLinkComponent],
+  imports: [CommonModule, MenuLinkComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
