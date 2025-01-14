@@ -1,18 +1,17 @@
 import {Component, OnInit, Signal} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {RouterLink} from '@angular/router';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {PageStateService} from '../../../services/content/page-state.service';
 import {LayoutService} from '../../../services/content/layout.service';
 import {Observable, of} from 'rxjs';
-import {Sidebar, Link, ExternalLink} from '../../../model';
+import {ExternalLink, Link, Sidebar} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
 
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink, MenuLinkComponent],
+  imports: [CommonModule, NgOptimizedImage, MenuLinkComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
