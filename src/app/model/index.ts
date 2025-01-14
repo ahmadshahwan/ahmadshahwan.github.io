@@ -113,12 +113,12 @@ export interface Page {
   slug: string;
   title: string;
   description: string;
-  links: Link[];
   group: PageGroup;
 }
 
 export interface PageGroup {
   title: string;
+  links: Link[];
 }
 
 export interface PublicationCategory {

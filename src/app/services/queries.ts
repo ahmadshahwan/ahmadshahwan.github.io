@@ -68,6 +68,7 @@ const LINK = `{
 const PAGE_GROUP = `{
   id
   title
+  links ${LINK}
 }`;
 
 const INSTITUTE = ` {
@@ -118,7 +119,6 @@ const PAGE = `{
     slug
     title
     description
-    links ${LINK}
     group ${PAGE_GROUP}
 }`;
 

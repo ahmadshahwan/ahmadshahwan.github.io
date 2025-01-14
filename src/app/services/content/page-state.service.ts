@@ -31,7 +31,7 @@ export class PageStateService {
         this.title.setTitle(`${TITLE_SUFFIX} | ${page.title}`);
         this.meta.updateTag({name: 'description', content: page.description});
         this.currentPageGroup.set(page.group.title);
-        this.currentLinks.set(page.links);
+        this.currentLinks.set(page.group.links);
       });
     return pageObservable;
   }
