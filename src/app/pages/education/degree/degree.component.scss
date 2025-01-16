@@ -17,22 +17,16 @@
   }
 
   .details {
-    flex-direction: column;
     width: 100%;
+    margin-left: 1em;
 
-
-    div.line {
+    .secondary {
       display: flex;
-      flex-direction: row;
+      justify-content: space-between;
+    }
 
-      > div:first-child {
-        width: 15em;
-      }
-
-      .academic-title {
-        font-weight: bold;
-
-      }
+    .academic-title {
+      font-weight: bold;
     }
   }
 }

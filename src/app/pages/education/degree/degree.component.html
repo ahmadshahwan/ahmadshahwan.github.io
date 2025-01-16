@@ -3,19 +3,18 @@
     <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.institution">
   </div>
   <div class="details">
-    <div class="line">
-      <div class="year">
-        {{ model.year }}
-      </div>
+    <div class="primary">
       <div class="academic-title">
         {{ model.title }}
       </div>
     </div>
-    <div class="line">
-      <div>&nbsp;</div>
-      <div class="institution">
+    <div class="secondary">
+      <span class="institution">
         {{ model.institution }}
-      </div>
+      </span>
+      <span class="year">
+        {{ model.year }}
+      </span>
     </div>
   </div>
 </div>
