@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
-import {LayoutService} from '../../../services/content/layout.service';
 import {Header} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
+import {ContentRepositoryService} from '../../../services/content/content-repository.service';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +17,14 @@ export class HeaderComponent implements OnInit {
 
   header: Observable<Header | undefined> = of(undefined);
   constructor(
-    private readonly layoutService: LayoutService,
+    private readonly layoutService: ContentRepositoryService,
     private readonly localeService: LocaleService,
   ) {
   }
 
   ngOnInit(): void {
     this.localeService.changes.subscribe(
-      () => this.header = this.layoutService.fetchHeader()
+      () => this.header = this.layoutService.fetch()
     );
   }
 

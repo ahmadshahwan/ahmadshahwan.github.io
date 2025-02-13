@@ -32,9 +32,11 @@ export class ApiClientService {
 
   fetch<K extends SluggishKeysOfWebsite>(field: K, slug: string): Observable<Website[K][number] | undefined>;
   fetch<K extends KeysOfWebsite>(field: K): Observable<Website[K]>;
-  fetch<K extends KeysOfWebsite>(field: K, slug?: string) {
+  fetch(): Observable<Website>;
+  fetch<K extends KeysOfWebsite>(field?: K, slug?: string) {
     const locale = this.localeService.current() || 'en';
-    const mapper = (cache: LocalizedWebsite) => slug ?
+    const mapper = (cache: LocalizedWebsite) => !field ?
+        cache[locale] : slug ?
         cache[locale][field as SluggishKeysOfWebsite].find(e => e.slug === slug) :
         cache[locale][field];
     return this.fetchLocalizedWebsite().pipe(map(mapper));

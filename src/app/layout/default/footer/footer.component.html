@@ -1,6 +1,6 @@
 <div id="footer">
   <div class="socials">
-    @for (link of (footer | async)?.links; track link.id) {
+    @for (link of (footer | async)?.socialLinks; track link.id) {
       <a target="_blank" [href]="link.url">
         <img [alt]="link.title" [ngSrc]="link.icon.url" height="16" width="16" />
       </a>

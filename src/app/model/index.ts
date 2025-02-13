@@ -22,14 +22,6 @@ export interface Class {
   syllabi?: Syllabus[];
 }
 
-export interface Content {
-  id: string;
-  slug: string;
-  title?: string;
-  text: RichText;
-  image?: Image;
-}
-
 export interface Degree {
   id: string;
   title: string;
@@ -73,7 +65,7 @@ export interface ExternalLink {
 export interface Footer {
   id: string;
   address: string;
-  links: ExternalLink[];
+  socialLinks: ExternalLink[];
 }
 
 export interface Header {
@@ -84,7 +76,8 @@ export interface Header {
 
 export interface Homepage {
   id: string;
-  bio: Content;
+  bio: RichText;
+  bioImage: Image;
   interestsTitle: string;
   interests: Interest[];
 }
@@ -142,11 +135,7 @@ export interface Sidebar {
   externalLinks: ExternalLink[];
 }
 
-export interface Website {
-  homepage: Homepage;
-  header: Header;
-  footer: Footer;
-  sidebar: Sidebar;
+export interface Website extends Sidebar, Footer, Header, Homepage {
   experiences: Experience[];
   skills: Skill[];
   degrees: Degree[];
@@ -154,7 +143,7 @@ export interface Website {
   institutes: Institute[];
   pages: Page[];
   publications: Publication[];
-  contents: Content[];
+  phdDefense: RichText;
 }
 
 export interface LocalizedWebsite {

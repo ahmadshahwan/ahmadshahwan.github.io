@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {PageStateService} from '../../services/content/page-state.service';
-import {HomepageRepositoryService} from '../../services/content/homepage-repository.service';
-import {Homepage} from '../../model';
+import {Homepage, Page} from '../../model';
+import {ContentRepositoryService} from '../../services/content/content-repository.service';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +14,15 @@ import {Homepage} from '../../model';
 export class HomeComponent implements OnInit {
 
   homepage?: Homepage;
+  page?: Page;
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly homeRepositoryService: HomepageRepositoryService,
+    private readonly homeRepositoryService: ContentRepositoryService,
   ) {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('home');
+    this.pageStateService.updatePage('home').subscribe(page => this.page = page);
     this.homeRepositoryService.fetch().subscribe(homepage => this.homepage = homepage);
   }
 }

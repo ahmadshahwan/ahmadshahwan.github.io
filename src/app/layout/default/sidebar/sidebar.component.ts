@@ -2,10 +2,10 @@ import {Component, OnInit, Signal} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {PageStateService} from '../../../services/content/page-state.service';
-import {LayoutService} from '../../../services/content/layout.service';
 import {Observable, of} from 'rxjs';
 import {ExternalLink, Link, Sidebar} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
+import {ContentRepositoryService} from '../../../services/content/content-repository.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
   readonly group: Signal<string>;
   sidebar: Observable<Sidebar | undefined> = of(undefined);
   constructor(
-    private readonly layoutService: LayoutService,
+    private readonly layoutService: ContentRepositoryService,
     private readonly localeService: LocaleService,
     pageStateService: PageStateService,
   ) {
@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.localeService.changes.subscribe(() =>
-      this.sidebar = this.layoutService.fetchSidebar()
+      this.sidebar = this.layoutService.fetch()
     );
   }
 

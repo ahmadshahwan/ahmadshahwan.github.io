@@ -37,20 +37,6 @@ const IMAGE_16 = imageWithSize(16);
 const IMAGE = `{
   height
   width
-  url(
-    transformation: {
-      document: {
-        output: {
-          format: png
-        }
-      }
-    }
-  )
-}`;
-
-const RAW_IMAGE = `{
-  height
-  width
   url
 }`;
 
@@ -122,14 +108,6 @@ const PAGE = `{
     group ${PAGE_GROUP}
 }`;
 
-const CONTENT = `{
-  id
-  title
-  slug
-  text ${RICH_TEXT}
-  image ${IMAGE}
-}`;
-
 const EXPERIENCE = `{
   id
   title
@@ -145,13 +123,7 @@ const SKILL = `{
   title,
   details,
   proficiency,
-  icon ${RAW_IMAGE}
-}`;
-
-const HEADER = `{
-  id
-  subtitle
-  links ${LIST_PARAMS} ${LINK}
+  icon ${IMAGE}
 }`;
 
 const EXTERNAL_LINK = `{
@@ -161,35 +133,13 @@ const EXTERNAL_LINK = `{
   icon ${IMAGE_16}
 }`;
 
-const SIDEBAR = `{
+const INTEREST = `{
   id
-  externalLinksMenuTitle
-  languageMenuTitle
-  externalLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
-}`;
-
-const FOOTER = `{
-  id
-  address
-  links ${LIST_PARAMS} ${EXTERNAL_LINK}
-}`;
-
-const HOMEPAGE = `{
-  id
-  bio ${CONTENT}
-  interestsTitle
-  interests ${LIST_PARAMS} {
-    id
-    title
-    description
-  }
+  title
+  description
 }`;
 
 const WEBSITE = `{
-  homepage ${HOMEPAGE}
-  header ${HEADER}
-  footer ${FOOTER}
-  sidebar ${SIDEBAR}
   pages ${LIST_PARAMS} ${PAGE}
   experiences ${LIST_PARAMS} ${EXPERIENCE}
   skills ${LIST_PARAMS} ${SKILL}
@@ -197,7 +147,18 @@ const WEBSITE = `{
   institutes ${LIST_PARAMS} ${INSTITUTE}
   publications ${LIST_PARAMS} ${PUBLICATION}
   events ${LIST_PARAMS} ${EVENT}
-  contents ${LIST_PARAMS} ${CONTENT}
+  links ${LIST_PARAMS} ${LINK}
+  externalLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
+  socialLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
+  interests ${LIST_PARAMS} ${INTEREST}
+  bioImage ${IMAGE}
+  interestsTitle
+  subtitle
+  externalLinksMenuTitle
+  languageMenuTitle
+  address
+  bio ${RICH_TEXT}
+  phdDefense ${RICH_TEXT}
 }`;
 
 export const WEBSITE_QUERY: Query<LocalizedWebsite> = `{
