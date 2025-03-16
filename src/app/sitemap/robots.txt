@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /assets/pdf/
+Disallow: /assets/
 
 Sitemap: https://ahmad.shahwan.pw/sitemap.xml
