@@ -15,15 +15,17 @@ export class RouterLinkAdapterDirective {
 
   @HostListener('click', ['$event'])
   public handleClick(event: Event): void {
-    if (event.target instanceof HTMLAnchorElement) {
-      const element = event.target;
-      const href = element.getAttribute('href');
-      if (href && element.target != '_blank') {
-        event.preventDefault();
-        const [command, fragment] = href.split('#');
-        const localizedCommand = this.localeService.localizedLink(command);
-        this.router.navigate([localizedCommand], {fragment}).then();
-      }
+    if (!(event.target instanceof HTMLAnchorElement)) {
+      return;
     }
+    const element = event.target;
+    const href = element.getAttribute('href');
+    if (!href || element.target === '_blank') {
+      return;
+    }
+    event.preventDefault();
+    const [command, fragment] = href.split('#');
+    const localizedCommand = this.localeService.localizedLink(command);
+    this.router.navigate([localizedCommand], {fragment}).then();
   }
 }
