@@ -30,6 +30,14 @@ export interface Degree {
   icon: Image;
 }
 
+export interface Certificate {
+  id: string;
+  title: string;
+  year: number;
+  institute: Institute;
+  url: string;
+}
+
 export interface Event {
   id: string;
   title: string;
@@ -139,6 +147,7 @@ export interface Website extends Sidebar, Footer, Header, Homepage {
   experiences: Experience[];
   skills: Skill[];
   degrees: Degree[];
+  certificates: Certificate[];
   events: Event[];
   institutes: Institute[];
   pages: Page[];

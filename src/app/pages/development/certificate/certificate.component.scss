@@ -1,0 +1,32 @@
+.certificate {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: .75em;
+
+  .icon {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+    .thumbnail {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  .details {
+    width: 100%;
+    margin-left: 1em;
+
+    .secondary {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .academic-title {
+      font-weight: bold;
+    }
+  }
+}

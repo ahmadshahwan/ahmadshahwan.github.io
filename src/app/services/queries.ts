@@ -100,6 +100,14 @@ const DEGREE = `{
   icon ${IMAGE_32}
 }`;
 
+const CERTIFICATE = `{
+  id
+  title
+  year
+  institute ${INSTITUTE}
+  url
+}`;
+
 const PAGE = `{
     id
     slug
@@ -144,6 +152,7 @@ const WEBSITE = `{
   experiences ${LIST_PARAMS} ${EXPERIENCE}
   skills ${LIST_PARAMS} ${SKILL}
   degrees ${LIST_PARAMS} ${DEGREE}
+  certificates ${LIST_PARAMS} ${CERTIFICATE}
   institutes ${LIST_PARAMS} ${INSTITUTE}
   publications ${LIST_PARAMS} ${PUBLICATION}
   events ${LIST_PARAMS} ${EVENT}

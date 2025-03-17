@@ -1,0 +1,20 @@
+<div class="certificate">
+  <div class="icon">
+    <img class="thumbnail" [ngSrc]="model.institute.icon.url" height="32" width="32" [alt]="model.institute.name">
+  </div>
+  <div class="details">
+    <div class="primary">
+      <div class="academic-title">
+        {{ model.title }}
+      </div>
+    </div>
+    <div class="secondary">
+      <span class="institution">
+        {{ model.institute.name }}
+      </span>
+      <span class="year">
+        {{ model.year }}
+      </span>
+    </div>
+  </div>
+</div>
