@@ -1,0 +1,15 @@
+<div class="post">
+  @if (homepage && page) {
+    <div class="title">
+      <h2>{{ page.title }}</h2>
+    </div>
+    <div class="interests">
+      @for (interest of homepage.interests; track interest.id) {
+        <div class="interest-details">
+          <div class="interest-title">{{ interest.title }}</div>
+          <div>{{ interest.description }}</div>
+        </div>
+      }
+    </div>
+  }
+</div>

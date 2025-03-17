@@ -11,18 +11,6 @@
         [height]="homepage.bioImage.height"
         class="align-left" />
       <div [innerHTML]="homepage.bio.html"></div>
-
-      @if (homepage.interests.length) {
-        <h3>{{ homepage.interestsTitle }}</h3>
-        <div class="interests">
-          @for (interest of homepage.interests; track interest.id) {
-            <div class="interest-details">
-              <div class="interest-title">{{ interest.title }}</div>
-              <div>{{ interest.description }}</div>
-            </div>
-          }
-        </div>
-      }
     </div>
   }
 </div>

@@ -10,12 +10,14 @@ import {EventsComponent} from './pages/events/events.component';
 import {MaterialsComponent} from './pages/materials/materials.component';
 import {PhdDefenseComponent} from './pages/phd-defense/phd-defense.component';
 import {ExpertiseComponent} from './pages/expertise/expertise.component';
+import {InterestsComponent} from './pages/interests/interests.component';
 
 export const baseRoutes = [
   {path: '', component: HomeComponent},
   {path: 'career', component: CareerComponent},
   {path: 'expertise', component: ExpertiseComponent},
   {path: 'education', component: EducationComponent},
+  {path: 'interests', component: InterestsComponent},
   {path: 'teaching', component: TeachingComponent},
   {path: 'research', component: ResearchComponent},
   {path: 'events', component: EventsComponent},
