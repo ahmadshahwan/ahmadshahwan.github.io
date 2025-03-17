@@ -35,7 +35,7 @@ export interface Certificate {
   title: string;
   year: number;
   institute: Institute;
-  url: string;
+  url?: string;
 }
 
 export interface Event {
