@@ -3,7 +3,7 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {PageStateService} from '../../../services/content/page-state.service';
 import {Observable, of} from 'rxjs';
-import {ExternalLink, Link, Sidebar} from '../../../model';
+import {ExternalLink, Link, Website} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
 import {ContentRepositoryService} from '../../../services/content/content-repository.service';
 
@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
 
   readonly links: Signal<Link[]>;
   readonly group: Signal<string>;
-  sidebar: Observable<Sidebar | undefined> = of(undefined);
+  sidebar: Observable<Website | undefined> = of(undefined);
   constructor(
     private readonly layoutService: ContentRepositoryService,
     private readonly localeService: LocaleService,

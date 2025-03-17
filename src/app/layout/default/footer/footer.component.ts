@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Observable, of} from 'rxjs';
-import {Footer} from '../../../model';
+import {Website} from '../../../model';
 import {ContentRepositoryService} from '../../../services/content/content-repository.service';
 
 @Component({
@@ -13,7 +13,7 @@ import {ContentRepositoryService} from '../../../services/content/content-reposi
 })
 export class FooterComponent implements OnInit {
 
-  footer: Observable<Footer | undefined> = of(undefined);
+  footer: Observable<Website | undefined> = of(undefined);
 
   constructor(
     private readonly layoutService: ContentRepositoryService,

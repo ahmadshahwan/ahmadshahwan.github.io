@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
-import {Header} from '../../../model';
+import {Website} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
 import {ContentRepositoryService} from '../../../services/content/content-repository.service';
 
@@ -15,7 +15,7 @@ import {ContentRepositoryService} from '../../../services/content/content-reposi
 })
 export class HeaderComponent implements OnInit {
 
-  header: Observable<Header | undefined> = of(undefined);
+  header: Observable<Website | undefined> = of(undefined);
   constructor(
     private readonly layoutService: ContentRepositoryService,
     private readonly localeService: LocaleService,
@@ -26,13 +26,5 @@ export class HeaderComponent implements OnInit {
     this.localeService.changes.subscribe(
       () => this.header = this.layoutService.fetch()
     );
-  }
-
-  get locale(): 'en' | 'fr' | undefined {
-    return this.localeService.current();
-  }
-
-  get switchLocaleLink(): string {
-    return this.localeService.getSwitchLocaleLink();
   }
 }

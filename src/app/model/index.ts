@@ -70,22 +70,6 @@ export interface ExternalLink {
   icon: Image;
 }
 
-export interface Footer {
-  id: string;
-  address: string;
-  socialLinks: ExternalLink[];
-}
-
-export interface Header {
-  id: string;
-  subtitle: string;
-  links: Link[];
-}
-
-export interface Homepage {
-  interests: Interest[];
-}
-
 export interface Institute {
   id: string;
   name: string;
@@ -134,14 +118,11 @@ export interface Publication {
   category: PublicationCategory;
 }
 
-export interface Sidebar {
-  id: string;
+export interface Website {
+  subtitle: string;
+  address: string;
   externalLinksMenuTitle: string;
   languageMenuTitle: string;
-  externalLinks: ExternalLink[];
-}
-
-export interface Website extends Sidebar, Footer, Header, Homepage {
   experiences: Experience[];
   skills: Skill[];
   degrees: Degree[];
@@ -150,6 +131,10 @@ export interface Website extends Sidebar, Footer, Header, Homepage {
   institutes: Institute[];
   pages: Page[];
   publications: Publication[];
+  interests: Interest[];
+  links: Link[];
+  socialLinks: ExternalLink[];
+  externalLinks: ExternalLink[];
 }
 
 export interface LocalizedWebsite {

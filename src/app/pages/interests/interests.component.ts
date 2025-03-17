@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Homepage, Page} from '../../model';
+import {Interest, Page} from '../../model';
 import {PageStateService} from '../../services/content/page-state.service';
-import {ContentRepositoryService} from '../../services/content/content-repository.service';
+import {InterestsRepositoryService} from '../../services/hobbies/interests-repository.service';
 
 @Component({
   selector: 'app-interests',
@@ -12,16 +12,16 @@ import {ContentRepositoryService} from '../../services/content/content-repositor
 })
 export class InterestsComponent implements OnInit {
 
-  homepage?: Homepage;
+  interests: Interest[] = [];
   page?: Page;
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly homeRepositoryService: ContentRepositoryService,
+    private readonly interestsRepositoryService: InterestsRepositoryService,
   ) {
   }
 
   ngOnInit(): void {
     this.pageStateService.updatePage('interests').subscribe(page => this.page = page);
-    this.homeRepositoryService.fetch().subscribe(homepage => this.homepage = homepage);
+    this.interestsRepositoryService.fetchAll().subscribe(interests => this.interests = interests);
   }
 }
