@@ -83,10 +83,6 @@ export interface Header {
 }
 
 export interface Homepage {
-  id: string;
-  bio: RichText;
-  bioImage: Image;
-  interestsTitle: string;
   interests: Interest[];
 }
 
@@ -115,6 +111,8 @@ export interface Page {
   title: string;
   description: string;
   group: PageGroup;
+  text?: RichText;
+  image?: Image;
 }
 
 export interface PageGroup {
@@ -152,7 +150,6 @@ export interface Website extends Sidebar, Footer, Header, Homepage {
   institutes: Institute[];
   pages: Page[];
   publications: Publication[];
-  phdDefense: RichText;
 }
 
 export interface LocalizedWebsite {

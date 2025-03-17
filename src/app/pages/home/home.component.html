@@ -1,16 +1,20 @@
 <div class="post">
-  @if (homepage && homepage.bioImage && page && page.title) {
+  @if (page) {
     <div class="title">
       <h2>{{ page.title }}</h2>
     </div>
     <div class="entry">
-      <img
-        [ngSrc]="homepage.bioImage.url"
-        [alt]="page.title"
-        [width]="homepage.bioImage.width"
-        [height]="homepage.bioImage.height"
-        class="align-left" />
-      <div [innerHTML]="homepage.bio.html"></div>
+      @if (page.image) {
+        <img
+          [ngSrc]="page.image.url"
+          [alt]="page.title"
+          [width]="page.image.width"
+          [height]="page.image.height"
+          class="align-left" />
+      }
+      @if (page.text) {
+        <div [innerHTML]="page.text.html"></div>
+      }
     </div>
   }
 </div>

@@ -114,6 +114,8 @@ const PAGE = `{
     title
     description
     group ${PAGE_GROUP}
+    text ${RICH_TEXT}
+    image ${IMAGE}
 }`;
 
 const EXPERIENCE = `{
@@ -160,14 +162,11 @@ const WEBSITE = `{
   externalLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
   socialLinks ${LIST_PARAMS} ${EXTERNAL_LINK}
   interests ${LIST_PARAMS} ${INTEREST}
-  bioImage ${IMAGE}
   interestsTitle
   subtitle
   externalLinksMenuTitle
   languageMenuTitle
   address
-  bio ${RICH_TEXT}
-  phdDefense ${RICH_TEXT}
 }`;
 
 export const WEBSITE_QUERY: Query<LocalizedWebsite> = `{

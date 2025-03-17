@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {PageStateService} from '../../services/content/page-state.service';
-import {Observable, of} from 'rxjs';
-import {Page, RichText} from '../../model';
-import {ContentRepositoryService} from '../../services/content/content-repository.service';
+import {Page} from '../../model';
 
 @Component({
   selector: 'app-phd-defense',
@@ -14,17 +12,14 @@ import {ContentRepositoryService} from '../../services/content/content-repositor
 })
 export class PhdDefenseComponent implements OnInit {
 
-  page: Observable<Page | undefined> = of(undefined);
-  content: Observable<RichText | undefined> = of(undefined);
+  page?: Page;
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly contentRepositoryService: ContentRepositoryService,
   ) {
   }
 
   ngOnInit(): void {
-    this.page = this.pageStateService.updatePage('defense');
-    this.content = this.contentRepositoryService.fetch('phdDefense');
+    this.pageStateService.updatePage('defense').subscribe(page => this.page = page);
   }
 }
