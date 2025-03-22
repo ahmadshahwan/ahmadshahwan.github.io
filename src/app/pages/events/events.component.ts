@@ -17,13 +17,12 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class EventsComponent implements OnInit {
 
   events: Observable<Event[]> = of([]);
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
 
   constructor(
     private readonly pageStateService: PageStateService,
     private readonly repository: EventRepositoryService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('events');

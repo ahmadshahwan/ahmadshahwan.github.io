@@ -15,16 +15,15 @@ import {ContentRepositoryService} from '../../../services/content/content-reposi
 })
 export class HeaderComponent implements OnInit {
 
-  header: Observable<Website | undefined> = of(undefined);
+  header: Observable<Website> = of();
   constructor(
-    private readonly layoutService: ContentRepositoryService,
+    private readonly contentRepositoryService: ContentRepositoryService,
     private readonly localeService: LocaleService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.localeService.changes.subscribe(
-      () => this.header = this.layoutService.fetch()
+      () => this.header = this.contentRepositoryService.fetch()
     );
   }
 }

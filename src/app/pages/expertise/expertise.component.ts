@@ -20,13 +20,12 @@ import {SkillRepositoryService} from '../../services/expertise/skill-repository.
 })
 export class ExpertiseComponent implements OnInit {
   skills: Observable<Skill[]> = of([]);
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
 
   constructor(
     private readonly repository: SkillRepositoryService,
     private readonly pageStateService: PageStateService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('expertise');

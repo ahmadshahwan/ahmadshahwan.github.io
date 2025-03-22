@@ -13,14 +13,13 @@ import {ContentRepositoryService} from '../../../services/content/content-reposi
 })
 export class FooterComponent implements OnInit {
 
-  footer: Observable<Website | undefined> = of(undefined);
+  footer: Observable<Website> = of();
 
   constructor(
-    private readonly layoutService: ContentRepositoryService,
-  ) {
-  }
+    private readonly contentRepositoryService: ContentRepositoryService,
+  ) {}
 
   ngOnInit(): void {
-    this.footer = this.layoutService.fetch();
+    this.footer = this.contentRepositoryService.fetch();
   }
 }

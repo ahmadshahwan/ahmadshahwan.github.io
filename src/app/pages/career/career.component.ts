@@ -17,13 +17,12 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class CareerComponent implements OnInit {
 
   experiences: Observable<Experience[]> = of([]);
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
 
   constructor(
     private readonly repository: ExperienceRepositoryService,
     private readonly pageStateService: PageStateService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('career');

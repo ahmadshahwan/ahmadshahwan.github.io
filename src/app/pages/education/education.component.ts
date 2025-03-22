@@ -17,14 +17,12 @@ import {PageStateService} from '../../services/content/page-state.service';
 export class EducationComponent implements OnInit {
 
   degrees: Observable<Degree[]> = of([]);
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
 
   constructor(
       private readonly pageStateService: PageStateService,
       private readonly repository: DegreeRepositoryService,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
     this.page = this.pageStateService.updatePage('education');

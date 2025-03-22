@@ -17,14 +17,13 @@ type Category = Publication['category'];
 })
 export class ResearchComponent implements OnInit {
 
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
   publications: Publication[] = [];
 
   constructor(
     private readonly pageStateService: PageStateService,
     private readonly publicationRepositoryService: PublicationRepositoryService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('research');

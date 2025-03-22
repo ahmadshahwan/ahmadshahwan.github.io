@@ -19,14 +19,12 @@ import {CertificateComponent} from './certificate/certificate.component';
 export class DevelopmentComponent implements OnInit {
 
   certificates: Observable<Certificate[]> = of([]);
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
 
   constructor(
     private readonly pageStateService: PageStateService,
     private readonly repository: CertificatesRepositoryService,
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {
     this.page = this.pageStateService.updatePage('certificates');

@@ -19,9 +19,9 @@ export class SidebarComponent implements OnInit {
 
   readonly links: Signal<Link[]>;
   readonly group: Signal<string>;
-  sidebar: Observable<Website | undefined> = of(undefined);
+  sidebar: Observable<Website> = of();
   constructor(
-    private readonly layoutService: ContentRepositoryService,
+    private readonly contentRepositoryService: ContentRepositoryService,
     private readonly localeService: LocaleService,
     pageStateService: PageStateService,
   ) {
@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.localeService.changes.subscribe(() =>
-      this.sidebar = this.layoutService.fetch()
+      this.sidebar = this.contentRepositoryService.fetch()
     );
   }
 

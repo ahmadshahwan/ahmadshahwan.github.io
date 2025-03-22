@@ -17,7 +17,7 @@ import {PageStateService} from '../../services/content/page-state.service';
 })
 export class TeachingComponent implements OnInit {
 
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
   institutes: Observable<Institute[]> = of([]);
 
   constructor(

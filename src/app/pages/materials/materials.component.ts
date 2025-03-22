@@ -16,7 +16,7 @@ import {ClassRepositoryService} from '../../services/teaching/class-repository.s
 })
 export class MaterialsComponent implements OnInit {
 
-  page: Observable<Page | undefined> = of(undefined);
+  page: Observable<Page> = of();
   classes: Observable<Class[]> = of([]);
 
   constructor(
