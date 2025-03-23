@@ -1,17 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
-import {TopicComponent} from './topic/topic.component';
 import {InstitutionComponent} from './institution/institution.component';
-import {InstituteRepositoryService} from '../../services/teaching/institute-repository.service';
 import {Observable, of} from 'rxjs';
 import {Institute, Page} from '../../model';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-teaching',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent, TopicComponent, InstitutionComponent],
+  imports: [CommonModule, ScrollableComponent, InstitutionComponent],
   templateUrl: './teaching.component.html',
   styleUrl: './teaching.component.scss'
 })
@@ -22,12 +21,12 @@ export class TeachingComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly repository: InstituteRepositoryService,
+    private readonly apiClient: ApiClientService,
   ) {
   }
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('classes');
-    this.institutes = this.repository.fetchAll();
+    this.institutes = this.apiClient.fetch('institutes');
   }
 }

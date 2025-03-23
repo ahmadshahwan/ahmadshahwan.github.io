@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
-import {EventRepositoryService} from '../../services/events/event-repository.service';
 import {Observable, of} from 'rxjs';
 import {EventComponent} from './event/event.component';
 import {Event, Page} from '../../model';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-events',
@@ -21,11 +21,11 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly repository: EventRepositoryService,
+    private readonly apiClient: ApiClientService,
   ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('events');
-    this.events = this.repository.fetchAll();
+    this.events = this.apiClient.fetch('events');
   }
 }

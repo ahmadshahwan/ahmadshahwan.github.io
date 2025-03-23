@@ -3,9 +3,9 @@ import {AsyncPipe} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {Observable, of} from 'rxjs';
 import {Page, Skill} from '../../model';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
 import {SkillComponent} from './skill/skill.component';
-import {SkillRepositoryService} from '../../services/expertise/skill-repository.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-expertise',
@@ -23,12 +23,12 @@ export class ExpertiseComponent implements OnInit {
   page: Observable<Page> = of();
 
   constructor(
-    private readonly repository: SkillRepositoryService,
+    private readonly apiClient: ApiClientService,
     private readonly pageStateService: PageStateService,
   ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('expertise');
-    this.skills = this.repository.fetchAll();
+    this.skills = this.apiClient.fetch('skills');
   }
 }

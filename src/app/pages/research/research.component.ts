@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
 import {Observable, of} from 'rxjs';
 import {Page, Publication} from '../../model';
-import {PublicationRepositoryService} from '../../services/research/publication-repository.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 type Category = Publication['category'];
 
@@ -22,13 +22,13 @@ export class ResearchComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly publicationRepositoryService: PublicationRepositoryService,
+    private readonly apiClient: ApiClientService,
   ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('research');
-    this.publicationRepositoryService
-      .fetchAll()
+    this.apiClient
+      .fetch('publications')
       .subscribe(publications => this.publications = publications);
   }
 

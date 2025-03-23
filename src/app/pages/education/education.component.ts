@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DegreeComponent} from './degree/degree.component';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
-import {DegreeRepositoryService} from '../../services/eductation/degree-repository.service';
 import {Degree, Page} from '../../model';
 import {Observable, of} from 'rxjs';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [CommonModule, DegreeComponent, ScrollableComponent],
+  imports: [CommonModule, DegreeComponent],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss'
 })
@@ -21,11 +20,11 @@ export class EducationComponent implements OnInit {
 
   constructor(
       private readonly pageStateService: PageStateService,
-      private readonly repository: DegreeRepositoryService,
+      private readonly apiClient: ApiClientService,
   ) {}
 
   ngOnInit() {
     this.page = this.pageStateService.updatePage('education');
-    this.degrees = this.repository.fetchAll();
+    this.degrees = this.apiClient.fetch('degrees');
   }
 }

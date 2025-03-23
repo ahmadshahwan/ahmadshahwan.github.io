@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ExperienceComponent} from './experience/experience.component';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
-import {ExperienceRepositoryService} from '../../services/career/experience-repository.service';
 import {Experience, Page} from '../../model';
 import {Observable, of} from 'rxjs';
-import {PageStateService} from '../../services/content/page-state.service';
+import {PageStateService} from '../../services/page-state.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-career',
@@ -20,12 +20,12 @@ export class CareerComponent implements OnInit {
   page: Observable<Page> = of();
 
   constructor(
-    private readonly repository: ExperienceRepositoryService,
+    private readonly apiClient: ApiClientService,
     private readonly pageStateService: PageStateService,
   ) {}
 
   ngOnInit(): void {
     this.page = this.pageStateService.updatePage('career');
-    this.experiences = this.repository.fetchAll();
+    this.experiences = this.apiClient.fetch('experiences');
   }
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Interest, Page} from '../../model';
-import {PageStateService} from '../../services/content/page-state.service';
-import {InterestsRepositoryService} from '../../services/hobbies/interests-repository.service';
+import {PageStateService} from '../../services/page-state.service';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-interests',
@@ -16,12 +16,12 @@ export class InterestsComponent implements OnInit {
   page?: Page;
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly interestsRepositoryService: InterestsRepositoryService,
+    private readonly apiClient: ApiClientService,
   ) {
   }
 
   ngOnInit(): void {
     this.pageStateService.updatePage('interests').subscribe(page => this.page = page);
-    this.interestsRepositoryService.fetchAll().subscribe(interests => this.interests = interests);
+    this.apiClient.fetch('interests').subscribe(interests => this.interests = interests);
   }
 }

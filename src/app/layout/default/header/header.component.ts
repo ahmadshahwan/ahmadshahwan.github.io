@@ -4,7 +4,7 @@ import {MenuLinkComponent} from '../menu-link/menu-link.component';
 import {Observable, of} from 'rxjs';
 import {Website} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
-import {ContentRepositoryService} from '../../../services/content/content-repository.service';
+import {ApiClientService} from '../../../services/api-client.service';
 
 @Component({
   selector: 'app-header',
@@ -17,13 +17,13 @@ export class HeaderComponent implements OnInit {
 
   header: Observable<Website> = of();
   constructor(
-    private readonly contentRepositoryService: ContentRepositoryService,
+    private readonly apiClient: ApiClientService,
     private readonly localeService: LocaleService,
   ) {}
 
   ngOnInit(): void {
     this.localeService.changes.subscribe(
-      () => this.header = this.contentRepositoryService.fetch()
+      () => this.header = this.apiClient.fetch()
     );
   }
 }

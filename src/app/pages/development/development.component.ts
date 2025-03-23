@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AsyncPipe} from '@angular/common';
 import {Observable, of} from 'rxjs';
 import {Certificate, Page} from '../../model';
-import {PageStateService} from '../../services/content/page-state.service';
-import {CertificatesRepositoryService} from '../../services/development/certificates-repository.service';
+import {PageStateService} from '../../services/page-state.service';
 import {CertificateComponent} from './certificate/certificate.component';
+import {ApiClientService} from '../../services/api-client.service';
 
 @Component({
   selector: 'app-development',
@@ -23,11 +23,11 @@ export class DevelopmentComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly repository: CertificatesRepositoryService,
+    private readonly apiClient: ApiClientService,
   ) {}
 
   ngOnInit() {
     this.page = this.pageStateService.updatePage('certificates');
-    this.certificates = this.repository.fetchAll();
+    this.certificates = this.apiClient.fetch('certificates');
   }
 }
