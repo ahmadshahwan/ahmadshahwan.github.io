@@ -1,9 +1,16 @@
+/* Skill card - minimal */
 .skill {
   display: flex;
   flex-direction: row;
+  padding: var(--spacing-unit) 0;
+  border-bottom: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   .icon {
-    padding-right: 10px;
+    padding-right: var(--spacing-unit);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -12,6 +19,7 @@
     .thumbnail {
       height: 32px;
       width: 32px;
+      border-radius: 4px;
     }
   }
 
@@ -19,13 +27,12 @@
     width: 100%;
 
     .description {
-      padding-bottom: .75em;
+      color: var(--color-text-muted);
     }
 
     .header {
-      height: 1.5em;
-
-      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
     }
   }
 }

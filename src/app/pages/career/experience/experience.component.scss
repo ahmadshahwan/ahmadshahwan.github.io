@@ -1,9 +1,16 @@
+/* Experience card - minimal */
 .experience {
   display: flex;
   flex-direction: row;
+  padding: var(--spacing-unit) 0;
+  border-bottom: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   .icon {
-    padding-right: 10px;
+    padding-right: var(--spacing-unit);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -12,6 +19,7 @@
     .thumbnail {
       height: 32px;
       width: 32px;
+      border-radius: 4px;
     }
   }
 
@@ -21,35 +29,39 @@
     .header {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
 
       .period {
         order: 3;
         margin-left: auto;
-        font-weight: bold;
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
       }
 
       .job-title {
         order: 2;
-        font-weight: bold;
-        padding-bottom: 2px;
+        font-weight: 600;
       }
 
       .client {
         order: 1;
-        width: 15em;
+        min-width: 12em;
+        color: var(--color-text-muted);
       }
     }
   }
 
   .description {
-    padding-bottom: .75em;
+    padding-top: 0.5rem;
 
     .details {
-      padding-top: .5em;
+      padding-top: 0.5rem;
     }
 
     .more-less {
       text-align: right;
+      font-size: 0.9rem;
     }
   }
 }

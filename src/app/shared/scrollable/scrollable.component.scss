@@ -1,20 +1,26 @@
+/* Scrollable container - minimal */
 .scrollable {
-  max-height: 350px;
-  overflow-y: scroll;
-  margin-bottom: 15px;
-  padding-right: 4px;
+  max-height: 450px;
+  overflow-y: auto;
+  margin-bottom: var(--spacing-unit);
+  padding-right: 0.5rem;
   scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b0b0b0;
-  border-radius: 1px;
+  background: var(--color-border);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #505050;
+  background: var(--color-text-light);
 }

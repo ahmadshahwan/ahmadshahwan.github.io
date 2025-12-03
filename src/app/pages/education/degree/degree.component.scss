@@ -1,10 +1,16 @@
+/* Degree card - minimal */
 .degree {
   display: flex;
   flex-direction: row;
-  padding-bottom: .75em;
+  padding: var(--spacing-unit) 0;
+  border-bottom: 1px solid var(--color-border);
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   .icon {
-    padding-right: 10px;
+    padding-right: var(--spacing-unit);
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -13,20 +19,24 @@
     .thumbnail {
       height: 32px;
       width: 32px;
+      border-radius: 4px;
     }
   }
 
   .details {
     width: 100%;
-    margin-left: 1em;
 
     .secondary {
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
     }
 
     .academic-title {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
 }

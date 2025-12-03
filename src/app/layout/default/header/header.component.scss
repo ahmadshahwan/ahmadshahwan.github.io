@@ -1,80 +1,98 @@
-
+/* Minimal Header */
 #header {
-  width: 920px;
-  height: 130px;
+  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
-  background: url(../../../../assets/images/bg03.jpg) no-repeat left top;
+  padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-unit);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  #header {
+    max-width: 1000px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 #logo {
-  float: left;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  #logo {
+    text-align: left;
+  }
 }
 
 #logo h1 {
   margin: 0;
-  padding: 60px 0 0 30px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 #logo h2 {
-  padding: 0 0 0 30px;
-  margin: 0;
-  color: #7B7B7B;
-  font-size: 13px;
-  font-weight: bold;
+  margin: 0.25rem 0 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 #logo a {
-  text-decoration: none;
-  color: #797979;
+  color: var(--color-text);
 }
 
 #logo a:hover {
-  text-decoration: underline;
-  color: #0098A4;
+  color: var(--color-link);
+  text-decoration: none;
 }
-
-#logo h2 a {
-  font-size: 13px;
-  color: #9F9F9F;
-}
-
 
 #menu {
-  float: right;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  #menu {
+    justify-content: flex-end;
+  }
 }
 
 #menu ul {
   margin: 0;
-  padding: 78px 30px 0 0;
+  padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  justify-content: center;
 }
 
 #menu li {
-  float: left;
+  display: inline-block;
 }
 
 ::ng-deep #menu {
-  text-transform: lowercase;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 14px;
+  font-size: 0.9rem;
 
   a {
-    padding: 0 12px 0 12px;
-    background: url(../../../../assets/images/img02.gif) no-repeat left center;
-    text-decoration: none;
-    color: #7B7B7B;
+    color: var(--color-text-muted);
+    padding: 0.25rem 0;
+    transition: color 0.15s ease;
 
     &:hover {
-      text-decoration: underline;
-      color: #0098A4;
+      color: var(--color-link);
+      text-decoration: none;
     }
   }
 
   .current {
-    padding: 0 12px 0 12px;
-    background: url(../../../../assets/images/img02.gif) no-repeat left center;
-    text-decoration: none;
-    color: #0098A4;
+    color: var(--color-text);
+    font-weight: 500;
   }
 }

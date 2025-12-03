@@ -1,18 +1,39 @@
+/* Minimal Layout */
 #wrapper {
-  background: url(../../../assets/images/bg02.jpg) repeat-x left top;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-#bgtop {
-  background: url(../../../assets/images/bg05.jpg) no-repeat left top;
+#page {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit);
 }
 
-#bgbottom {
-  background: url(../../../assets/images/bg06.jpg) no-repeat left bottom;
+#bgtop, #bgbottom {
+  display: contents;
 }
 
 #content {
-  float: left;
-  width: 650px;
-  padding: 50px 0 0 35px;
+  padding: calc(var(--spacing-unit) * 2) 0;
   min-height: 400px;
+}
+
+/* Remove sidebar on mobile, show on larger screens */
+@media (min-width: 768px) {
+  #page {
+    max-width: 1000px;
+  }
+
+  #bgbottom {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 3);
+  }
+
+  #content {
+    flex: 1;
+  }
 }

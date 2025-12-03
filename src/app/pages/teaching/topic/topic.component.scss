@@ -1,4 +1,10 @@
+/* Topic - minimal */
+:host {
+  display: block;
+  padding: 0.5rem 0;
+}
+
 ::ng-deep p {
-  line-height: normal;
-  margin-bottom: 0;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
