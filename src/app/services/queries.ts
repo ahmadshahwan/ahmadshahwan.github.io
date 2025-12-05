@@ -109,13 +109,13 @@ const CERTIFICATE = `{
 }`;
 
 const PAGE = `{
-    id
-    slug
-    title
-    description
-    group ${PAGE_GROUP}
-    text ${RICH_TEXT}
-    image ${IMAGE}
+  id
+  slug
+  title
+  description
+  group ${PAGE_GROUP}
+  text ${RICH_TEXT}
+  image ${IMAGE}
 }`;
 
 const EXPERIENCE = `{
