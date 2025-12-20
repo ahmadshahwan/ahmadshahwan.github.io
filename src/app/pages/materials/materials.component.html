@@ -1,15 +1,16 @@
-<div class="post">
-  <div class="title">
-    <h2>{{ (page | async)?.title }}</h2>
-  </div>
-  <div class="entry">
-    @for (klass of (classes | async); track klass.id) {
-      <h3 [id]="klass.id">{{ klass.title }}</h3>
-      <ul>
-        @for (syllabus of klass.syllabi; track syllabus.id) {
-          <li><a target="_blank" [href]="syllabus.url">{{ syllabus.title }}</a>.</li>
-        }
-      </ul>
-    }
-  </div>
+<div class="syllabi">
+  @for (klass of (classes | async); track klass.id) {
+    <app-entry>
+      <div content>
+        <div class="syllabi__content">
+          <h3 [id]="klass.id" class="syllabi__content__title">{{ klass.title }}</h3>
+          <ul>
+            @for (syllabus of klass.syllabi; track syllabus.id) {
+              <li><a target="_blank" [href]="syllabus.url">{{ syllabus.title }}</a>.</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </app-entry>
+  }
 </div>

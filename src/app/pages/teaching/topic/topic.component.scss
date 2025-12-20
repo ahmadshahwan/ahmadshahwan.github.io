@@ -1,4 +1,7 @@
-::ng-deep p {
-  line-height: normal;
-  margin-bottom: 0;
+.topic {
+
+  &__title {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
 }

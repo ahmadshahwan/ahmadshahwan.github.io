@@ -1,24 +1,24 @@
 <div class="certificate">
-  <div class="icon">
+  <app-entry>
+  <div visual>
     <img class="thumbnail" [ngSrc]="model.institute.icon.url" height="32" width="32" [alt]="model.institute.name">
   </div>
-  <div class="details">
-    <div class="primary">
-      <div class="academic-title">
+  <div content>
+    <div class="certificate__content">
+      <div class="certificate__content__title">
         @if (model.url) {
           <a [href]="model.url" target="_blank">{{ model.title }}</a>
         } @else {
           {{ model.title }}
         }
       </div>
-    </div>
-    <div class="secondary">
-      <span class="institution">
+      <span class="certificate__content__institution">
         {{ model.institute.name }}
       </span>
-      <span class="year">
+      <span class="certificate__content__year">
         {{ model.year }}
       </span>
     </div>
   </div>
+  </app-entry>
 </div>

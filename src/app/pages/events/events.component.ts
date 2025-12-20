@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {Observable, of} from 'rxjs';
 import {EventComponent} from './event/event.component';
 import {Event, Page} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent, EventComponent],
+  imports: [CommonModule, EventComponent],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })
@@ -21,7 +20,7 @@ export class EventsComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit(): void {

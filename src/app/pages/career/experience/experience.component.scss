@@ -1,55 +1,64 @@
+@use 'styles' as mixins;
+
 .experience {
   display: flex;
   flex-direction: row;
-
-  .icon {
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-
-    .thumbnail {
-      height: 32px;
-      width: 32px;
-    }
-  }
 
   .details {
     width: 100%;
 
     .header {
-      display: flex;
-      flex-direction: row;
+      display: grid;
+      grid-template-columns: 12em auto;
+      margin-bottom: var(--spacing-sm);
+      font-size: var(--font-size-sm);
+      align-items: baseline;
+      cursor: pointer;
 
       .period {
-        order: 3;
-        margin-left: auto;
-        font-weight: bold;
+        order: 1;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        display: inline-block;
+        @include mixins.small {
+          grid-column: 1 / span 2;
+        }
       }
 
       .job-title {
         order: 2;
-        font-weight: bold;
-        padding-bottom: 2px;
+        font-weight: 600;
+        color: var(--color-text);
+        display: inline-block;
+        @include mixins.small {
+          grid-column: 1 / span 2;
+        }
       }
 
       .client {
-        order: 1;
-        width: 15em;
+        order: 3;
+        font-weight: 600;
+        color: var(--color-text-secondary);
+        grid-column: 1 / span 2;
       }
     }
   }
 
   .description {
-    padding-bottom: .75em;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+  }
+}
 
-    .details {
-      padding-top: .5em;
-    }
+@media (max-width: 640px) {
+  .experience {
+    flex-direction: column;
 
-    .more-less {
-      text-align: right;
+    .icon {
+      padding-right: 0;
+      padding-bottom: var(--spacing-md);
     }
   }
 }

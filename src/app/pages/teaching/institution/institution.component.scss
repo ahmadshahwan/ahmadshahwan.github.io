@@ -1,11 +1,7 @@
-.head {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: 10px;
+.institution {
+  padding-bottom: var(--spacing-md);
 
-  img {
-    width: 32px;
-    height: 32px;
+  &__name {
+    padding-bottom: var(--spacing-sm);
   }
 }

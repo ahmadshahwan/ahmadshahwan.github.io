@@ -1,12 +1,5 @@
-<div class="post">
-  <div class="title">
-    <h2>{{ (page | async)?.title }}</h2>
-  </div>
-  <div class="entry">
-    <app-scrollable>
-      @for (experience of experiences | async; track experience.id) {
-        <app-experience [model]="experience" />
-      }
-    </app-scrollable>
-  </div>
+<div class="experiences">
+  @for (experience of experiences | async; track experience.id) {
+    <app-experience [model]="experience" />
+  }
 </div>

@@ -1,27 +1,27 @@
 import {Component, OnInit} from '@angular/core';
-import {Interest, Page} from '../../model';
+import {Interest} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-interests',
   standalone: true,
-  imports: [],
+  imports: [EntryComponent],
   templateUrl: './interests.component.html',
   styleUrl: './interests.component.scss'
 })
 export class InterestsComponent implements OnInit {
 
   interests: Interest[] = [];
-  page?: Page;
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('interests').subscribe(page => this.page = page);
+    this.pageStateService.updatePage('interests');
     this.apiClient.fetch('interests').subscribe(interests => this.interests = interests);
   }
 }

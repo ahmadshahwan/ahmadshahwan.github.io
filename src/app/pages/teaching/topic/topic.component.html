@@ -1,2 +1,4 @@
-<h4>{{ model.title }}</h4>
-<div [innerHTML]="model.description?.html" appRouterLinkAdapter></div>
+<div class="topic">
+    <div class="topic__title">{{ model.title }}</div>
+    <div [innerHTML]="model.description?.html" appRouterLinkAdapter></div>
+</div>

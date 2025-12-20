@@ -15,6 +15,9 @@ export class MenuLinkComponent {
   @Input()
   doNotLocalize: boolean = false;
 
+  @Input()
+  secondary: boolean = false;
+
   constructor(
     private readonly router: Router,
     private readonly localeService: LocaleService,
@@ -33,5 +36,9 @@ export class MenuLinkComponent {
       return this.link;
     }
     return this.localeService.localizedLink(this.link);
+  }
+
+  get classes(): string[] {
+    return this.secondary ? ['secondary'] : [];
   }
 }

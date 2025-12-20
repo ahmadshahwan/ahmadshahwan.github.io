@@ -1,32 +1,30 @@
 .degree {
-  display: flex;
-  flex-direction: row;
-  padding-bottom: .75em;
-
-  .icon {
-    padding-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-
-    .thumbnail {
-      height: 32px;
-      width: 32px;
-    }
-  }
-
-  .details {
     width: 100%;
-    margin-left: 1em;
 
-    .secondary {
-      display: flex;
-      justify-content: space-between;
-    }
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding-bottom: var(--spacing-md);
+        font-size: var(--font-size-sm);
+        align-items: baseline;
+        width: 100%;
 
-    .academic-title {
-      font-weight: bold;
+        &__title {
+            order: 1;
+            grid-column: 1 / span 2;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        &__institution {
+            order: 2;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        &__year {
+            order: 3;
+            text-align: right;
+        }
     }
-  }
 }

@@ -1,11 +1,15 @@
 <div class="skill">
-  <div class="icon">
-    <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.title"/>
-  </div>
-  <div class="details">
-    <div class="header" [style.width]="proficiencyAsPercentage">{{ model.title }}</div>
-    <div class="description">
-      {{ model.details }}
+  <app-entry>
+    <div visual>
+      <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.title" />
     </div>
-  </div>
+    <div content>
+      <div class="skill__content">
+        <div class="skill__content__header">{{ model.title }}</div>
+        <div class="skill__content__description">
+          {{ model.details }}
+        </div>
+      </div>
+    </div>
+  </app-entry>
 </div>

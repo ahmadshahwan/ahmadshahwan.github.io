@@ -1,24 +1,14 @@
-<div class="post">
-  <div class="title">
-    <h2>{{ (page | async)?.title }}</h2>
-  </div>
-  <div class="entry">
-    <app-scrollable maxHeight="300px">
-      <div id="bib">
-        @for (category of categories; track category.id) {
-          <h2>{{ category.title }}</h2>
-          @for (year of yearsByCategory(category); track year) {
-            <h3>{{ year }}</h3>
-              <ul>
-              @for (publication of publicationsByCategoryAndYear(category, year); track publication.id) {
-                <li>
-                  <span [innerHTML]="publication.description.html"></span>
-                </li>
-              }
-              </ul>
-          }
-        }
-      </div>
-    </app-scrollable>
-  </div>
+<div class="publications">
+  @for (category of categories; track category.id) {
+    @for (publication of publicationsByCategory(category); track publication.id) {
+      <app-entry>
+        <div visual>
+          <div class="publications__category">{{ category.title }}</div>
+        </div>
+        <div content>
+          <span [innerHTML]="publication.description.html" class="publications__title"></span>
+        </div>
+      </app-entry>
+    }
+  }
 </div>

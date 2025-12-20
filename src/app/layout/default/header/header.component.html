@@ -1,15 +1,25 @@
-<div id="header">
-  <div id="logo">
-    <h1>Ahmad Shahwan</h1>
-    <h2>{{ (header | async)?.subtitle }}</h2>
-  </div>
-  <div id="menu">
+<header id="header" class="header">
+  <nav class="header__menu">
     <ul>
-      @for (link of (header | async)?.links; track link.id) {
+      @for (link of header()?.links; track link.id) {
         <li>
           <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
         </li>
       }
     </ul>
+    <ul>
+      @for (link of links(); track link.id) {
+        <li>
+          <app-menu-link [link]="link.route" [secondary]="true">{{ link.title }}</app-menu-link>
+        </li>
+      }
+    </ul>
+  </nav>
+  <h1 class="header__title no-wrap">Ahmad Shahwan</h1>
+  <p class="header__subtitle no-wrap">{{ header()?.subtitle }}</p>
+  <div class="header__page-header">
+    <div class="header__page-header__content">
+      <h2 class="header__page-header__content__title no-wrap">{{ page()?.title }}</h2>
+    </div>
   </div>
-</div>
+</header>

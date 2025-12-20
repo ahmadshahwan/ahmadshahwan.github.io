@@ -1,20 +1,20 @@
 <div class="degree">
-  <div class="icon">
-    <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.institution">
-  </div>
-  <div class="details">
-    <div class="primary">
-      <div class="academic-title">
-        {{ model.title }}
+  <app-entry>
+    <div visual>
+      <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.institution">
+    </div>
+    <div content>
+      <div class="degree__content">
+        <div class="degree__content__title">
+          {{ model.title }}
+        </div>
+        <div class="degree__content__institution">
+          {{ model.institution }}
+        </div>
+        <div class="degree__content__year">
+          {{ model.year }}
+        </div>
       </div>
     </div>
-    <div class="secondary">
-      <span class="institution">
-        {{ model.institution }}
-      </span>
-      <span class="year">
-        {{ model.year }}
-      </span>
-    </div>
-  </div>
+  </app-entry>
 </div>

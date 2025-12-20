@@ -1,27 +1,28 @@
 <div class="experience">
-  <div class="icon">
-    <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.partner"/>
-  </div>
-  <div class="details">
-    <div class="header">
-      <span class="period">
-        {{ model.period }}
-      </span>
-      <span class="job-title">
-        {{ model.title }}
-      </span>
-      <span class="client">
-        {{ model.partner }}
-      </span>
+  <app-entry>
+    <div visual>
+      <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.partner" />
     </div>
-    <div class="description">
-      <div>
-        {{ model.summary.text }}
-      </div>
-      <div class="details" [hidden]="moreHidden" [innerHTML]="model.details.html"></div>
-      <div class="more-less">
-        <a (click)="toggleMore()" (keyup)="toggleMore()" tabindex="0">{{ moreHidden ? "more" : "less"}}</a>
+    <div content>
+      <div class="details">
+        <div class="header" (click)="toggleMore()">
+          <span class="period">
+            {{ model.period }}
+          </span>
+          <span class="job-title">
+            {{ model.title }}
+          </span>
+          <span class="client">
+            {{ model.partner }}
+          </span>
+        </div>
+        <div class="description">
+          <div>
+            {{ model.summary.text }}
+          </div>
+          <div class="details" [hidden]="moreHidden" [innerHTML]="model.details.html"></div>
+        </div>
       </div>
     </div>
-  </div>
+  </app-entry>
 </div>

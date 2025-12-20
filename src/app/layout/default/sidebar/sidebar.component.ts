@@ -5,7 +5,7 @@ import {PageStateService} from '../../../services/page-state.service';
 import {Observable, of} from 'rxjs';
 import {ExternalLink, Link, Website} from '../../../model';
 import {LocaleService} from '../../../services/locale.service';
-import {ApiClientService} from '../../../services/api-client.service';
+import {ContentService} from '../../../services/content.service';
 
 
 @Component({
@@ -20,8 +20,9 @@ export class SidebarComponent implements OnInit {
   readonly links: Signal<Link[]>;
   readonly group: Signal<string>;
   sidebar: Observable<Website> = of();
+
   constructor(
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly localeService: LocaleService,
     pageStateService: PageStateService,
   ) {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Observable, of} from 'rxjs';
 import {Website} from '../../../model';
-import {ApiClientService} from '../../../services/api-client.service';
+import {ContentService} from '../../../services/content.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   footer: Observable<Website> = of();
 
   constructor(
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit(): void {

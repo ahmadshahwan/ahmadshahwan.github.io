@@ -1,15 +1,13 @@
-<div class="post">
-  @if (page) {
-    <div class="title">
-      <h2>{{ page.title }}</h2>
-    </div>
-    <div class="interests">
-      @for (interest of interests; track interest.id) {
+<div class="interests">
+  @for (interest of interests; track interest.id) {
+    <app-entry>
+      <div content>
         <div class="interest-details">
           <div class="interest-title">{{ interest.title }}</div>
           <div>{{ interest.description }}</div>
         </div>
-      }
-    </div>
+      </div>
+    </app-entry>
+    
   }
 </div>

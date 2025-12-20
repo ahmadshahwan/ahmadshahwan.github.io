@@ -1,57 +1,12 @@
-#bib .title {
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #797979;
-  font-weight: bold;
-  background-image: none;
-}
+.publications {
+  font-size: var(--font-size-sm);
 
-#bib .in {
-  font-style: italic;
-}
+  &__category {
+    direction: rtl;
+    word-spacing: 100vw;
+  }
 
-#bib .authors {
-  font-variant: small-caps;
+  &__content {
+    padding-bottom: var(--spacing-md);
+  }
 }
-
-#bib a {
-  color: #797979;
-}
-
-#bib h2 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
-
-#bib .title {
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #797979;
-  font-weight: bold;
-}
-
-#bib .in {
-  font-style: italic;
-}
-
-#bib .authors {
-  font-variant: small-caps;
-}
-
-#bib a {
-  color: #797979;
-}
-
-#bib h2 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
-

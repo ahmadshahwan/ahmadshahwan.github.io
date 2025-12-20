@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DegreeComponent} from './degree/degree.component';
-import {Degree, Page} from '../../model';
+import {Degree} from '../../model';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-education',
@@ -16,15 +16,14 @@ import {ApiClientService} from '../../services/api-client.service';
 export class EducationComponent implements OnInit {
 
   degrees: Observable<Degree[]> = of([]);
-  page: Observable<Page> = of();
 
   constructor(
       private readonly pageStateService: PageStateService,
-      private readonly apiClient: ApiClientService,
+      private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit() {
-    this.page = this.pageStateService.updatePage('education');
+    this.pageStateService.updatePage('education');
     this.degrees = this.apiClient.fetch('degrees');
   }
 }

@@ -1,13 +1,14 @@
-<div id="footer">
-  <div class="socials">
-    @for (link of (footer | async)?.socialLinks; track link.id) {
-      <a target="_blank" [href]="link.url">
-        <img [alt]="link.title" [ngSrc]="link.icon.url" height="16" width="16" />
-      </a>
-    }
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__content__socials">
+      @for (link of (footer | async)?.socialLinks; track link.id) {
+        <a target="_blank" [href]="link.url" class="footer__content__socials__link" [attr.aria-label]="link.title">
+          <img [alt]="link.title" [ngSrc]="link.icon.url" height="24" width="24" />
+        </a>
+      }
+    </div>
+    <p class="footer__content__address">
+      {{ (footer | async)?.address }}
+    </p>
   </div>
-  <p>
-    {{ (footer | async)?.address }}
-  </p>
-
-</div>
+</footer>

@@ -4,24 +4,24 @@ import {ActivatedRoute} from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {PageStateService} from '../../services/page-state.service';
 import {map, Observable, of} from 'rxjs';
-import {Class, Page} from '../../model';
-import {ApiClientService} from '../../services/api-client.service';
+import {Class} from '../../model';
+import {ContentService} from '../../services/content.service';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-materials',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, EntryComponent],
   templateUrl: './materials.component.html',
   styleUrl: './materials.component.scss'
 })
 export class MaterialsComponent implements OnInit {
 
-  page: Observable<Page> = of();
   classes: Observable<Class[]> = of([]);
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly viewportScroller: ViewportScroller,
     private readonly activatedRoute: ActivatedRoute,
   ) {
@@ -31,7 +31,7 @@ export class MaterialsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.page = this.pageStateService.updatePage('materials');
+    this.pageStateService.updatePage('materials');
     this.classes = this.apiClient.fetch('institutes').pipe(
       map(institutes => institutes
         .flatMap(({classes}) => classes)

@@ -1,80 +1,75 @@
-
-#header {
-  width: 920px;
-  height: 130px;
-  margin: 0 auto;
-  background: url(../../../../assets/images/bg03.jpg) no-repeat left top;
+:host {
+   display: contents;
 }
 
-#logo {
-  float: left;
-}
+.header {
+  display: contents;
 
-#logo h1 {
-  margin: 0;
-  padding: 60px 0 0 30px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
+  * {
+    background-color: var(--color-background);
+  }
 
-#logo h2 {
-  padding: 0 0 0 30px;
-  margin: 0;
-  color: #7B7B7B;
-  font-size: 13px;
-  font-weight: bold;
-}
+  &__menu {
+    margin-top: 1.5rem;
+    height: 3rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-#logo a {
-  text-decoration: none;
-  color: #797979;
-}
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      column-gap: var(--spacing-lg);
 
-#logo a:hover {
-  text-decoration: underline;
-  color: #0098A4;
-}
-
-#logo h2 a {
-  font-size: 13px;
-  color: #9F9F9F;
-}
-
-
-#menu {
-  float: right;
-}
-
-#menu ul {
-  margin: 0;
-  padding: 78px 30px 0 0;
-  list-style: none;
-}
-
-#menu li {
-  float: left;
-}
-
-::ng-deep #menu {
-  text-transform: lowercase;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 14px;
-
-  a {
-    padding: 0 12px 0 12px;
-    background: url(../../../../assets/images/img02.gif) no-repeat left center;
-    text-decoration: none;
-    color: #7B7B7B;
-
-    &:hover {
-      text-decoration: underline;
-      color: #0098A4;
+      li {
+        display: flex;
+      }
     }
   }
 
-  .current {
-    padding: 0 12px 0 12px;
-    background: url(../../../../assets/images/img02.gif) no-repeat left center;
-    text-decoration: none;
-    color: #0098A4;
+  &__title {
+    margin-top: 8rem;
+    position: sticky;
+    top: 3rem;
+    height: 5.25rem;
+    width: 100%;
+    text-align: center;
+    letter-spacing: var(--spacing-2xs);
+  }
+
+  &__subtitle {
+    margin-top: 1rem;
+    position: sticky;
+    top: calc(5.25rem + 3rem);
+    height: 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-size-lg);
+  }
+
+  &__page-header {
+    margin-top: 3rem;
+    position: sticky;
+    top: calc(2rem + 5.25rem + 3rem);
+    height: 3rem;
+    padding-top: .5rem;
+    width: 100%;
+
+    &__content {
+      display: flex;
+    }
+
+    h2 {
+      display: flex;
+      justify-content: flex-end;
+      margin-left: var(--left-margin);
+      padding-right: var(--spacing-lg);
+    }
   }
 }

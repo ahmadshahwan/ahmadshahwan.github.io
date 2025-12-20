@@ -1,112 +1,141 @@
+/* Modern Minimal Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+$beakpoint-small: 768px;
+
+@mixin small {
+  @media (max-width: $beakpoint-small) { @content; }
+}
+
+:root {
+  /* Colors */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-text: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #6b7280;
+  --color-background: #e0e0e0;
+  --color-surface: #f9fafb;
+  --color-border: #f3f4f6;
+  --color-border-light: #ffffff;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 4rem;
+  
+  /* Spacing */
+  --spacing-2xs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 4rem;
+  
+  /* Layout */
+  --max-width: 4200px;
+  --content-width: 800px;
+  --sidebar-width: 280px;
+  --left-margin: 40vw;
+  
+  /* Effects */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include small {
+    --left-margin: 30vw;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #797979;
-  background: #FFFFFF url(./assets/images/bg01.jpg) repeat left top;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
-h1, h2 {
-  margin-top: 0;
-  font-weight: normal;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text);
 }
 
 h1 {
-  font-size: 42px;
+  font-size: var(--font-size-4xl);
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
 }
 
 h3 {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  padding: 0 0 10px;
-  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
 }
 
 h4 {
-  margin: 0;
-  padding: 5px 0 5px;
+  font-size: var(--font-size-lg);
+  font-weight: 500;
 }
 
-h6 {
-  font-size: 14px;
-  margin: 5px 0 5px;;
+h5, h6 {
+  font-size: var(--font-size-base);
+  font-weight: 500;
 }
 
 p, ul, ol {
-  margin-top: 0;
-  line-height: 160%;
+  margin: 0 0 var(--spacing-md);
+  line-height: 1.7;
 }
 
 a {
-  color: #0098A4;
+  color: var(--color-primary);
   text-decoration: none;
+  transition: color var(--transition);
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--color-primary-hover);
+  text-decoration: none;
 }
 
-.align-left {
-  float: left;
-}
-
-img.align-left {
-  margin-right: 20px;
-}
-
-a img {
+img {
+  max-width: 100%;
+  height: auto;
   border: none;
 }
 
-/* Page */
-
-#page {
-  width: 920px;
-  margin: 0 auto;
-  background: url(./assets/images/bg04.jpg) repeat-y left top;
-}
-
-.post .title {
-  padding: 0 0 0 15px;
-  background: url(./assets/images/img03.gif) no-repeat left top;
-}
-
-.post .title h2, .post .title h3 {
-  margin: 0;
-  text-decoration: none;
-  color: #FFFFFF;
-}
-
-.post .title h2 a, .post .title h3 a {
-  text-decoration: none;
-  color: #FFFFFF;
-}
-
-.post .title h2 a:hover, .post .title h3 a:hover {
-  text-decoration: underline;
-}
-
-.post .title p {
-  margin: 0;
-  text-transform: lowercase;
-  font-size: 16px;
-  color: #8D8D8D;
-}
-
-.post .title p a {
-  text-decoration: none;
-  color: #8D8D8D;
-}
-
-.post .entry {
-  padding: 15px 15px 25px 15px;
+.no-wrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

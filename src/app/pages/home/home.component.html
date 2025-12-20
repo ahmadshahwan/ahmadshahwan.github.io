@@ -1,20 +1,21 @@
-<div class="post">
+<div>
   @if (page) {
-    <div class="title">
-      <h2>{{ page.title }}</h2>
-    </div>
-    <div class="entry">
-      @if (page.image) {
-        <img
-          [ngSrc]="page.image.url"
-          [alt]="page.title"
-          [width]="page.image.width"
-          [height]="page.image.height"
-          class="align-left" />
-      }
-      @if (page.text) {
-        <div [innerHTML]="page.text.html"></div>
-      }
-    </div>
+    <app-entry>
+       <div visual>
+         @if (page.image) {
+           <img
+             [ngSrc]="page.image.url"
+             [alt]="page.title"
+             [width]="page.image.width"
+             [height]="page.image.height"
+             class="image" />
+         }
+       </div>
+       <div content>
+         @if (page.text) {
+           <div [innerHTML]="page.text.html"></div>
+         }
+       </div>
+    </app-entry>
   }
 </div>
