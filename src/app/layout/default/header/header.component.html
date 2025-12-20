@@ -1,15 +1,17 @@
-<div id="header">
-  <div id="logo">
-    <h1>Ahmad Shahwan</h1>
-    <h2>{{ (header | async)?.subtitle }}</h2>
+<header id="header">
+  <div class="header-content">
+    <div id="logo">
+      <h1>Ahmad Shahwan</h1>
+      <p class="subtitle">{{ (header | async)?.subtitle }}</p>
+    </div>
+    <nav id="menu">
+      <ul>
+        @for (link of (header | async)?.links; track link.id) {
+          <li>
+            <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
+          </li>
+        }
+      </ul>
+    </nav>
   </div>
-  <div id="menu">
-    <ul>
-      @for (link of (header | async)?.links; track link.id) {
-        <li>
-          <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
-        </li>
-      }
-    </ul>
-  </div>
-</div>
+</header>

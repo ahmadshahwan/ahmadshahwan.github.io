@@ -1,17 +1,12 @@
 <div id="wrapper">
   <app-header></app-header>
-  <div id="page">
-    <div id="bgtop">
-      <div id="bgbottom">
-        <div id="content">
-
-          <ng-content></ng-content>
-
-        </div>
-        <app-sidebar></app-sidebar>
-        <div style="clear: both;">&nbsp;</div>
+  <main id="page">
+    <div id="content-wrapper">
+      <div id="content">
+        <ng-content></ng-content>
       </div>
+      <app-sidebar></app-sidebar>
     </div>
-  </div>
+  </main>
   <app-footer></app-footer>
 </div>

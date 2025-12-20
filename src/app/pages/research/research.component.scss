@@ -1,57 +1,70 @@
-#bib .title {
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #797979;
-  font-weight: bold;
-  background-image: none;
-}
+#bib {
+  h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--color-primary);
 
-#bib .in {
-  font-style: italic;
-}
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 
-#bib .authors {
-  font-variant: small-caps;
-}
+  h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: var(--spacing-lg) 0 var(--spacing-sm);
+  }
 
-#bib a {
-  color: #797979;
-}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md);
+  }
 
-#bib h2 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
+  li {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--color-border-light);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    transition: all var(--transition);
 
-#bib .title {
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  color: #797979;
-  font-weight: bold;
-}
+    &:hover {
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+  }
 
-#bib .in {
-  font-style: italic;
-}
+  .title {
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    font-size: var(--font-size-sm);
+  }
 
-#bib .authors {
-  font-variant: small-caps;
-}
+  .in {
+    font-style: italic;
+  }
 
-#bib a {
-  color: #797979;
-}
+  .authors {
+    font-variant: small-caps;
+  }
 
-#bib h2 {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
+  a {
+    color: var(--color-primary);
+    transition: color var(--transition);
 
+    &:hover {
+      color: var(--color-primary-hover);
+    }
+  }
+}

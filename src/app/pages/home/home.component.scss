@@ -1,3 +1,12 @@
 .entry {
-  margin: 25px 25px 25px;
+  margin: 0;
+  line-height: 1.7;
+  
+  img.align-left {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 200px;
+    margin-right: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+  }
 }
