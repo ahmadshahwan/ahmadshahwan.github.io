@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {Certificate, Page} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
 import {CertificateComponent} from './certificate/certificate.component';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-development',
@@ -23,7 +23,7 @@ export class DevelopmentComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit() {

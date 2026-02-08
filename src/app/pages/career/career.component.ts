@@ -5,7 +5,7 @@ import {ScrollableComponent} from '../../shared/scrollable/scrollable.component'
 import {Experience, Page} from '../../model';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-career',
@@ -20,7 +20,7 @@ export class CareerComponent implements OnInit {
   page: Observable<Page> = of();
 
   constructor(
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly pageStateService: PageStateService,
   ) {}
 

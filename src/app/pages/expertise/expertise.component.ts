@@ -5,7 +5,7 @@ import {Observable, of} from 'rxjs';
 import {Page, Skill} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
 import {SkillComponent} from './skill/skill.component';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-expertise',
@@ -23,7 +23,7 @@ export class ExpertiseComponent implements OnInit {
   page: Observable<Page> = of();
 
   constructor(
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly pageStateService: PageStateService,
   ) {}
 

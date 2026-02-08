@@ -7,11 +7,11 @@
   --color-primary-hover: #1d4ed8;
   --color-text: #1f2937;
   --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-  --color-background: #ffffff;
+  --color-text-muted: #6b7280;
+  --color-background: #e0e0e0;
   --color-surface: #f9fafb;
-  --color-border: #e5e7eb;
-  --color-border-light: #f3f4f6;
+  --color-border: #f3f4f6;
+  --color-border-light: #ffffff;
   
   /* Typography */
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -22,9 +22,10 @@
   --font-size-xl: 1.25rem;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
+  --font-size-4xl: 4rem;
   
   /* Spacing */
+  --spacing-2xs: 0.125rem;
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
@@ -32,11 +33,14 @@
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
+  --spacing-5xl: 8rem;
   
   /* Layout */
-  --max-width: 1200px;
+  --max-width: 4200px;
   --content-width: 800px;
   --sidebar-width: 280px;
+  --left-margin: 30cqw;
   
   /* Effects */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -79,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: var(--font-size-4xl);
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.025em;
 }
 
@@ -137,7 +141,7 @@ img {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0;
 }
 
 /* Post/Card Styles */
@@ -145,6 +149,7 @@ img {
   background: var(--color-background);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  margin-left: var(--left-margin);
 }
 
 .post .title {

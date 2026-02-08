@@ -5,7 +5,7 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {PageStateService} from '../../services/page-state.service';
 import {map, Observable, of} from 'rxjs';
 import {Class, Page} from '../../model';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-materials',
@@ -21,7 +21,7 @@ export class MaterialsComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly viewportScroller: ViewportScroller,
     private readonly activatedRoute: ActivatedRoute,
   ) {

@@ -4,7 +4,7 @@ import {DegreeComponent} from './degree/degree.component';
 import {Degree, Page} from '../../model';
 import {Observable, of} from 'rxjs';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-education',
@@ -20,7 +20,7 @@ export class EducationComponent implements OnInit {
 
   constructor(
       private readonly pageStateService: PageStateService,
-      private readonly apiClient: ApiClientService,
+      private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit() {

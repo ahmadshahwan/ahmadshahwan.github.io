@@ -4,7 +4,7 @@ import {ScrollableComponent} from '../../shared/scrollable/scrollable.component'
 import {PageStateService} from '../../services/page-state.service';
 import {Observable, of} from 'rxjs';
 import {Page, Publication} from '../../model';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 type Category = Publication['category'];
 
@@ -22,7 +22,7 @@ export class ResearchComponent implements OnInit {
 
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {}
 
   ngOnInit(): void {

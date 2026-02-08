@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
+import {computed, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map, Observable, ReplaySubject} from 'rxjs';
 import {Query, WEBSITE_QUERY} from './queries';
 import {LocaleService} from './locale.service';
 import {LocalizedWebsite, Website} from '../model';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 interface Sluggish {
   slug: string;
@@ -18,9 +19,11 @@ type SluggishKeysOfWebsite = KeysMatchingType<Website, Sluggish[]>;
 @Injectable({
   providedIn: 'root'
 })
-export class ApiClientService {
+export class ContentService {
 
   private readonly awaitingLocalizedWebsite = new ReplaySubject<LocalizedWebsite>();
+  private readonly websiteContent = toSignal(this.awaitingLocalizedWebsite);
+  public readonly content = computed(() => this.websiteContent()?.[this.localeService.current()]);
 
   constructor(
       private readonly http: HttpClient,
@@ -29,12 +32,11 @@ export class ApiClientService {
     this.fetchInternal(WEBSITE_QUERY).subscribe(website => this.awaitingLocalizedWebsite.next(website));
   }
 
-
   fetch<K extends SluggishKeysOfWebsite>(field: K, slug: string): Observable<Website[K][number] | undefined>;
   fetch<K extends KeysOfWebsite>(field: K): Observable<Website[K]>;
   fetch(): Observable<Website>;
   fetch<K extends KeysOfWebsite>(field?: K, slug?: string) {
-    const locale = this.localeService.current() || 'en';
+    const locale = this.localeService.current();
     const mapper = (cache: LocalizedWebsite) => !field ?
         cache[locale] : slug ?
         cache[locale][field as SluggishKeysOfWebsite].find(e => e.slug === slug) :

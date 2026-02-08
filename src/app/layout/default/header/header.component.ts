@@ -1,29 +1,31 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, computed, Signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MenuLinkComponent} from '../menu-link/menu-link.component';
-import {Observable, of} from 'rxjs';
-import {Website} from '../../../model';
-import {LocaleService} from '../../../services/locale.service';
-import {ApiClientService} from '../../../services/api-client.service';
+import {Link, Page, Website} from 'app/model';
+import {ContentService} from 'app/services/content.service';
+import {PageStateService} from 'app/services/page-state.service';
+import {Router, RouterLink} from "@angular/router";
+import {MenuLinkComponent} from "app/layout/default/menu-link/menu-link.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, MenuLinkComponent],
+  imports: [CommonModule, RouterLink, MenuLinkComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  header: Observable<Website> = of();
+  readonly header: Signal<Website | undefined>;
+  readonly page: Signal<Page | null>;
+  readonly links: Signal<Link[]>;
+
   constructor(
-    private readonly apiClient: ApiClientService,
-    private readonly localeService: LocaleService,
-  ) {}
-
-  ngOnInit(): void {
-    this.localeService.changes.subscribe(
-      () => this.header = this.apiClient.fetch()
-    );
+    router: Router,
+    contentService: ContentService,
+    pageStateService: PageStateService,
+  ) {
+    this.header = contentService.content;
+    this.page = pageStateService.page;
+    this.links = computed(() => pageStateService.links().filter(({route}) => router.url !== route));
   }
 }

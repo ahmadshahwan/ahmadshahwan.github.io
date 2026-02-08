@@ -2,7 +2,7 @@ import {Injectable, signal} from '@angular/core';
 import {Link, Page} from '../model';
 import {Meta, Title} from '@angular/platform-browser';
 import {map, Observable} from 'rxjs';
-import {ApiClientService} from './api-client.service';
+import {ContentService} from './content.service';
 
 const TITLE_SUFFIX = 'Ahmad SHAHWAN';
 
@@ -13,12 +13,14 @@ export class PageStateService {
 
   private readonly currentLinks = signal<Link[]>([]);
   private readonly currentPageGroup = signal<string>('');
+  private readonly currentPage = signal<Page | null>(null);
 
   public readonly links = this.currentLinks.asReadonly();
   public readonly pageGroup = this.currentPageGroup.asReadonly();
+  public readonly page = this.currentPage.asReadonly();
 
   constructor(
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
     private readonly title: Title,
     private readonly meta: Meta,
   ) {}
@@ -32,6 +34,7 @@ export class PageStateService {
       this.meta.updateTag({name: 'description', content: page.description});
       this.currentPageGroup.set(page.group.title);
       this.currentLinks.set(page.group.links);
+      this.currentPage.set(page);
       return page;
     };
     return this.apiClient.fetch('pages', slug).pipe(

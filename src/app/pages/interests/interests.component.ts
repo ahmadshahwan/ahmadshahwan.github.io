@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Interest, Page} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
-import {ApiClientService} from '../../services/api-client.service';
+import {ContentService} from '../../services/content.service';
 
 @Component({
   selector: 'app-interests',
@@ -16,7 +16,7 @@ export class InterestsComponent implements OnInit {
   page?: Page;
   constructor(
     private readonly pageStateService: PageStateService,
-    private readonly apiClient: ApiClientService,
+    private readonly apiClient: ContentService,
   ) {
   }
 
