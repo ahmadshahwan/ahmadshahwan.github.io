@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {PageStateService} from '../../services/page-state.service';
 import {Page} from '../../model';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, EntryComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
