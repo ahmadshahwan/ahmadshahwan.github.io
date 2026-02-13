@@ -37,8 +37,10 @@ export class PageStateService {
       this.currentPage.set(page);
       return page;
     };
-    return this.apiClient.fetch('pages', slug).pipe(
+    const result = this.apiClient.fetch('pages', slug).pipe(
       map(handlePage),
     );
+    result.subscribe();
+    return result;
   }
 }

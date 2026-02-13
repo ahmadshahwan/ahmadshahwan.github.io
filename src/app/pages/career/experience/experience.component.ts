@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Experience} from '../../../model';
+import { EntryComponent } from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, EntryComponent],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
 })

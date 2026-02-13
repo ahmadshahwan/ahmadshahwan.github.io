@@ -1,65 +1,40 @@
 .experience {
   display: flex;
   flex-direction: row;
-  padding: var(--spacing-lg);
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--spacing-md);
-  border: 1px solid var(--color-border-light);
-  transition: all var(--transition);
-
-  &:hover {
-    border-color: var(--color-border);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .icon {
-    padding-right: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-shrink: 0;
-
-    .thumbnail {
-      height: 40px;
-      width: 40px;
-      border-radius: var(--radius-md);
-      object-fit: contain;
-      background: var(--color-background);
-      padding: 4px;
-      border: 1px solid var(--color-border-light);
-    }
-  }
 
   .details {
     width: 100%;
-    min-width: 0;
 
     .header {
       display: flex;
-      flex-direction: column;
-      gap: var(--spacing-xs);
+      flex-direction: row;
       margin-bottom: var(--spacing-sm);
+      font-size: var(--font-size-sm);
+      align-items: baseline;
+      cursor: pointer;
 
       .period {
         order: 1;
-        font-size: var(--font-size-xs);
         font-weight: 500;
         color: var(--color-primary);
         text-transform: uppercase;
         letter-spacing: 0.025em;
+        display: inline-block;
+        width: 16em;
       }
 
       .job-title {
         order: 2;
-        font-size: var(--font-size-base);
         font-weight: 600;
         color: var(--color-text);
+        display: inline-block;
+        width: 32em;
       }
 
       .client {
         order: 3;
         font-size: var(--font-size-sm);
+        font-weight: 600;
         color: var(--color-text-secondary);
       }
     }
@@ -69,28 +44,7 @@
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     line-height: 1.6;
-
-    .details {
-      padding-top: var(--spacing-md);
-      border-top: 1px solid var(--color-border-light);
-      margin-top: var(--spacing-md);
-    }
-
-    .more-less {
-      text-align: right;
-      margin-top: var(--spacing-sm);
-
-      a {
-        font-size: var(--font-size-sm);
-        font-weight: 500;
-        color: var(--color-primary);
-        cursor: pointer;
-        
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
+    margin-bottom: var(--spacing-xl);
   }
 }
 

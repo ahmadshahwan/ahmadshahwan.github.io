@@ -17,7 +17,6 @@ import {ContentService} from '../../services/content.service';
 export class CareerComponent implements OnInit {
 
   experiences: Observable<Experience[]> = of([]);
-  page: Observable<Page> = of();
 
   constructor(
     private readonly apiClient: ContentService,
@@ -25,7 +24,7 @@ export class CareerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.page = this.pageStateService.updatePage('career');
+    this.pageStateService.updatePage('career');
     this.experiences = this.apiClient.fetch('experiences');
   }
 }
