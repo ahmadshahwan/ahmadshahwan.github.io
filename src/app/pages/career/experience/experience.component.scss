@@ -1,3 +1,5 @@
+@use 'styles' as mixins;
+
 .experience {
   display: flex;
   flex-direction: row;
@@ -7,7 +9,7 @@
 
     .header {
       display: grid;
-      grid-template-columns: 16em auto;
+      grid-template-columns: 12em auto;
       margin-bottom: var(--spacing-sm);
       font-size: var(--font-size-sm);
       align-items: baseline;
@@ -17,9 +19,11 @@
         order: 1;
         font-weight: 500;
         color: var(--color-primary);
-        text-transform: uppercase;
         letter-spacing: 0.025em;
         display: inline-block;
+        @include mixins.small {
+          grid-column: 1 / span 2;
+        }
       }
 
       .job-title {
@@ -27,6 +31,9 @@
         font-weight: 600;
         color: var(--color-text);
         display: inline-block;
+        @include mixins.small {
+          grid-column: 1 / span 2;
+        }
       }
 
       .client {
