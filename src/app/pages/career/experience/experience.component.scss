@@ -18,7 +18,6 @@
       .period {
         order: 1;
         font-weight: 500;
-        color: var(--color-primary);
         letter-spacing: 0.025em;
         display: inline-block;
         @include mixins.small {

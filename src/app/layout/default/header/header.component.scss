@@ -22,7 +22,7 @@
       padding: 0;
       list-style: none;
       display: flex;
-      gap: var(--spacing-xs);
+      column-gap: var(--spacing-lg);
 
       li {
         display: flex;
@@ -60,19 +60,23 @@
 
     &__content {
       margin-left: var(--left-margin);
-      margin-right: 3rem;
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      align-items: first baseline;
+      width: 100%;
+      margin: 0;
+      padding-right: 2em;
     }
 
     h2 {
-      text-align: left;
-      display: inline-block;
+      display: flex;
+      justify-content: flex-end;
+      flex: 0 0 var(--left-margin);
+      padding-right: var(--spacing-lg);
     }
 
     nav {
-      display: inline-block;
+      display: flex;
+      column-gap: var(--spacing-lg);
     }
   }
 }

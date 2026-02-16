@@ -12,10 +12,12 @@
   <p class="header__subtitle">{{ header()?.subtitle }}</p>
   <div class="header__page-header">
     <div class="header__page-header__content">
-      <h2>{{ page()?.title }}</h2>
+      <h2 class="header__page-header__content__title">{{ page()?.title }}</h2>
       <nav class="header__page-header__content__menu">
         @for (link of links(); track link.id) {
-          <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
+          @if (!isCurrentRoute(link.route)) {
+            <app-menu-link [link]="link.route">{{ link.title }}</app-menu-link>
+          }
         }
       </nav>
     </div>

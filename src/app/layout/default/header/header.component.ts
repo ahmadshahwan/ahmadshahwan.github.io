@@ -5,6 +5,7 @@ import {ContentService} from 'app/services/content.service';
 import {PageStateService} from 'app/services/page-state.service';
 import {Router, RouterLink} from "@angular/router";
 import {MenuLinkComponent} from "app/layout/default/menu-link/menu-link.component";
+import { LocaleService } from 'app/services/locale.service';
 
 @Component({
   selector: 'app-header',
@@ -20,12 +21,18 @@ export class HeaderComponent {
   readonly links: Signal<Link[]>;
 
   constructor(
-    router: Router,
     contentService: ContentService,
     pageStateService: PageStateService,
+    private router: Router,
+    private localeService: LocaleService,
   ) {
     this.header = contentService.content;
     this.page = pageStateService.page;
     this.links = computed(() => pageStateService.links().filter(({route}) => router.url !== route));
+  }
+
+  isCurrentRoute(route: string): boolean {
+    const localizedRoute = this.localeService.localizedLink(route);
+    return this.router.url === localizedRoute;
   }
 }
