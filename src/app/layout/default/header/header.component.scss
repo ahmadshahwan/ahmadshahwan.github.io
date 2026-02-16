@@ -11,17 +11,19 @@
 
   &__menu {
     margin-top: 1.5rem;
-    height: 2.5rem;
+    height: 3rem;
     position: sticky;
     top: 0;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
       display: flex;
+      justify-content: center;
       column-gap: var(--spacing-lg);
 
       li {
@@ -33,7 +35,7 @@
   &__title {
     margin-top: 6rem;
     position: sticky;
-    top: 2.5rem;
+    top: 3rem;
     height: 5.25rem;
     width: 100%;
     text-align: center;
@@ -43,7 +45,7 @@
   &__subtitle {
     margin-top: 1rem;
     position: sticky;
-    top: calc(5.25rem + 2.5rem);
+    top: calc(5.25rem + 3rem);
     height: 2rem;
     width: 100%;
     text-align: center;
@@ -53,30 +55,20 @@
   &__page-header {
     margin-top: 3rem;
     position: sticky;
-    top: calc(5.25rem + 2.5rem + 2rem);
+    top: calc(2rem + 5.25rem + 3rem);
     height: 3rem;
     padding-top: .5rem;
     width: 100%;
 
     &__content {
-      margin-left: var(--left-margin);
       display: flex;
-      align-items: first baseline;
-      width: 100%;
-      margin: 0;
-      padding-right: 2em;
     }
 
     h2 {
       display: flex;
       justify-content: flex-end;
-      flex: 0 0 var(--left-margin);
+      margin-left: var(--left-margin);
       padding-right: var(--spacing-lg);
-    }
-
-    nav {
-      display: flex;
-      column-gap: var(--spacing-lg);
     }
   }
 }

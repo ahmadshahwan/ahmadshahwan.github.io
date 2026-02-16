@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AsyncPipe} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {Observable, of} from 'rxjs';
-import {Page, Skill} from '../../model';
+import {Skill} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
 import {SkillComponent} from './skill/skill.component';
 import {ContentService} from '../../services/content.service';
@@ -20,7 +20,6 @@ import {ContentService} from '../../services/content.service';
 })
 export class ExpertiseComponent implements OnInit {
   skills: Observable<Skill[]> = of([]);
-  page: Observable<Page> = of();
 
   constructor(
     private readonly apiClient: ContentService,
@@ -28,7 +27,7 @@ export class ExpertiseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.page = this.pageStateService.updatePage('expertise');
+    this.pageStateService.updatePage('expertise');
     this.skills = this.apiClient.fetch('skills');
   }
 }

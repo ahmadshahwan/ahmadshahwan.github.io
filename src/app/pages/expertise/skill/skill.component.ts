@@ -17,9 +17,4 @@ export class SkillComponent {
 
   @Input({required: true})
   model!: Skill;
-
-  get proficiencyAsPercentage() {
-    return `${20 + this.model.proficiency * 75}%`;
-  }
-
 }
