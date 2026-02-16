@@ -1,29 +1,4 @@
-#page {
-  flex: 1;
+.page {
   width: 100%;
-  max-width: var(--max-width);
-  margin: 0;
   padding: var(--spacing-xl) 0;
-}
-
-#content-wrapper {
-  display: flex;
-  gap: var(--spacing-3xl);
-  align-items: flex-start;
-}
-
-#content {
-  flex: 1;
-  min-width: 0;
-}
-
-@media (max-width: 1024px) {
-  #content-wrapper {
-    flex-direction: column;
-    gap: var(--spacing-2xl);
-  }
-  
-  #content {
-    max-width: 100%;
-  }
 }
