@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {InstitutionComponent} from './institution/institution.component';
 import {Observable, of} from 'rxjs';
 import {Institute} from '../../model';
@@ -10,7 +9,7 @@ import {ContentService} from '../../services/content.service';
 @Component({
   selector: 'app-teaching',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent, InstitutionComponent],
+  imports: [CommonModule, InstitutionComponent],
   templateUrl: './teaching.component.html',
   styleUrl: './teaching.component.scss'
 })

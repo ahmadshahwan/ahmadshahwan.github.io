@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {Observable, of} from 'rxjs';
 import {EventComponent} from './event/event.component';
 import {Event, Page} from '../../model';
@@ -10,7 +9,7 @@ import {ContentService} from '../../services/content.service';
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent, EventComponent],
+  imports: [CommonModule, EventComponent],
   templateUrl: './events.component.html',
   styleUrl: './events.component.scss'
 })

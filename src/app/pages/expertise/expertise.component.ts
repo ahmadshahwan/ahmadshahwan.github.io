@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AsyncPipe} from '@angular/common';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {Observable, of} from 'rxjs';
 import {Skill} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
@@ -12,8 +11,7 @@ import {ContentService} from '../../services/content.service';
   standalone: true,
   imports: [
     AsyncPipe,
-    ScrollableComponent,
-    SkillComponent
+    SkillComponent,
   ],
   templateUrl: './expertise.component.html',
   styleUrl: './expertise.component.scss'

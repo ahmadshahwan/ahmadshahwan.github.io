@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {PageStateService} from '../../services/page-state.service';
 import {Publication} from '../../model';
 import {ContentService} from '../../services/content.service';
@@ -11,7 +10,7 @@ type Category = Publication['category'];
 @Component({
   selector: 'app-research',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent, EntryComponent],
+  imports: [CommonModule, EntryComponent],
   templateUrl: './research.component.html',
   styleUrl: './research.component.scss'
 })
