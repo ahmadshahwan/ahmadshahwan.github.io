@@ -1,11 +1,12 @@
+:host {
+   display: contents;
+}
+
 a, span {
   display: inline-block;
-  padding: 0;
   font-size: var(--font-size-sm);
   font-weight: 500;
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: all var(--transition);
   color: var(--color-primary);
 
   &.secondary {
