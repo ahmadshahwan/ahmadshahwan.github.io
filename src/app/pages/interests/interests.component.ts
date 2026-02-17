@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Interest} from '../../model';
 import {PageStateService} from '../../services/page-state.service';
 import {ContentService} from '../../services/content.service';
-import { EntryComponent } from 'app/shared/entry/entry.component';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-interests',

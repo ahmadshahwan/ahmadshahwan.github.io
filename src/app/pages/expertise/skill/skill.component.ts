@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {Skill} from '../../../model';
-import { EntryComponent } from 'app/shared/entry/entry.component';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-skill',

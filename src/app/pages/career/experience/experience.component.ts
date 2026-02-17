@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Experience} from '../../../model';
-import { EntryComponent } from 'app/shared/entry/entry.component';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 @Component({
   selector: 'app-experience',
