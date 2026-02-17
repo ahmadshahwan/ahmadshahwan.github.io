@@ -2,22 +2,21 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollableComponent} from '../../shared/scrollable/scrollable.component';
 import {PageStateService} from '../../services/page-state.service';
-import {Observable, of} from 'rxjs';
-import {Page, Publication} from '../../model';
+import {Publication} from '../../model';
 import {ContentService} from '../../services/content.service';
+import {EntryComponent} from 'app/shared/entry/entry.component';
 
 type Category = Publication['category'];
 
 @Component({
   selector: 'app-research',
   standalone: true,
-  imports: [CommonModule, ScrollableComponent],
+  imports: [CommonModule, ScrollableComponent, EntryComponent],
   templateUrl: './research.component.html',
   styleUrl: './research.component.scss'
 })
 export class ResearchComponent implements OnInit {
 
-  page: Observable<Page> = of();
   publications: Publication[] = [];
 
   constructor(
@@ -26,7 +25,7 @@ export class ResearchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.page = this.pageStateService.updatePage('research');
+    this.pageStateService.updatePage('research');
     this.apiClient
       .fetch('publications')
       .subscribe(publications => this.publications = publications);
@@ -43,6 +42,7 @@ export class ResearchComponent implements OnInit {
     return this.publications.filter(p => p.category.id === category.id)
       .sort((a, b) => b.year - a.year);
   }
+  
   yearsByCategory(category: Publication['category']): number[] {
     return this.publicationsByCategory(category)
       .map(p => p.year)
