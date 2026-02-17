@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 .interests {
   display: flex;
   flex-direction: column;
@@ -8,22 +10,18 @@
     flex-direction: row;
     gap: var(--spacing-lg);
 
+    @include small {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
     .interest-title {
-      min-width: 180px;
+      min-width: 8rem;
       font-weight: 600;
       font-size: var(--font-size-base);
       color: var(--color-text);
-    }
-  }
-}
 
-@media (max-width: 640px) {
-  .interests {
-    .interest-details {
-      flex-direction: column;
-      gap: var(--spacing-sm);
-
-      .interest-title {
+      @include small {
         min-width: auto;
       }
     }

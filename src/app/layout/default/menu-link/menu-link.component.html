@@ -2,11 +2,11 @@
   <ng-content></ng-content>
 </ng-template>
 @if (isEnabled) {
-  <a [routerLink]="route" [class]="classes">
+  <a [routerLink]="route" [class]="classes" class="no-wrap">
     <ng-container *ngTemplateOutlet="templateOutlet"></ng-container>
   </a>
 } @else {
-  <span class="current" [class]="classes">
+  <span [class]="classes" class="current no-wrap">
     <ng-container *ngTemplateOutlet="templateOutlet"></ng-container>
   </span>
 }
