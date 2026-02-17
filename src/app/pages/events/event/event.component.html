@@ -1,5 +1,11 @@
 <div>
-  <span class="timestamp">{{ model.date }}</span>
-  <h3>{{ model.title }}</h3>
-  <div [innerHTML]="model.description.html" appRouterLinkAdapter></div>
+  <app-entry>
+    <div content>
+      <div class="event">
+        <div class="event__title">{{ model.title }}</div>
+        <span class="timestamp event__date">{{ model.date }}</span>
+        <div [innerHTML]="model.description.html" appRouterLinkAdapter class="event__description"></div>
+      </div>
+    </div>
+  </app-entry>
 </div>
