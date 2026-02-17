@@ -1,12 +1,5 @@
-<div class="post">
-  <div class="title">
-    <h2>{{ (page | async)?.title }}</h2>
-  </div>
-  <div class="entry">
-    <app-scrollable maxHeight="380px">
-      @for (institute of institutes | async; track institute.id) {
-        <app-institution [model]="institute"></app-institution>
-      }
-    </app-scrollable>
-  </div>
+<div class="post">  
+  @for (institute of institutes | async; track institute.id) {
+    <app-institution [model]="institute"></app-institution>
+  }
 </div>
