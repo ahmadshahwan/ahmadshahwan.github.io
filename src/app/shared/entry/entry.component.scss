@@ -10,4 +10,8 @@
         flex: 0 0 var(--left-margin);
         padding-right: var(--spacing-lg);
     }
+
+    &__content {
+        width: 100%;
+    }
 }
