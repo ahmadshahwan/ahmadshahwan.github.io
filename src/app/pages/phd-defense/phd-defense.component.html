@@ -1,6 +1,7 @@
 <div class="post">
-  <div class="title">
-    <h2>{{ page?.title }}</h2>
-  </div>
-  <div class="entry" [innerHTML]="page?.text?.html"></div>
+  <app-entry>
+    <div content>
+      <div class="entry" [innerHTML]="page?.text?.html"></div>
+    </div>
+  </app-entry>
 </div>
