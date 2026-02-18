@@ -1,14 +1,29 @@
+@use 'styles' as *;
+
 .entry {
     width: 100%;
     display: flex;
     margin: 0;
-    padding-right: 2em;
+    padding-right: var(--spacing-xl);
+    
+    @include small {
+        padding-right: var(--spacing-md);
+    }
+
+    @include small {
+        padding-right: var(--spacing-sm);
+    }
+
 
     &__visual {
         display: flex;
         justify-content: flex-end;
         flex: 0 0 var(--left-margin);
         padding-right: var(--spacing-lg);
+
+        @include small {
+            padding-right: var(--spacing-md);
+        }
     }
 
     &__content {

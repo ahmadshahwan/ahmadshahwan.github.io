@@ -1,9 +1,12 @@
-.entry {
-  line-height: 1.7;
-}
+@use 'styles' as *;
 
 .image {
-    box-shadow: var(--shadow-md);
-    max-width: 200px;
-    border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  max-width: 200px;
+  border-radius: var(--radius-md);
+
+  @include small {
+    max-width: 0;
+    display: none;
   }
+}

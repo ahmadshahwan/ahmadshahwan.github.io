@@ -1,4 +1,4 @@
-@use 'styles' as mixins;
+@use 'styles' as *;
 
 .experience {
   display: flex;
@@ -20,7 +20,7 @@
         font-weight: 500;
         letter-spacing: 0.025em;
         display: inline-block;
-        @include mixins.small {
+        @include medium {
           grid-column: 1 / span 2;
         }
       }
@@ -30,7 +30,7 @@
         font-weight: 600;
         color: var(--color-text);
         display: inline-block;
-        @include mixins.small {
+        @include medium {
           grid-column: 1 / span 2;
         }
       }

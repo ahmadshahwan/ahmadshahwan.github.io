@@ -10,7 +10,7 @@
     flex-direction: row;
     gap: var(--spacing-lg);
 
-    @include small {
+    @include medium {
       flex-direction: column;
       gap: var(--spacing-sm);
     }
@@ -21,7 +21,7 @@
       font-size: var(--font-size-base);
       color: var(--color-text);
 
-      @include small {
+      @include medium {
         min-width: auto;
       }
     }

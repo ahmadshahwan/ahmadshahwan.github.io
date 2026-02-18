@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 :host {
    display: contents;
 }
@@ -41,6 +43,17 @@
     width: 100%;
     text-align: center;
     letter-spacing: var(--spacing-2xs);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include small {
+      white-space: unset;
+      overflow: unset;
+      text-overflow: unset;
+      word-spacing: 100vw;
+    }
   }
 
   &__subtitle {

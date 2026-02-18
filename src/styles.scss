@@ -1,7 +1,12 @@
-$beakpoint-small: 768px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 576px;
+
+@mixin medium {
+  @media (max-width: $breakpoint-md) { @content; }
+}
 
 @mixin small {
-  @media (max-width: $beakpoint-small) { @content; }
+  @media (max-width: $breakpoint-sm) { @content; }
 }
 
 :root {
@@ -52,8 +57,12 @@ $beakpoint-small: 768px;
   --radius-xl: 1rem;
   --transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @include small {
+  @include medium {
     --left-margin: 30vw;
+  }
+
+  @include small {
+    --left-margin: 65px;
   }
 }
 
@@ -87,6 +96,10 @@ h1 {
   font-size: var(--font-size-4xl);
   font-weight: 400;
   letter-spacing: -0.025em;
+
+  @include small {
+    font-size: var(--font-size-3xl);
+  }
 }
 
 h2 {
