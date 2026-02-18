@@ -1,9 +1,18 @@
+@use 'styles' as *;
+
 .publications {
   font-size: var(--font-size-sm);
 
   &__category {
-    direction: rtl;
+    text-align: right;
     word-spacing: 100vw;
+
+    @include small {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: calc(var(--left-margin) - var(--spacing-lg));
+      font-size: var(--font-size-xs);
+    }
   }
 
   &__content {
