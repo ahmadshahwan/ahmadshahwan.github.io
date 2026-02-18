@@ -51,7 +51,7 @@ export interface Experience {
   partner: string;
   period: number;
   summary: RichText;
-  details: RichText;
+  details?: RichText;
   icon: Image;
 }
 

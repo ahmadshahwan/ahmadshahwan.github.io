@@ -20,7 +20,7 @@
           <div>
             {{ model.summary.text }}
           </div>
-          <div class="details" [hidden]="moreHidden" [innerHTML]="model.details.html"></div>
+          <div class="details" [hidden]="moreHidden" [innerHTML]="model.details?.html"></div>
         </div>
       </div>
     </div>
