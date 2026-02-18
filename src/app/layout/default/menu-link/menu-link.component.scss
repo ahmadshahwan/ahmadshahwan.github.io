@@ -1,3 +1,5 @@
+@use 'styles' as *;
+
 :host {
    display: contents;
 }
@@ -16,6 +18,10 @@ a, span {
 
   &.current {
     text-decoration: underline;
+  }
+
+  @include small {
+    font-size: var(--font-size-xs);
   }
 }
 

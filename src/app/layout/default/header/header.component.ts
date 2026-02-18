@@ -28,7 +28,7 @@ export class HeaderComponent {
   ) {
     this.header = contentService.content;
     this.page = pageStateService.page;
-    this.links = computed(() => pageStateService.links().filter(({route}) => router.url !== route));
+    this.links = pageStateService.links;
   }
 
   isCurrentRoute(route: string): boolean {

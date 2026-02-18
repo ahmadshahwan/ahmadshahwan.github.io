@@ -30,7 +30,7 @@
       column-gap: var(--spacing-lg);
 
       @include small {
-        column-gap: var(--spacing-sm);
+        column-gap: var(--spacing-md);
       }
 
       li {
