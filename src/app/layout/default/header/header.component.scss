@@ -29,6 +29,10 @@
       justify-content: center;
       column-gap: var(--spacing-lg);
 
+      @include small {
+        column-gap: var(--spacing-sm);
+      }
+
       li {
         display: flex;
       }
