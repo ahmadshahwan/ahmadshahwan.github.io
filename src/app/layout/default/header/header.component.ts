@@ -35,4 +35,12 @@ export class HeaderComponent {
     const localizedRoute = this.localeService.localizedLink(route);
     return this.router.url === localizedRoute;
   }
+
+  get otherLocale(): Signal<'en' | 'fr'> {
+    return computed(() => this.localeService.current() === 'en' ? 'fr' : 'en');
+  }
+
+  get switchLocaleLink(): string {
+    return this.localeService.getLocaleLink(this.otherLocale());
+  }
 }

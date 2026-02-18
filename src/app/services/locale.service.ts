@@ -32,10 +32,6 @@ export class LocaleService {
     return segment ? `/${locale}/${segment}` : `/${locale}`;
   }
 
-  getSwitchLocaleLink(): string {
-    return this.getLocaleLink(this.current());
-  }
-
   getLocaleLink(targetLocal: 'en' | 'fr'): string {
     const [currentUrl] = this.router.url.split('#');
     if (currentUrl === `/${this.current()}`) {

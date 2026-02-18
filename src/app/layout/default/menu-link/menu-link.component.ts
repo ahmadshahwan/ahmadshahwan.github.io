@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {booleanAttribute, Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink} from '@angular/router';
 import {LocaleService} from '../../../services/locale.service';
@@ -12,20 +12,20 @@ import {LocaleService} from '../../../services/locale.service';
 })
 export class MenuLinkComponent {
 
-  @Input()
+  @Input({transform: booleanAttribute})
   doNotLocalize: boolean = false;
 
-  @Input()
+  @Input({transform: booleanAttribute})
   secondary: boolean = false;
+
+  @Input({required: true})
+  link: string = '';
 
   constructor(
     private readonly router: Router,
     private readonly localeService: LocaleService,
   ) {
   }
-
-  @Input({required: true})
-  link: string = '';
 
   get isEnabled(): boolean {
     return this.router.url !== this.route;

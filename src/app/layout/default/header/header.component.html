@@ -10,9 +10,14 @@
     <ul>
       @for (link of links(); track link.id) {
         <li>
-          <app-menu-link [link]="link.route" [secondary]="true">{{ link.title }}</app-menu-link>
+          <app-menu-link [link]="link.route" secondary>{{ link.title }}</app-menu-link>
         </li>
       }
+      <li>
+          <app-menu-link [link]="switchLocaleLink" secondary doNotLocalize>
+            🌐 {{ otherLocale() | uppercase }}
+          </app-menu-link>
+      </li>
     </ul>
   </nav>
   <h1 class="header__title no-wrap">Ahmad Shahwan</h1>
