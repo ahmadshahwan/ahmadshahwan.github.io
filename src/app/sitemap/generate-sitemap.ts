@@ -41,7 +41,7 @@ type Canonical = {
   alternates: Alternate[],
 };
 
-const BASE_URL = 'https://ahmad.shahwan.pw';
+const BASE_URL = process.env['BASE_URL'] ?? 'https://ahmad.shahwan.pw';
 
 function urlFromPath(path: string, prefix: string) {
   const fullPrefix = prefix ? `${BASE_URL}/${prefix}` : BASE_URL;

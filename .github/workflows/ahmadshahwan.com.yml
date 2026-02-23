@@ -1,0 +1,61 @@
+name: Deploy Angular App to Namecheap
+
+on:
+  workflow_dispatch
+
+# Sets permissions of the GITHUB_TOKEN
+permissions:
+  contents: read
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "ahmadshahwan.com"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [21.x]
+
+    env:
+      BASE_URL: https://ahmadshahwan.com
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build -c production
+    - name: Configure SSH
+      run: |
+        mkdir -p ~/.ssh/
+        echo "$NAMECHEAP_SSH_KEY" > ~/.ssh/namecheap.key
+        chmod 600 ~/.ssh/namecheap.key
+        cat >>~/.ssh/config <<EOF
+        Host namecheap
+          HostName $NAMECHEAP_SSH_HOST
+          User $NAMECHEAP_SSH_USERNAME
+          Port $NAMECHEAP_SSH_PORT
+          IdentityFile ~/.ssh/namecheap.key
+          StrictHostKeyChecking no
+        EOF
+      env:
+        NAMECHEAP_SSH_USERNAME: ${{ secrets.NAMECHEAP_SSH_USERNAME }}
+        NAMECHEAP_SSH_KEY: ${{ secrets.NAMECHEAP_SSH_KEY }}
+        NAMECHEAP_SSH_HOST: ${{ secrets.NAMECHEAP_HOST }}
+        NAMECHEAP_SSH_PORT: ${{ secrets.NAMECHEAP_SSH_PORT }}
+    - name: Copy artifact to server
+      id: copy-artifact
+      run: scp -r -C ./dist/ng-website/browser namecheap:~/tmp-build-artifact
+    - name: Deploy to Namecheap
+      id: deploy-artifact
+      run: ssh namecheap "rm -r ~/public_html/* && mv ~/tmp-build-artifact/* ~/public_html/ && rm -r ~/tmp-build-artifact"
