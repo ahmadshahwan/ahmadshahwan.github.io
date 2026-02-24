@@ -25,12 +25,12 @@ export class PageStateService {
     private readonly meta: Meta,
   ) {}
 
-  updatePage(slug: string): Observable<Page> {
+  updatePage(slug: string, updateTitle: boolean = true): Observable<Page> {
     const handlePage = (page: Page | undefined) => {
       if (!page) {
         throw new Error(`Page with slug ${slug} not found`);
       }
-      this.title.setTitle(`${TITLE_SUFFIX} | ${page.title}`);
+      this.title.setTitle(updateTitle ? `${TITLE_SUFFIX} | ${page.title}` : TITLE_SUFFIX);
       this.meta.updateTag({name: 'description', content: page.description});
       this.currentPageGroup.set(page.group.title);
       this.currentLinks.set(page.group.links);

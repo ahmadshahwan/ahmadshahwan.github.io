@@ -21,6 +21,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageStateService.updatePage('home').subscribe(page => this.page = page);
+    this.pageStateService.updatePage('home', false).subscribe(page => this.page = page);
   }
 }
