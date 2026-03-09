@@ -4,8 +4,8 @@
       <img class="thumbnail" [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.partner" />
     </div>
     <div content>
-      <div class="details">
-        <div class="header" (click)="toggleMore()">
+      <div class="content">
+        <div class="header" [class]="" (click)="toggleMore()">
           <span class="period">
             {{ model.period }}
           </span>
