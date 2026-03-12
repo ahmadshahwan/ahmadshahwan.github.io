@@ -1,7 +1,7 @@
 <div class="institution">
   <app-entry>
     <div visual>
-      <img [src]="model.icon.url" [alt]="model.name" />
+      <img [ngSrc]="model.icon.url" height="32" width="32" [alt]="model.name" />
     </div>
     <div content>
       <h3 class="institution__name">{{ model.name }}</h3> 

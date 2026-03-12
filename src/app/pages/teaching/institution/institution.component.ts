@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {Institute} from '../../../model';
 import {TopicComponent} from '../topic/topic.component';
 import {EntryComponent} from 'app/shared/entry/entry.component';
@@ -7,7 +7,7 @@ import {EntryComponent} from 'app/shared/entry/entry.component';
 @Component({
   selector: 'app-institution',
   standalone: true,
-  imports: [CommonModule, TopicComponent, EntryComponent],
+  imports: [CommonModule, TopicComponent, EntryComponent, NgOptimizedImage],
   templateUrl: './institution.component.html',
   styleUrl: './institution.component.scss'
 })
