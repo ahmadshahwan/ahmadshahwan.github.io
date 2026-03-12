@@ -1,9 +1,11 @@
 <div class="interests">
   @for (interest of interests; track interest.id) {
     <app-entry>
+      <div visual>
+        <div class="interest-title">{{ interest.title }}</div>
+      </div>
       <div content>
         <div class="interest-details">
-          <div class="interest-title">{{ interest.title }}</div>
           <div>{{ interest.description }}</div>
         </div>
       </div>

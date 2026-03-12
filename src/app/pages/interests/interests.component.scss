@@ -1,29 +1,9 @@
 @use 'styles' as *;
 
 .interests {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-
-  .interest-details {
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-lg);
-
-    @include medium {
-      flex-direction: column;
-      gap: var(--spacing-sm);
-    }
-
-    .interest-title {
-      min-width: 8rem;
-      font-weight: 600;
-      font-size: var(--font-size-base);
-      color: var(--color-text);
-
-      @include medium {
-        min-width: auto;
-      }
-    }
+  .interest-title {
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
   }
 }
