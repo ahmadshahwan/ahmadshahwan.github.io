@@ -13,7 +13,10 @@
       margin-bottom: var(--spacing-sm);
       font-size: var(--font-size-sm);
       align-items: baseline;
-      cursor: pointer;
+
+      &.clickable {
+        cursor: pointer;
+      }
 
       .period {
         order: 1;

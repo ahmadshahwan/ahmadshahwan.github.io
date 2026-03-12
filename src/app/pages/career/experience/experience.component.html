@@ -5,7 +5,7 @@
     </div>
     <div content>
       <div class="content">
-        <div class="header" [class]="" (click)="toggleMore()">
+        <div class="header" [class]="{ 'clickable': hasMore }" (click)="toggleMore()">
           <span class="period">
             {{ model.period }}
           </span>

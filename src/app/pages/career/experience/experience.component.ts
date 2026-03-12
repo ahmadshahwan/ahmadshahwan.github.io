@@ -17,7 +17,11 @@ export class ExperienceComponent {
 
   moreHidden = true;
 
+  get hasMore(): boolean {
+    return !!this.model.details;
+  }
+
   toggleMore() {
-    return this.moreHidden = !this.moreHidden;
+    return !this.hasMore || (this.moreHidden = !this.moreHidden);
   }
 }
