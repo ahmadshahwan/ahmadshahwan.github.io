@@ -32,8 +32,6 @@ function imageWithSize(size: number): string {
   }`;
 }
 
-const IMAGE_32 = imageWithSize(32);
-const IMAGE_16 = imageWithSize(16);
 const IMAGE = `{
   height
   width
@@ -60,7 +58,7 @@ const PAGE_GROUP = `{
 const INSTITUTE = ` {
   id
   name
-  icon ${IMAGE_32}
+  icon ${IMAGE}
   classes ${LIST_PARAMS} {
     id
     title
@@ -97,7 +95,7 @@ const DEGREE = `{
   title
   year
   institution
-  icon ${IMAGE_32}
+  icon ${IMAGE}
 }`;
 
 const CERTIFICATE = `{
@@ -125,7 +123,7 @@ const EXPERIENCE = `{
   partner
   summary ${RICH_TEXT}
   details ${RICH_TEXT}
-  icon ${IMAGE_32}
+  icon ${IMAGE}
 }`;
 
 const SKILL = `{
@@ -140,7 +138,7 @@ const EXTERNAL_LINK = `{
   id
   title
   url
-  icon ${IMAGE_16}
+  icon ${IMAGE}
 }`;
 
 const INTEREST = `{
