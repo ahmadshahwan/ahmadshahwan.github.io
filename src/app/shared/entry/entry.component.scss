@@ -5,7 +5,7 @@
     display: flex;
     margin: 0;
     padding-right: var(--spacing-xl);
-    
+
     @include small {
         padding-right: var(--spacing-md);
     }
@@ -28,5 +28,6 @@
 
     &__content {
         width: 100%;
+        max-width: 600px;
     }
 }
