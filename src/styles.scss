@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/eb-garamond-restricted.woff2') format('woff2');
+}
+
 $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
@@ -20,9 +28,10 @@ $breakpoint-sm: 576px;
   --color-surface: #f9fafb;
   --color-border: #f3f4f6;
   --color-border-light: #ffffff;
-  
+
   /* Typography */
   --font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'EB Garamond', Georgia, 'Times New Roman', serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -31,7 +40,7 @@ $breakpoint-sm: 576px;
   --font-size-2xl: 1.5rem;
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 4rem;
-  
+
   /* Spacing */
   --spacing-2xs: 0.125rem;
   --spacing-xs: 0.25rem;
@@ -40,13 +49,13 @@ $breakpoint-sm: 576px;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 4rem;
-  
+
   /* Layout */
   --max-width: 4200px;
   --content-width: 800px;
   --sidebar-width: 280px;
   --left-margin: 40vw;
-  
+
   /* Effects */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
