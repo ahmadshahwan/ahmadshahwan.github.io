@@ -20,6 +20,9 @@
         justify-content: flex-end;
         flex: 0 0 var(--left-margin);
         padding-right: var(--spacing-lg);
+        position: sticky;
+        top: calc(3rem + 2rem + 5.25rem + 3rem);
+        align-self: flex-start;
 
         @include small {
             padding-right: var(--spacing-md);

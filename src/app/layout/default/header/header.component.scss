@@ -11,6 +11,10 @@
     background-color: var(--color-background);
   }
 
+  > * {
+    z-index: 1;
+  }
+
   &__menu {
     margin-top: 1.5rem;
     height: 3rem;
